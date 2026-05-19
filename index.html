@@ -337,9 +337,16 @@
   <div class="nav-logo">
     <span class="grad-pink">1</span><span>+</span><span class="grad-blue">1</span><span>=</span><span class="grad-three">3</span>
   </div>
-  <div class="lang-switcher">
-    <button class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
-    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  <div style="display:flex; align-items:center; gap:0.75rem;">
+    <button id="audio-btn" onclick="toggleAudio()" aria-label="Musik abspielen" style="display:flex; align-items:center; gap:0.4rem; background:rgba(232,82,122,0.12); border:1px solid rgba(232,82,122,0.3); border-radius:20px; padding:0.35rem 0.8rem; cursor:pointer; color:rgba(255,255,255,0.7); font-size:0.78rem; transition:all 0.2s;">
+      <svg id="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="#e8527a"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="#e8527a" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      <span id="audio-label">Musik</span>
+    </button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </nav>
 
@@ -456,6 +463,10 @@
   <p class="cta-note" id="final-note">Nur für Android. iOS folgt.</p>
 </section>
 
+<audio id="bg-audio" loop>
+  <source src="1+1=3Mainsong.mp3" type="audio/mpeg">
+</audio>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
@@ -469,6 +480,26 @@
 </footer>
 
 <script>
+function toggleAudio() {
+  const audio = document.getElementById('bg-audio');
+  const btnPlay = document.getElementById('icon-play');
+  const btnPause = document.getElementById('icon-pause');
+  const label = document.getElementById('audio-label');
+  if (audio.paused) {
+    audio.play();
+    btnPlay.style.display = 'none';
+    btnPause.style.display = 'block';
+    label.textContent = currentLang === 'de' ? 'Musik läuft' : 'Playing';
+  } else {
+    audio.pause();
+    btnPlay.style.display = 'block';
+    btnPause.style.display = 'none';
+    label.textContent = currentLang === 'de' ? 'Musik abspielen' : 'Play music';
+  }
+}
+
+let currentLang = 'de';
+
 const T = {
   de: {
     'hero-title': 'Schwanger werden ist keine Wissenschaft.',
@@ -545,12 +576,22 @@ const T = {
 };
 
 function setLang(lang) {
+  currentLang = lang;
   document.documentElement.lang = lang;
   const t = T[lang];
   Object.keys(t).forEach(id => {
     const el = document.getElementById(id);
     if (el) el.textContent = t[id];
   });
+  const audio = document.getElementById('bg-audio');
+  const label = document.getElementById('audio-label');
+  if (label) {
+    if (audio.paused) {
+      label.textContent = lang === 'de' ? 'Musik' : 'Music';
+    } else {
+      label.textContent = lang === 'de' ? 'Musik läuft' : 'Playing';
+    }
+  }
   document.getElementById('btn-de').classList.toggle('active', lang === 'de');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 }
