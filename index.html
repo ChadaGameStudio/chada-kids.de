@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1+1=3 – Fruchtbarkeits-Tracker</title>
+  <meta name="description" content="Schwanger werden ist keine Wissenschaft. Der einfache Fruchtbarkeits-Tracker mit Kinderwunsch-Begleitung. 100% privat, kein Server." />
+  <meta property="og:title" content="1+1=3 – Fruchtbarkeits-Tracker" />
+  <meta property="og:description" content="Schwanger werden ist keine Wissenschaft. Einfach. Privat. Für euch." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://chada-kids.de" />
+  <link rel="canonical" href="https://chada-kids.de" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink: #e8527a;
+      --pink-dark: #c43d62;
+      --blue: #4fc3f7;
+      --blue-dark: #0288d1;
+      --bg: #1a1f2e;
+      --bg-nav: rgba(16, 20, 32, 0.97);
+      --bg-card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.09);
+      --text: #ffffff;
+      --text-muted: rgba(255,255,255,0.55);
+      --text-faint: rgba(255,255,255,0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* GRADIENTS */
+    .grad-pink { background: linear-gradient(135deg, var(--pink), var(--pink-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .grad-blue { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .grad-three { background: linear-gradient(160deg, var(--pink), #9b5fcc, var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .grad-bg-pink { background: linear-gradient(135deg, var(--pink), var(--pink-dark)); }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      background: var(--bg-nav);
+      border-bottom: 0.5px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-logo { font-size: 1.7rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
+
+    .lang-switcher { display: flex; gap: 0.4rem; }
+    .lang-btn {
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: rgba(232,82,122,0.18);
+      border-color: rgba(232,82,122,0.5);
+      color: #fff;
+    }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+
+    .container { max-width: 860px; margin: 0 auto; }
+    .container-sm { max-width: 640px; margin: 0 auto; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+    }
+
+    .hero-logo {
+      font-size: clamp(3.5rem, 10vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.75rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.4); }
+
+    /* SCREENSHOT PLACEHOLDER */
+    .screenshot-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 0 2rem 4rem;
+    }
+    .screenshot-box {
+      background: var(--bg-card);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 1.5rem;
+      max-width: 320px;
+      width: 100%;
+      text-align: center;
+    }
+    .screenshot-inner {
+      background: rgba(232,82,122,0.07);
+      border: 0.5px solid rgba(232,82,122,0.18);
+      border-radius: 14px;
+      padding: 3rem 1.5rem;
+    }
+    .screenshot-icon { font-size: 2.5rem; opacity: 0.25; margin-bottom: 0.75rem; }
+    .screenshot-inner p { color: rgba(255,255,255,0.28); font-size: 0.8rem; }
+
+    /* FEATURES */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .icon-pink { background: rgba(232,82,122,0.15); color: var(--pink); }
+    .icon-blue { background: rgba(79,195,247,0.12); color: var(--blue); }
+
+    .feature-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .feature-card p { font-size: 0.825rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* PRIVACY */
+    .privacy-box {
+      max-width: 580px;
+      margin: 0 auto;
+      background: rgba(79,195,247,0.04);
+      border: 1px solid rgba(79,195,247,0.17);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .privacy-box .shield { font-size: 2.75rem; color: var(--blue); margin-bottom: 1rem; }
+    .privacy-box h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .privacy-box p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    .price-card {
+      background: var(--bg-card);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+    }
+
+    .price-card.featured {
+      background: rgba(232,82,122,0.07);
+      border: 1.5px solid rgba(232,82,122,0.4);
+      position: relative;
+    }
+
+    .price-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .price-label {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .price-old {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.25);
+      text-decoration: line-through;
+      margin-bottom: 0.15rem;
+    }
+
+    .price-amount {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .price-unit { font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.4); }
+    .price-sub { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-bottom: 0.5rem; }
+    .price-highlight { font-size: 0.78rem; color: var(--pink); font-weight: 700; margin-bottom: 0.4rem; }
+    .price-limit { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+
+    .pricing-note {
+      background: rgba(232,82,122,0.06);
+      border: 0.5px solid rgba(232,82,122,0.18);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .pricing-note .clock { color: var(--pink); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .pricing-note p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
+
+    .trial-note {
+      text-align: center;
+      margin-top: 1.25rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.22);
+    }
+
+    /* FINAL CTA */
+    .cta-section {
+      text-align: center;
+      padding: 4rem 2rem 6rem;
+    }
+    .cta-section h2 { font-size: 1.7rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .cta-section p { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+    .cta-note { margin-top: 1rem; font-size: 0.78rem; color: rgba(255,255,255,0.22); }
+
+    /* FOOTER */
+    footer {
+      border-top: 0.5px solid rgba(255,255,255,0.08);
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer-logo { font-size: 1.1rem; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 1rem; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.33); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.6); }
+    .footer-copy { color: rgba(255,255,255,0.17); font-size: 0.78rem; }
+
+    /* SECTION TITLES */
+    .section-title { font-size: 1.65rem; font-weight: 700; text-align: center; }
+    .section-sub { text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      nav { padding: 1rem 1.25rem; }
+      .hero { padding: 3.5rem 1.25rem 2rem; }
+      section { padding: 3.5rem 1.25rem; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .price-card.featured { margin-top: 0.75rem; }
+      .btn-group { flex-direction: column; align-items: center; }
+      .cta-section { padding: 3rem 1.25rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="grad-pink">1</span><span>+</span><span class="grad-blue">1</span><span>=</span><span class="grad-three">3</span>
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-logo">
+    <span class="grad-pink">1</span><span>+</span><span class="grad-blue">1</span><span>=</span><span class="grad-three">3</span>
+  </div>
+  <h1 id="hero-title">Schwanger werden ist keine Wissenschaft.</h1>
+  <p id="hero-sub">Der Fruchtbarkeits-Tracker der einfach funktioniert. Klar, warm, komplett privat.</p>
+  <div class="btn-group">
+    <a href="#" class="btn-primary grad-bg-pink" id="cta-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.65.2.97.09l12.4-7.17-2.58-2.59-10.79 9.67zm-1.63-21.1A1.5 1.5 0 0 0 1.5 3.75v16.5c0 .49.24.94.64 1.21l.04.03 9.25-9.26v-.22L1.59 2.69l-.04.03zM20.47 10.3l-2.6-1.5-2.9 2.9 2.9 2.9 2.62-1.52a1.83 1.83 0 0 0 0-3.18v-.6zm-17.3 12.13L16.55 14l-2.58-2.58-10.8 10.8.04.04z"/></svg>
+      <span id="cta-primary-text">Jetzt herunterladen</span>
+    </a>
+    <a href="#features" class="btn-secondary">
+      <span id="cta-secondary-text">Mehr erfahren</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- SCREENSHOT PLACEHOLDER -->
+<div class="screenshot-wrap">
+  <div class="screenshot-box">
+    <div class="screenshot-inner">
+      <div class="screenshot-icon">📱</div>
+      <p id="screenshot-note">Screenshots folgen bald</p>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <h2 class="section-title" id="features-title">Was die App kann</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon icon-pink">🗓</div>
+        <h3 id="f1-title">Zyklusverfolgung</h3>
+        <p id="f1-desc">Alle 5 Phasen auf einen Blick. Follikelphase, Ovulation, Lutealphase und mehr.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-blue">💙</div>
+        <h3 id="f2-title">Fertilitätsfenster</h3>
+        <p id="f2-desc">Deine fruchtbaren Tage immer im Blick. Mit Vorhersage und täglichen Erinnerungen.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-pink">🔒</div>
+        <h3 id="f3-title">100% Privat</h3>
+        <p id="f3-desc">Kein Server, keine Cloud. Alle Daten bleiben ausschließlich auf deinem Gerät.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-blue">💡</div>
+        <h3 id="f4-title">Smarte Tipps</h3>
+        <p id="f4-desc">120 Tipps zu Fruchtbarkeit, Ernährung und Alltag. Phasengenau und warm formuliert.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section>
+  <div class="privacy-box">
+    <div class="shield">🛡</div>
+    <h2 id="privacy-title">Deine Daten. Nur deine.</h2>
+    <p id="privacy-desc">Die App speichert alles lokal auf deinem Telefon. Kein Account, kein Server, keine Weitergabe an Dritte. Was du einträgst, bleibt bei dir.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section>
+  <div class="container-sm">
+    <h2 class="section-title" id="pricing-title">Ehrliche Preise</h2>
+    <p class="section-sub" id="pricing-sub">7 Tage kostenlos testen. Kein Risiko.</p>
+
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <p class="price-label" id="plan1-label">Monatlich</p>
+        <p class="price-amount">1,49 <span class="price-unit">€</span></p>
+        <p class="price-sub" id="plan1-sub">pro Monat</p>
+        <p class="price-limit" id="plan1-annual">= 17,88 € pro Jahr</p>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge grad-bg-pink" id="badge-launch">Launch-Angebot</div>
+        <p class="price-label" id="plan2-label">Jährlich</p>
+        <p class="price-old" id="plan2-old">11,99 €</p>
+        <p class="price-amount">8,99 <span class="price-unit">€</span></p>
+        <p class="price-highlight" id="plan2-highlight">Spar 50% vs. monatlich</p>
+        <p class="price-limit" id="plan2-limit">Nur für die ersten 1.000 Jahresabos</p>
+      </div>
+
+    </div>
+
+    <div class="pricing-note">
+      <span class="clock">⏰</span>
+      <p id="urgency-text">Das Launch-Angebot gilt nur für die ersten 1.000 Jahresabos. Danach kehrt das Jahresabo zum regulären Preis zurück.</p>
+    </div>
+
+    <p class="trial-note" id="trial-note">Alle Pläne starten mit 7 Tagen kostenlosem Test. Keine Kreditkarte nötig.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <h2 id="cta-title">Bereit für euren nächsten Schritt?</h2>
+  <p id="cta-desc">Kostenlos starten, 7 Tage alles testen.</p>
+  <a href="#" class="btn-primary grad-bg-pink">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.65.2.97.09l12.4-7.17-2.58-2.59-10.79 9.67zm-1.63-21.1A1.5 1.5 0 0 0 1.5 3.75v16.5c0 .49.24.94.64 1.21l.04.03 9.25-9.26v-.22L1.59 2.69l-.04.03zM20.47 10.3l-2.6-1.5-2.9 2.9 2.9 2.9 2.62-1.52a1.83 1.83 0 0 0 0-3.18v-.6zm-17.3 12.13L16.55 14l-2.58-2.58-10.8 10.8.04.04z"/></svg>
+    <span id="final-btn">Im Play Store herunterladen</span>
+  </a>
+  <p class="cta-note" id="final-note">Nur für Android. iOS folgt.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <span class="grad-pink">1</span><span style="color:rgba(255,255,255,0.55)">+</span><span class="grad-blue">1</span><span style="color:rgba(255,255,255,0.55)">=</span><span class="grad-three">3</span>
+  </div>
+  <div class="footer-links">
+    <a href="privacy.html" id="footer-privacy">Datenschutz</a>
+    <a href="imprint.html" id="footer-imprint">Impressum</a>
+  </div>
+  <p class="footer-copy">Chada Kids &middot; chada-kids.de</p>
+</footer>
+
+<script>
+const T = {
+  de: {
+    'hero-title': 'Schwanger werden ist keine Wissenschaft.',
+    'hero-sub': 'Der Fruchtbarkeits-Tracker der einfach funktioniert. Klar, warm, komplett privat.',
+    'cta-primary-text': 'Jetzt herunterladen',
+    'cta-secondary-text': 'Mehr erfahren',
+    'screenshot-note': 'Screenshots folgen bald',
+    'features-title': 'Was die App kann',
+    'f1-title': 'Zyklusverfolgung',
+    'f1-desc': 'Alle 5 Phasen auf einen Blick. Follikelphase, Ovulation, Lutealphase und mehr.',
+    'f2-title': 'Fertilitätsfenster',
+    'f2-desc': 'Deine fruchtbaren Tage immer im Blick. Mit Vorhersage und täglichen Erinnerungen.',
+    'f3-title': '100% Privat',
+    'f3-desc': 'Kein Server, keine Cloud. Alle Daten bleiben ausschließlich auf deinem Gerät.',
+    'f4-title': 'Smarte Tipps',
+    'f4-desc': '120 Tipps zu Fruchtbarkeit, Ernährung und Alltag. Phasengenau und warm formuliert.',
+    'privacy-title': 'Deine Daten. Nur deine.',
+    'privacy-desc': 'Die App speichert alles lokal auf deinem Telefon. Kein Account, kein Server, keine Weitergabe an Dritte. Was du einträgst, bleibt bei dir.',
+    'pricing-title': 'Ehrliche Preise',
+    'pricing-sub': '7 Tage kostenlos testen. Kein Risiko.',
+    'plan1-label': 'Monatlich',
+    'plan1-sub': 'pro Monat',
+    'plan1-annual': '= 17,88 \u20AC pro Jahr',
+    'plan2-label': 'J\u00e4hrlich',
+    'plan2-old': '11,99 \u20AC',
+    'plan2-highlight': 'Spar 50% vs. monatlich',
+    'plan2-limit': 'Nur f\u00fcr die ersten 1.000 Jahresabos',
+    'badge-launch': 'Launch-Angebot',
+    'urgency-text': 'Das Launch-Angebot gilt nur f\u00fcr die ersten 1.000 Jahresabos. Danach kehrt das Jahresabo zum regul\u00e4ren Preis zur\u00fcck.',
+    'trial-note': 'Alle Pl\u00e4ne starten mit 7 Tagen kostenlosem Test. Keine Kreditkarte n\u00f6tig.',
+    'cta-title': 'Bereit f\u00fcr euren n\u00e4chsten Schritt?',
+    'cta-desc': 'Kostenlos starten, 7 Tage alles testen.',
+    'final-btn': 'Im Play Store herunterladen',
+    'final-note': 'Nur f\u00fcr Android. iOS folgt.',
+    'footer-privacy': 'Datenschutz',
+    'footer-imprint': 'Impressum',
+  },
+  en: {
+    'hero-title': "Getting pregnant isn't rocket science.",
+    'hero-sub': 'The fertility tracker that just works. Clear, warm, completely private.',
+    'cta-primary-text': 'Download now',
+    'cta-secondary-text': 'Learn more',
+    'screenshot-note': 'Screenshots coming soon',
+    'features-title': 'What the app does',
+    'f1-title': 'Cycle tracking',
+    'f1-desc': 'All 5 phases at a glance. Follicular phase, ovulation, luteal phase and more.',
+    'f2-title': 'Fertility window',
+    'f2-desc': 'Your fertile days always in view. With forecasts and daily reminders.',
+    'f3-title': '100% Private',
+    'f3-desc': 'No server, no cloud. All data stays exclusively on your device.',
+    'f4-title': 'Smart tips',
+    'f4-desc': '120 tips on fertility, nutrition and daily life. Phase-specific and warm.',
+    'privacy-title': 'Your data. Only yours.',
+    'privacy-desc': 'The app stores everything locally on your phone. No account, no server, no third-party sharing. What you enter stays with you.',
+    'pricing-title': 'Honest pricing',
+    'pricing-sub': '7 days free trial. No risk.',
+    'plan1-label': 'Monthly',
+    'plan1-sub': 'per month',
+    'plan1-annual': '= \u20AC17.88 per year',
+    'plan2-label': 'Yearly',
+    'plan2-old': '\u20AC11.99',
+    'plan2-highlight': 'Save 50% vs monthly',
+    'plan2-limit': 'For the first 1,000 yearly subscribers only',
+    'badge-launch': 'Launch offer',
+    'urgency-text': 'The launch offer is available for the first 1,000 yearly subscribers only. After that, the regular yearly price applies.',
+    'trial-note': 'All plans start with a free 7-day trial. No credit card required.',
+    'cta-title': 'Ready for your next step?',
+    'cta-desc': 'Start free, try everything for 7 days.',
+    'final-btn': 'Download on Play Store',
+    'final-note': 'Android only. iOS coming soon.',
+    'footer-privacy': 'Privacy Policy',
+    'footer-imprint': 'Imprint',
+  }
+};
+
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  const t = T[lang];
+  Object.keys(t).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t[id];
+  });
+  document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+</script>
+
+</body>
+</html>
