@@ -318,8 +318,9 @@ function setLang(lang) {
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 }
 
-// Apply saved language on load
-const savedLang = localStorage.getItem('lang') || 'de';
+// Apply language from URL parameter or localStorage
+const urlParams = new URLSearchParams(window.location.search);
+const savedLang = urlParams.get('lang') || localStorage.getItem('lang') || 'de';
 setLang(savedLang);
 </script>
 
