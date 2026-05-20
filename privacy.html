@@ -3,167 +3,325 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Datenschutzerklärung – chada-kids.de</title>
+  <title>Datenschutz – 1+1=3</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink: #e8527a;
+      --blue: #4fc3f7;
+      --bg: #1a1f2e;
+      --bg-nav: rgba(16, 20, 32, 0.97);
+      --text: #ffffff;
+      --text-muted: rgba(255,255,255,0.65);
+      --text-faint: rgba(255,255,255,0.4);
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #1a1f2e;
-      color: #ffffff;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
+
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.25rem 2rem;
-      background: rgba(16,20,32,0.97);
+      background: var(--bg-nav);
       border-bottom: 0.5px solid rgba(255,255,255,0.07);
     }
-    .nav-logo { font-size: 1.7rem; font-weight: 900; letter-spacing: -1.5px; text-decoration: none; }
-    .grad-pink { background: linear-gradient(135deg, #e8527a, #c43d62); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .grad-blue { background: linear-gradient(135deg, #4fc3f7, #0288d1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .grad-three { background: linear-gradient(160deg, #e8527a, #9b5fcc, #4fc3f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .container { max-width: 720px; margin: 0 auto; padding: 4rem 2rem 6rem; }
-    .back-link {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.85rem;
-      margin-bottom: 2rem; transition: color 0.2s;
+
+    .nav-logo a { color: #fff; text-decoration: none; }
+
+    .lang-switcher { display: flex; gap: 0.4rem; }
+    .lang-btn {
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s;
     }
-    .back-link:hover { color: rgba(255,255,255,0.7); }
-    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem; color: #fff; }
-    h2 { font-size: 1.1rem; font-weight: 700; color: #e8527a; margin: 2.5rem 0 0.75rem; }
-    h3 { font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.85); margin: 1.5rem 0 0.5rem; }
-    h4 { font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.75); margin: 1rem 0 0.4rem; }
-    p { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 0.75rem; line-height: 1.75; }
-    ul { padding-left: 1.5rem; margin-bottom: 0.75rem; }
-    ul li { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 0.4rem; line-height: 1.7; }
-    a { color: #4fc3f7; text-decoration: none; }
-    .divider { border: none; border-top: 0.5px solid rgba(255,255,255,0.07); margin: 2rem 0; }
-    .uppercase-block {
-      background: rgba(255,255,255,0.03);
-      border: 0.5px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
+    .lang-btn.active {
+      background: rgba(232,82,122,0.18);
+      border-color: rgba(232,82,122,0.5);
+      color: #fff;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 2.5rem;
       margin-bottom: 1rem;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.82rem;
-      line-height: 1.65;
+      color: #fff;
     }
-    footer { border-top: 0.5px solid rgba(255,255,255,0.08); padding: 1.75rem 2rem; text-align: center; }
-    .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
-    .footer-links a { color: rgba(255,255,255,0.33); text-decoration: none; font-size: 0.82rem; }
-    .footer-copy { color: rgba(255,255,255,0.17); font-size: 0.78rem; }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    p, li {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .upper {
+      text-transform: uppercase;
+      font-size: 0.88rem;
+      letter-spacing: 0.5px;
+    }
+
+    a { color: var(--pink); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.9rem;
+    }
+    .back-link:hover { color: var(--pink); }
+
+    footer {
+      border-top: 0.5px solid rgba(255,255,255,0.08);
+      padding: 2rem;
+      text-align: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 1rem 1.25rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+      h1 { font-size: 1.6rem; }
+    }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">
-    <span class="grad-pink">1</span><span>+</span><span class="grad-blue">1</span><span>=</span><span class="grad-three">3</span>
-  </a>
+  <div class="nav-logo">
+    <a href="index.html"><img src="logo%20(2).png" alt="1+1=3" style="height: 36px; width: auto;" /></a>
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
 </nav>
 
-<div class="container">
-  <a href="index.html" class="back-link">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Zurück
-  </a>
+<main>
+  <a href="index.html" class="back-link" id="back-link">← Zurück zur Startseite</a>
 
-  <h1>Datenschutzerklärung</h1>
+  <!-- DE CONTENT -->
+  <div id="content-de">
+    <h1>Datenschutzerklärung</h1>
 
-  <h2>1. Datenschutz auf einen Blick</h2>
+    <h2>1. Datenschutz auf einen Blick</h2>
+    <h3>Allgemeine Hinweise</h3>
+    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>
 
-  <h3>Allgemeine Hinweise</h3>
-  <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>
+    <h3>Datenerfassung auf dieser Website</h3>
+    <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+    Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser Datenschutzerklärung entnehmen.</p>
 
-  <h3>Datenerfassung auf dieser Website</h3>
+    <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
+    Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.</p>
 
-  <h4>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</h4>
-  <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser Datenschutzerklärung entnehmen.</p>
+    <p>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
 
-  <h4>Wie erfassen wir Ihre Daten?</h4>
-  <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.</p>
-  <p>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
+    <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
+    Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
 
-  <h4>Wofür nutzen wir Ihre Daten?</h4>
-  <p>Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+    <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
+    Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
 
-  <h4>Welche Rechte haben Sie bezüglich Ihrer Daten?</h4>
-  <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
-  <p>Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.</p>
+    <p>Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.</p>
 
-  <hr class="divider" />
+    <h2>2. Hosting</h2>
+    <h3>Externes Hosting</h3>
+    <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
 
-  <h2>2. Hosting</h2>
+    <p>Das externe Hosting erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).</p>
 
-  <h3>Externes Hosting</h3>
-  <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
-  <p>Das externe Hosting erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).</p>
-  <p>Wir setzen folgenden Hoster ein:<br>GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</p>
+    <p>Wir setzen folgenden Hoster ein:<br>
+    GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</p>
 
-  <hr class="divider" />
+    <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
+    <h3>Datenschutz</h3>
+    <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
 
-  <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
+    <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
 
-  <h3>Datenschutz</h3>
-  <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
-  <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
+    <h3>Hinweis zur verantwortlichen Stelle</h3>
+    <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+    <p>Matthias Schönberger, Chada Kids, Am Schäferhof 8, 34127 Kassel<br>
+    Telefon: +4915563853681<br>
+    E-Mail: <a href="mailto:info@chada-kids.de">info@chada-kids.de</a></p>
 
-  <h3>Hinweis zur verantwortlichen Stelle</h3>
-  <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
-  <p>Matthias Schönberger, Chada Kids, Am Schäferhof 8, 34127 Kassel<br>
-  Telefon: +4915563853681<br>
-  E-Mail: <a href="mailto:info@chada-kids.de">info@chada-kids.de</a></p>
-  <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.</p>
+    <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.</p>
 
-  <h3>Speicherdauer</h3>
-  <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben.</p>
+    <h3>Speicherdauer</h3>
+    <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben.</p>
 
-  <h3>Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung</h3>
-  <p>Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 2 lit. a DSGVO. Sind Ihre Daten zur Vertragserfüllung oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, verarbeiten wir Ihre Daten auf Grundlage des Art. 6 Abs. 1 lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur Erfüllung einer rechtlichen Verpflichtung erforderlich sind auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO.</p>
+    <h3>Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung</h3>
+    <p>Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 2 lit. a DSGVO. Sind Ihre Daten zur Vertragserfüllung oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, verarbeiten wir Ihre Daten auf Grundlage des Art. 6 Abs. 1 lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur Erfüllung einer rechtlichen Verpflichtung erforderlich sind auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO.</p>
 
-  <h3>Empfänger von personenbezogenen Daten</h3>
-  <p>Wir geben personenbezogene Daten nur dann an externe Stellen weiter, wenn dies im Rahmen einer Vertragserfüllung erforderlich ist, wenn wir gesetzlich hierzu verpflichtet sind oder wenn eine sonstige Rechtsgrundlage die Datenweitergabe erlaubt.</p>
+    <h3>Empfänger von personenbezogenen Daten</h3>
+    <p>Wir geben personenbezogene Daten nur dann an externe Stellen weiter, wenn dies im Rahmen einer Vertragserfüllung erforderlich ist, wenn wir gesetzlich hierzu verpflichtet sind oder wenn eine sonstige Rechtsgrundlage die Datenweitergabe erlaubt.</p>
 
-  <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
-  <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+    <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+    <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
 
-  <h3>Widerspruchsrecht gegen die Datenerhebung (Art. 21 DSGVO)</h3>
-  <div class="uppercase-block">
-    WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN. WENN SIE WIDERSPRUCH EINLEGEN, WERDEN WIR IHRE BETROFFENEN PERSONENBEZOGENEN DATEN NICHT MEHR VERARBEITEN, ES SEI DENN, WIR KÖNNEN ZWINGENDE SCHUTZWÜRDIGE GRÜNDE FÜR DIE VERARBEITUNG NACHWEISEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO).
+    <h3>Widerspruchsrecht gegen die Datenerhebung (Art. 21 DSGVO)</h3>
+    <p class="upper">Wenn die Datenverarbeitung auf Grundlage von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, haben Sie jederzeit das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, gegen die Verarbeitung Ihrer personenbezogenen Daten Widerspruch einzulegen. Wenn Sie Widerspruch einlegen, werden wir Ihre betroffenen personenbezogenen Daten nicht mehr verarbeiten, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen (Widerspruch nach Art. 21 Abs. 1 DSGVO).</p>
+
+    <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
+    <p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu.</p>
+
+    <h3>Recht auf Datenübertragbarkeit</h3>
+    <p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen.</p>
+
+    <h3>Auskunft, Berichtigung und Löschung</h3>
+    <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten.</p>
+
+    <h3>Recht auf Einschränkung der Verarbeitung</h3>
+    <p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit an uns wenden.</p>
+
+    <h3>SSL- bzw. TLS-Verschlüsselung</h3>
+    <p>Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
+
+    <p style="margin-top: 2rem; color: rgba(255,255,255,0.3); font-size: 0.85rem;">Quelle: e-recht24.de</p>
   </div>
 
-  <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
-  <p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu.</p>
+  <!-- EN CONTENT -->
+  <div id="content-en" style="display:none;">
+    <h1>Privacy Policy</h1>
 
-  <h3>Recht auf Datenübertragbarkeit</h3>
-  <p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen.</p>
+    <h2>1. Privacy at a glance</h2>
+    <h3>General information</h3>
+    <p>The following information provides a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to identify you personally. For detailed information on data protection, please refer to our privacy policy listed below this text.</p>
 
-  <h3>Auskunft, Berichtigung und Löschung</h3>
-  <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten.</p>
+    <h3>Data collection on this website</h3>
+    <p><strong>Who is responsible for data collection on this website?</strong><br>
+    Data processing on this website is carried out by the website operator. You can find their contact details in the section "Information on the responsible party" in this privacy policy.</p>
 
-  <h3>Recht auf Einschränkung der Verarbeitung</h3>
-  <p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit an uns wenden.</p>
+    <p><strong>How do we collect your data?</strong><br>
+    Your data is collected when you provide it to us. This may include data you enter into a contact form, for example.</p>
 
-  <h3>SSL- bzw. TLS-Verschlüsselung</h3>
-  <p>Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
+    <p>Other data is collected automatically or with your consent by our IT systems when you visit the website. This is primarily technical data (e.g. internet browser, operating system, or time of page access). This data is collected automatically as soon as you enter this website.</p>
 
-  <hr class="divider" />
+    <p><strong>What do we use your data for?</strong><br>
+    Some of the data is collected to ensure the website functions correctly. Other data may be used to analyze your user behavior.</p>
 
-  <p style="font-size:0.78rem; color:rgba(255,255,255,0.25);">
-    Quelle: <a href="https://www.e-recht24.de" style="color:rgba(255,255,255,0.25);">e-recht24.de</a>
-  </p>
-</div>
+    <p><strong>What rights do you have regarding your data?</strong><br>
+    You have the right at any time to receive free information about the origin, recipient, and purpose of your stored personal data. You also have the right to request the correction or deletion of this data. If you have given your consent to data processing, you can revoke this consent at any time for the future. You also have the right to request the restriction of the processing of your personal data under certain circumstances. Furthermore, you have the right to lodge a complaint with the competent supervisory authority.</p>
+
+    <p>You can contact us at any time regarding this and other questions on the subject of data protection.</p>
+
+    <h2>2. Hosting</h2>
+    <h3>External hosting</h3>
+    <p>This website is hosted externally. The personal data collected on this website is stored on the servers of the host. This may include, in particular, IP addresses, contact requests, meta and communication data, contract data, contact details, names, website accesses, and other data generated via a website.</p>
+
+    <p>External hosting takes place for the purpose of contract fulfillment with our potential and existing customers (Art. 6 para. 1 lit. b GDPR) and in the interest of a secure, fast, and efficient provision of our online offering by a professional provider (Art. 6 para. 1 lit. f GDPR).</p>
+
+    <p>We use the following host:<br>
+    GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</p>
+
+    <h2>3. General information and mandatory information</h2>
+    <h3>Data protection</h3>
+    <p>The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with statutory data protection regulations and this privacy policy.</p>
+
+    <p>We point out that data transmission over the internet (e.g. when communicating by email) can have security vulnerabilities. Complete protection of data against access by third parties is not possible.</p>
+
+    <h3>Information on the responsible party</h3>
+    <p>The party responsible for data processing on this website is:</p>
+    <p>Matthias Schönberger, Chada Kids, Am Schäferhof 8, 34127 Kassel, Germany<br>
+    Phone: +4915563853681<br>
+    Email: <a href="mailto:info@chada-kids.de">info@chada-kids.de</a></p>
+
+    <p>The responsible party is the natural or legal person who alone or jointly with others decides on the purposes and means of processing personal data.</p>
+
+    <h3>Storage duration</h3>
+    <p>Unless a more specific storage period is mentioned within this privacy policy, your personal data will remain with us until the purpose for the data processing no longer applies. If you assert a legitimate request for deletion or revoke consent to data processing, your data will be deleted, provided we have no other legally permissible reasons for storing your personal data.</p>
+
+    <h3>General information on the legal basis for data processing</h3>
+    <p>If you have consented to data processing, we process your personal data on the basis of Art. 6 para. 1 lit. a GDPR or Art. 9 para. 2 lit. a GDPR. If your data is required to fulfill a contract or to carry out pre-contractual measures, we process your data on the basis of Art. 6 para. 1 lit. b GDPR. Furthermore, we process your data, provided that this is necessary to fulfill a legal obligation, on the basis of Art. 6 para. 1 lit. c GDPR.</p>
+
+    <h3>Recipients of personal data</h3>
+    <p>We only pass on personal data to external parties if this is necessary in the context of contract fulfillment, if we are legally obligated to do so, or if any other legal basis permits the data transfer.</p>
+
+    <h3>Revocation of your consent to data processing</h3>
+    <p>Many data processing operations are only possible with your express consent. You can revoke consent already given at any time. The legality of the data processing carried out until the revocation remains unaffected by the revocation.</p>
+
+    <h3>Right to object to data collection (Art. 21 GDPR)</h3>
+    <p class="upper">If data processing is carried out on the basis of Art. 6 para. 1 lit. e or f GDPR, you have the right at any time to object to the processing of your personal data for reasons arising from your particular situation. If you object, we will no longer process your affected personal data unless we can demonstrate compelling legitimate grounds for the processing (objection under Art. 21 para. 1 GDPR).</p>
+
+    <h3>Right to lodge a complaint with the competent supervisory authority</h3>
+    <p>In the event of violations of the GDPR, those affected have the right to lodge a complaint with a supervisory authority, in particular in the member state of their habitual residence, their place of work, or the place of the alleged violation.</p>
+
+    <h3>Right to data portability</h3>
+    <p>You have the right to have data that we process automatically on the basis of your consent or in fulfillment of a contract handed over to you or to a third party in a common, machine-readable format.</p>
+
+    <h3>Information, correction, and deletion</h3>
+    <p>Within the framework of the applicable legal provisions, you have the right at any time to free information about your stored personal data, its origin and recipient, and the purpose of data processing, as well as a right to correction or deletion of this data where applicable.</p>
+
+    <h3>Right to restriction of processing</h3>
+    <p>You have the right to request the restriction of the processing of your personal data. You can contact us at any time for this purpose.</p>
+
+    <h3>SSL or TLS encryption</h3>
+    <p>For security reasons, this site uses SSL or TLS encryption. You can recognize an encrypted connection by the fact that the address line of the browser changes from "http://" to "https://" and by the lock symbol in your browser line.</p>
+
+    <p style="margin-top: 2rem; color: rgba(255,255,255,0.3); font-size: 0.85rem;">Source: e-recht24.de</p>
+  </div>
+</main>
 
 <footer>
-  <div class="footer-links">
-    <a href="privacy.html" style="color:rgba(255,255,255,0.6);">Datenschutz</a>
-    <a href="imprint.html">Impressum</a>
-  </div>
-  <p class="footer-copy">Chada Kids &middot; chada-kids.de</p>
+  Chada Kids &middot; chada-kids.de
 </footer>
+
+<script>
+function setLang(lang) {
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+  document.getElementById('content-de').style.display = lang === 'de' ? 'block' : 'none';
+  document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+  document.getElementById('back-link').textContent = lang === 'de' ? '← Zurück zur Startseite' : '← Back to homepage';
+  document.title = lang === 'de' ? 'Datenschutz – 1+1=3' : 'Privacy Policy – 1+1=3';
+  document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+
+// Apply saved language on load
+const savedLang = localStorage.getItem('lang') || 'de';
+setLang(savedLang);
+</script>
 
 </body>
 </html>
