@@ -643,6 +643,7 @@ const T = {
 
 function setLang(lang) {
   currentLang = lang;
+  localStorage.setItem('lang', lang);
   document.documentElement.lang = lang;
   const t = T[lang];
   Object.keys(t).forEach(id => {
@@ -660,6 +661,12 @@ function setLang(lang) {
   }
   document.getElementById('btn-de').classList.toggle('active', lang === 'de');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+
+// Apply saved language on load
+const savedLang = localStorage.getItem('lang');
+if (savedLang && savedLang !== 'de') {
+  window.addEventListener('DOMContentLoaded', () => setLang(savedLang));
 }
 </script>
 
