@@ -142,6 +142,53 @@
     }
     .btn-secondary:hover { border-color: rgba(255,255,255,0.4); }
 
+    /* PHONE MOCKUP */
+    .phone-mockup {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .phone-mockup:hover { transform: scale(1.03); }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-inner {
+      background: #1a1f2e;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .lightbox-close:hover { color: #fff; }
+    .lightbox-placeholder {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+
     /* SCREENSHOT PLACEHOLDER */
     .screenshot-wrap {
       display: flex;
@@ -369,7 +416,16 @@
 
 <!-- PHONE MOCKUP -->
 <div class="screenshot-wrap">
-  <img src="phone.png" alt="App Mockup" style="width: 300px; max-width: 80%; height: auto;" />
+  <img src="phone.png" alt="App Mockup" class="phone-mockup" style="width: 300px; max-width: 80%; height: auto;" onclick="openLightbox()" />
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img src="phone.png" alt="App Mockup" style="width: 100%; height: auto; border-radius: 12px;" />
+    <p class="lightbox-placeholder">Screenshots folgen bald</p>
+  </div>
 </div>
 
 <!-- FEATURES -->
@@ -473,6 +529,18 @@
 </footer>
 
 <script>
+function openLightbox() {
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
 function toggleAudio() {
   const audio = document.getElementById('bg-audio');
   const btnPlay = document.getElementById('icon-play');
