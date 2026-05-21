@@ -134,6 +134,7 @@
     <button class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
     <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
     <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-pt-BR" onclick="setLang('pt-BR')">BR</button>
   </div>
 </nav>
 
@@ -147,18 +148,20 @@
 </footer>
 
 <script>
-const SUPPORTED_LANGS = ['de', 'en', 'es'];
+const SUPPORTED_LANGS = ['de', 'en', 'es', 'pt-BR'];
 
 const BACK_TEXTS = {
   'de': '← Zurück zur Startseite',
   'en': '← Back to homepage',
-  'es': '← Volver al inicio'
+  'es': '← Volver al inicio',
+  'pt-BR': '← Voltar ao início'
 };
 
 const TITLES = {
   'de': 'Datenschutz – 1+1=3',
   'en': 'Privacy Policy – 1+1=3',
-  'es': 'Privacidad – 1+1=3'
+  'es': 'Privacidad – 1+1=3',
+  'pt-BR': 'Privacidade – 1+1=3'
 };
 
 async function setLang(lang) {
