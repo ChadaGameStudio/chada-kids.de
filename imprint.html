@@ -141,110 +141,7 @@
 
 <main>
   <a href="index.html" class="back-link" id="back-link">← Zurück zur Startseite</a>
-
-  <!-- DE CONTENT -->
-  <div id="content-de">
-    <h1>Impressum</h1>
-
-    <div class="section">
-      <h2>Angaben gemäß § 5 TMG</h2>
-      <p>Matthias Schönberger</p>
-      <p>Chada Kids</p>
-      <p>Am Schäferhof 8</p>
-      <p>34127 Kassel</p>
-    </div>
-
-    <div class="section">
-      <h2>Kontakt</h2>
-      <p>Telefon: +4915563853681</p>
-      <p>E-Mail: <a href="mailto:info@chada-kids.de">info@chada-kids.de</a></p>
-    </div>
-
-    <div class="section">
-      <h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
-      <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-    </div>
-
-    <p class="source">Quelle: e-recht24.de</p>
-  </div>
-
-  <!-- EN CONTENT -->
-  <div id="content-en" style="display:none;">
-    <h1>Imprint</h1>
-
-    <div class="section">
-      <h2>Information according to § 5 TMG</h2>
-      <p>Matthias Schönberger</p>
-      <p>Chada Kids</p>
-      <p>Am Schäferhof 8</p>
-      <p>34127 Kassel, Germany</p>
-    </div>
-
-    <div class="section">
-      <h2>Contact</h2>
-      <p>Phone: +4915563853681</p>
-      <p>Email: <a href="mailto:info@chada-kids.de">info@chada-kids.de</a></p>
-    </div>
-
-    <div class="section">
-      <h2>Consumer dispute resolution / Universal arbitration board</h2>
-      <p>We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
-    </div>
-
-    <p class="source">Source: e-recht24.de</p>
-  </div>
-
-  <!-- ES CONTENT -->
-  <div id="content-es" style="display:none;">
-    <h1>Aviso legal</h1>
-
-    <div class="section">
-      <h2>Información según § 5 TMG</h2>
-      <p>Matthias Schönberger</p>
-      <p>Chada Kids</p>
-      <p>Am Schäferhof 8</p>
-      <p>34127 Kassel, Alemania</p>
-    </div>
-
-    <div class="section">
-      <h2>Contacto</h2>
-      <p>Teléfono: +4915563853681</p>
-      <p>Correo electrónico: <a href="mailto:info@chada-kids.de">info@chada-kids.de</a></p>
-    </div>
-
-    <div class="section">
-      <h2>Resolución de litigios de consumo</h2>
-      <p>No estamos obligados ni dispuestos a participar en procedimientos de resolución de litigios ante una junta de arbitraje de consumo.</p>
-    </div>
-
-    <p class="source">Fuente: e-recht24.de</p>
-  </div>
-
-  <!-- PT-BR CONTENT -->
-  <div id="content-pt-BR" style="display:none;">
-    <h1>Aviso legal</h1>
-
-    <div class="section">
-      <h2>Informações conforme § 5 TMG</h2>
-      <p>Matthias Schönberger</p>
-      <p>Chada Kids</p>
-      <p>Am Schäferhof 8</p>
-      <p>34127 Kassel, Alemanha</p>
-    </div>
-
-    <div class="section">
-      <h2>Contato</h2>
-      <p>Telefone: +4915563853681</p>
-      <p>E-mail: <a href="mailto:info@chada-kids.de">info@chada-kids.de</a></p>
-    </div>
-
-    <div class="section">
-      <h2>Resolução de disputas de consumo</h2>
-      <p>Não estamos dispostos nem obrigados a participar de processos de resolução de disputas perante um órgão de arbitragem de consumo.</p>
-    </div>
-
-    <p class="source">Fonte: e-recht24.de</p>
-  </div>
+  <div id="content"></div>
 </main>
 
 <footer>
@@ -252,23 +149,43 @@
 </footer>
 
 <script>
-function setLang(lang) {
+const SUPPORTED_LANGS = ['de', 'en', 'es', 'pt-BR'];
+
+const BACK_TEXTS = {
+  'de': '← Zurück zur Startseite',
+  'en': '← Back to homepage',
+  'es': '← Volver al inicio',
+  'pt-BR': '← Voltar ao início'
+};
+
+const TITLES = {
+  'de': 'Impressum – 1+1=3',
+  'en': 'Imprint – 1+1=3',
+  'es': 'Aviso legal – 1+1=3',
+  'pt-BR': 'Aviso legal – 1+1=3'
+};
+
+async function setLang(lang) {
+  if (!SUPPORTED_LANGS.includes(lang)) lang = 'de';
+
   localStorage.setItem('lang', lang);
   document.documentElement.lang = lang;
-  document.getElementById('content-de').style.display = lang === 'de' ? 'block' : 'none';
-  document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-  document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
-  document.getElementById('content-pt-BR').style.display = lang === 'pt-BR' ? 'block' : 'none';
+  document.title = TITLES[lang];
+  document.getElementById('back-link').textContent = BACK_TEXTS[lang];
 
-  const backTexts = { de: '← Zurück zur Startseite', en: '← Back to homepage', es: '← Volver al inicio', 'pt-BR': '← Voltar ao início' };
-  const titles = { de: 'Impressum – 1+1=3', en: 'Imprint – 1+1=3', es: 'Aviso legal – 1+1=3', 'pt-BR': 'Aviso legal – 1+1=3' };
+  SUPPORTED_LANGS.forEach(function(l) {
+    document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+  });
 
-  document.getElementById('back-link').textContent = backTexts[lang];
-  document.title = titles[lang];
-  document.getElementById('btn-de').classList.toggle('active', lang === 'de');
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-  document.getElementById('btn-pt-BR').classList.toggle('active', lang === 'pt-BR');
+  try {
+    const response = await fetch('imprint-' + lang + '.html');
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    const html = await response.text();
+    document.getElementById('content').innerHTML = html;
+  } catch (e) {
+    console.error('Could not load imprint content for', lang, e);
+    document.getElementById('content').innerHTML = '<p>Inhalt konnte nicht geladen werden. / Content could not be loaded.</p>';
+  }
 }
 
 // URL-Parameter hat Vorrang, dann localStorage
