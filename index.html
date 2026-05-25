@@ -56,34 +56,69 @@
 
     .nav-logo { font-size: 1.7rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
 
-    .lang-switcher { display: flex; gap: 0.4rem; }
-    .lang-btn {
+    .lang-dropdown { position: relative; }
+    .lang-dropdown-btn {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 4px;
-      padding: 0.35rem 0.7rem;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.15);
       background: transparent;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.75);
       cursor: pointer;
       font-size: 0.8rem;
       font-weight: 600;
       transition: all 0.2s;
       line-height: 1;
     }
-    .lang-btn.active {
-      background: rgba(232,82,122,0.18);
+    .lang-dropdown-btn:hover {
       border-color: rgba(232,82,122,0.5);
-      color: #fff;
+      background: rgba(232,82,122,0.1);
     }
+    .lang-dropdown-arrow {
+      width: 10px;
+      height: 10px;
+      transition: transform 0.2s;
+    }
+    .lang-dropdown.open .lang-dropdown-arrow { transform: rotate(180deg); }
+    .lang-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: rgba(16, 20, 32, 0.98);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      min-width: 130px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 200;
+    }
+    .lang-dropdown.open .lang-dropdown-menu { display: block; }
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      transition: all 0.15s;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+    .lang-option:hover { background: rgba(255,255,255,0.05); color: #fff; }
+    .lang-option.active { color: #fff; background: rgba(232,82,122,0.12); }
     .lang-flag {
       display: block;
-      width: 22px;
+      width: 20px;
       height: auto;
       border-radius: 2px;
-      pointer-events: none;
+      flex-shrink: 0;
     }
 
     section { padding: 5rem 2rem; }
@@ -288,41 +323,52 @@
       <svg id="icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="#e8527a" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
       <span id="audio-label">Musik</span>
     </button>
-    <div class="lang-switcher">
-      <button class="lang-btn active" id="btn-de" onclick="setLang('de')">
-        <span>DE</span>
-        <svg class="lang-flag" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <div class="lang-dropdown" id="lang-dropdown">
+      <button class="lang-dropdown-btn" onclick="toggleLangDropdown()" aria-label="Sprache wählen">
+        <svg id="dd-flag-current" class="lang-flag" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect width="5" height="1" fill="#000"/>
           <rect y="1" width="5" height="1" fill="#DD0000"/>
           <rect y="2" width="5" height="1" fill="#FFCE00"/>
         </svg>
+        <span id="dd-label-current">DE</span>
+        <svg class="lang-dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
       </button>
-      <button class="lang-btn" id="btn-en" onclick="setLang('en')">
-        <span>EN</span>
-        <svg class="lang-flag" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <clipPath id="uk-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath>
-          <path d="M0,0v30h60v-30z" fill="#012169"/>
-          <path d="M0,0 60,30M60,0 0,30" stroke="#fff" stroke-width="6"/>
-          <path d="M0,0 60,30M60,0 0,30" clip-path="url(#uk-clip)" stroke="#C8102E" stroke-width="4"/>
-          <path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/>
-          <path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/>
-        </svg>
-      </button>
-      <button class="lang-btn" id="btn-es" onclick="setLang('es')">
-        <span>ES</span>
-        <svg class="lang-flag" viewBox="0 0 4 3" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="4" height="3" fill="#AA151B"/>
-          <rect y="0.75" width="4" height="1.5" fill="#F1BF00"/>
-        </svg>
-      </button>
-      <button class="lang-btn" id="btn-pt-BR" onclick="setLang('pt-BR')">
-        <span>BR</span>
-        <svg class="lang-flag" viewBox="0 0 7 5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="7" height="5" fill="#009C3B"/>
-          <path d="M3.5 0.5L6.5 2.5L3.5 4.5L0.5 2.5z" fill="#FFDF00"/>
-          <circle cx="3.5" cy="2.5" r="1" fill="#002776"/>
-        </svg>
-      </button>
+      <div class="lang-dropdown-menu">
+        <button class="lang-option active" id="opt-de" onclick="pickLang('de')">
+          <svg class="lang-flag" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="5" height="1" fill="#000"/>
+            <rect y="1" width="5" height="1" fill="#DD0000"/>
+            <rect y="2" width="5" height="1" fill="#FFCE00"/>
+          </svg>
+          DE
+        </button>
+        <button class="lang-option" id="opt-en" onclick="pickLang('en')">
+          <svg class="lang-flag" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <clipPath id="uk-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath>
+            <path d="M0,0v30h60v-30z" fill="#012169"/>
+            <path d="M0,0 60,30M60,0 0,30" stroke="#fff" stroke-width="6"/>
+            <path d="M0,0 60,30M60,0 0,30" clip-path="url(#uk-clip)" stroke="#C8102E" stroke-width="4"/>
+            <path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/>
+            <path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/>
+          </svg>
+          EN
+        </button>
+        <button class="lang-option" id="opt-es" onclick="pickLang('es')">
+          <svg class="lang-flag" viewBox="0 0 4 3" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="4" height="3" fill="#AA151B"/>
+            <rect y="0.75" width="4" height="1.5" fill="#F1BF00"/>
+          </svg>
+          ES
+        </button>
+        <button class="lang-option" id="opt-pt-BR" onclick="pickLang('pt-BR')">
+          <svg class="lang-flag" viewBox="0 0 7 5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="7" height="5" fill="#009C3B"/>
+            <path d="M3.5 0.5L6.5 2.5L3.5 4.5L0.5 2.5z" fill="#FFDF00"/>
+            <circle cx="3.5" cy="2.5" r="1" fill="#002776"/>
+          </svg>
+          BR
+        </button>
+      </div>
     </div>
   </div>
 </nav>
@@ -386,14 +432,14 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
         <h3 id="f4-title">Tagebuch</h3>
-        <p id="f4-desc">Sex, Gedanken und Momente festhalten. Alles sicher auf deinem Gerät gespeichert.</p>
+        <p id="f4-desc">Momente, Gedanken und Gefühle festhalten. Alles sicher auf deinem Gerät gespeichert.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon icon-blue">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
         </div>
-        <h3 id="f5-title">Temperatur-Tracking</h3>
-        <p id="f5-desc">Optional: Basaltemperatur messen und den Eisprung noch genauer bestätigen.</p>
+        <h3 id="f5-title">Morgentemperatur</h3>
+        <p id="f5-desc">Morgentemperatur messen und den Eisprung noch genauer bestätigen.</p>
       </div>
     </div>
   </div>
@@ -498,10 +544,10 @@ function setLang(lang) {
       label.textContent = lang === 'de' ? 'Musik läuft' : lang === 'es' ? 'Sonando' : lang === 'pt-BR' ? 'Tocando' : 'Playing';
     }
   }
-  document.getElementById('btn-de').classList.toggle('active', lang === 'de');
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-  document.getElementById('btn-pt-BR').classList.toggle('active', lang === 'pt-BR');
+  ['de','en','es','pt-BR'].forEach(l => {
+    document.getElementById('opt-' + l).classList.toggle('active', l === lang);
+  });
+  updateDropdownButton(lang);
 
   // Footer-Links mit Sprachparameter
   const privacyLink = document.getElementById('footer-privacy');
@@ -509,6 +555,33 @@ function setLang(lang) {
   if (privacyLink) privacyLink.href = 'privacy.html?lang=' + lang;
   if (imprintLink) imprintLink.href = 'imprint.html?lang=' + lang;
 }
+
+const FLAGS = {
+  'de': `<svg class="lang-flag" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg>`,
+  'en': `<svg class="lang-flag" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"><clipPath id="uk-clip2"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><path d="M0,0v30h60v-30z" fill="#012169"/><path d="M0,0 60,30M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30M60,0 0,30" clip-path="url(#uk-clip2)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg>`,
+  'es': `<svg class="lang-flag" viewBox="0 0 4 3" xmlns="http://www.w3.org/2000/svg"><rect width="4" height="3" fill="#AA151B"/><rect y="0.75" width="4" height="1.5" fill="#F1BF00"/></svg>`,
+  'pt-BR': `<svg class="lang-flag" viewBox="0 0 7 5" xmlns="http://www.w3.org/2000/svg"><rect width="7" height="5" fill="#009C3B"/><path d="M3.5 0.5L6.5 2.5L3.5 4.5L0.5 2.5z" fill="#FFDF00"/><circle cx="3.5" cy="2.5" r="1" fill="#002776"/></svg>`
+};
+const LABELS = { 'de': 'DE', 'en': 'EN', 'es': 'ES', 'pt-BR': 'BR' };
+
+function updateDropdownButton(lang) {
+  document.getElementById('dd-flag-current').outerHTML = FLAGS[lang].replace('class="lang-flag"', 'class="lang-flag" id="dd-flag-current"');
+  document.getElementById('dd-label-current').textContent = LABELS[lang];
+}
+
+function toggleLangDropdown() {
+  document.getElementById('lang-dropdown').classList.toggle('open');
+}
+
+function pickLang(lang) {
+  document.getElementById('lang-dropdown').classList.remove('open');
+  setLang(lang);
+}
+
+document.addEventListener('click', function(e) {
+  const dd = document.getElementById('lang-dropdown');
+  if (!dd.contains(e.target)) dd.classList.remove('open');
+});
 
 // Sprache beim Laden anwenden
 const savedLang = localStorage.getItem('lang');
