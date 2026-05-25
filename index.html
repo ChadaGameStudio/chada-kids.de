@@ -244,87 +244,6 @@
     .privacy-box h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; }
     .privacy-box p { color: var(--text-muted); font-size: 0.95rem; }
 
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      margin: 2.5rem 0 1.5rem;
-    }
-
-    .price-card {
-      background: var(--bg-card);
-      border: 0.5px solid rgba(255,255,255,0.12);
-      border-radius: 16px;
-      padding: 1.75rem 1.25rem;
-      text-align: center;
-    }
-
-    .price-card.featured {
-      background: rgba(232,82,122,0.07);
-      border: 1.5px solid rgba(232,82,122,0.4);
-      position: relative;
-    }
-
-    .price-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 4px 14px;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: #fff;
-      white-space: nowrap;
-    }
-
-    .price-label {
-      color: rgba(255,255,255,0.4);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .price-old {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.25);
-      text-decoration: line-through;
-      margin-bottom: 0.15rem;
-    }
-
-    .price-amount {
-      font-size: 2.2rem;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 0.25rem;
-    }
-
-    .price-unit { font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.4); }
-    .price-sub { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-bottom: 0.5rem; }
-    .price-highlight { font-size: 0.78rem; color: var(--pink); font-weight: 700; margin-bottom: 0.4rem; }
-    .price-limit { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
-
-    .pricing-note {
-      background: rgba(232,82,122,0.06);
-      border: 0.5px solid rgba(232,82,122,0.18);
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-    .pricing-note .clock { color: var(--pink); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-    .pricing-note p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
-
-    .trial-note {
-      text-align: center;
-      margin-top: 1.25rem;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.22);
-    }
-
     .cta-section {
       text-align: center;
       padding: 4rem 2rem 6rem;
@@ -351,8 +270,6 @@
       nav { padding: 1rem 1.25rem; }
       .hero { padding: 3.5rem 1.25rem 2rem; }
       section { padding: 3.5rem 1.25rem; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .price-card.featured { margin-top: 0.75rem; }
       .btn-group { flex-direction: column; align-items: center; }
       .cta-section { padding: 3rem 1.25rem 5rem; }
     }
@@ -465,9 +382,18 @@
         <p id="f3-desc">Kein Server, keine Cloud. Alle Daten bleiben ausschließlich auf deinem Gerät.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:none;"><img src="Smarte%20Tipps.png" alt="Fokus" style="width:44px;height:44px;object-fit:contain;" /></div>
-        <h3 id="f4-title">Nur du zählst</h3>
-        <p id="f4-desc">Kein Content-Feed, keine Tipps, keine Ablenkung. Die App zeigt dir genau wo du stehst und wann dein Fenster offen ist.</p>
+        <div class="feature-icon icon-pink">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3 id="f4-title">Tagebuch</h3>
+        <p id="f4-desc">Sex, Gedanken und Momente festhalten. Alles sicher auf deinem Gerät gespeichert.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+        </div>
+        <h3 id="f5-title">Temperatur-Tracking</h3>
+        <p id="f5-desc">Optional: Basaltemperatur messen und den Eisprung noch genauer bestätigen.</p>
       </div>
     </div>
   </div>
@@ -479,39 +405,6 @@
     <div class="shield"><img src="schutzschild.png" alt="Schutzschild" style="width:80px;height:80px;object-fit:contain;" /></div>
     <h2 id="privacy-title">Dein Kinderwunsch bleibt privat. Versprochen.</h2>
     <p id="privacy-desc">Die App speichert alles lokal auf deinem Telefon. Kein Account, kein Server, keine Weitergabe an Dritte. Was du einträgst, bleibt bei dir.</p>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section>
-  <div class="container-sm">
-    <h2 class="section-title" id="pricing-title">Ehrliche Preise</h2>
-    <p class="section-sub" id="pricing-sub">7 Tage kostenlos testen. Kein Risiko.</p>
-
-    <div class="pricing-grid">
-      <div class="price-card">
-        <p class="price-label" id="plan1-label">Monatlich</p>
-        <p class="price-amount">1,49 <span class="price-unit">€</span></p>
-        <p class="price-sub" id="plan1-sub">pro Monat</p>
-        <p class="price-limit" id="plan1-annual">= 17,88 € pro Jahr</p>
-      </div>
-
-      <div class="price-card featured">
-        <div class="price-badge grad-bg-pink" id="badge-launch">Launch-Angebot</div>
-        <p class="price-label" id="plan2-label">Jährlich</p>
-        <p class="price-old" id="plan2-old">11,99 €</p>
-        <p class="price-amount">8,99 <span class="price-unit">€</span></p>
-        <p class="price-highlight" id="plan2-highlight">Spar 50% vs. monatlich</p>
-        <p class="price-limit" id="plan2-limit">Nur für die ersten 1.000 Jahresabos</p>
-      </div>
-    </div>
-
-    <div class="pricing-note">
-      <span class="clock">⏰</span>
-      <p id="urgency-text">Das Launch-Angebot gilt nur für die ersten 1.000 Jahresabos. Danach kehrt das Jahresabo zum regulären Preis zurück.</p>
-    </div>
-
-    <p class="trial-note" id="trial-note">Alle Pläne starten mit 7 Tagen kostenlosem Test. Keine Kreditkarte nötig.</p>
   </div>
 </section>
 
