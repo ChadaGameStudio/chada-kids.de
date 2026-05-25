@@ -297,16 +297,51 @@
     .no-free-box {
       max-width: 680px;
       margin: 0 auto;
-      background: rgba(232,82,122,0.05);
-      border: 1px solid rgba(232,82,122,0.2);
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
+      background: linear-gradient(160deg, rgba(232,82,122,0.08) 0%, rgba(155,95,204,0.06) 100%);
+      border: 1px solid rgba(232,82,122,0.25);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      text-align: center;
     }
-    .no-free-box h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; }
-    .no-free-box p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 0.85rem; }
-    .no-free-box p:last-child { margin-bottom: 0; }
-    .no-free-list { font-size: 0.92rem; color: var(--pink); font-weight: 600; margin-bottom: 0.85rem; }
-    .no-free-tagline { font-size: 1rem; font-weight: 700; color: #fff !important; margin-bottom: 0 !important; }
+    .no-free-icon {
+      width: 68px;
+      height: 68px;
+      background: rgba(232,82,122,0.12);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--pink);
+    }
+    .no-free-box h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .no-free-box p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 0.9rem; }
+    .no-free-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin: 1.25rem 0;
+    }
+    .no-free-badge {
+      background: rgba(232,82,122,0.12);
+      border: 1px solid rgba(232,82,122,0.3);
+      border-radius: 30px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--pink);
+    }
+    .no-free-tagline {
+      font-size: 1.1rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--pink), #9b5fcc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 1.25rem;
+      margin-bottom: 0 !important;
+    }
 
     .cta-section {
       text-align: center;
@@ -486,11 +521,37 @@
 <!-- NO FREE VERSION -->
 <section>
   <div class="no-free-box">
+    <div class="no-free-icon">
+      <svg width="36" height="36" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <!-- Phone body -->
+        <rect x="13" y="5" width="18" height="27" rx="3"/>
+        <!-- Vault circle -->
+        <circle cx="22" cy="18" r="5"/>
+        <!-- Vault spokes -->
+        <line x1="22" y1="13" x2="22" y2="15.2"/>
+        <line x1="22" y1="20.8" x2="22" y2="23"/>
+        <line x1="17" y1="18" x2="19.2" y2="18"/>
+        <line x1="24.8" y1="18" x2="27" y2="18"/>
+        <!-- Dial knob -->
+        <circle cx="23.8" cy="18" r="1.1" fill="currentColor" stroke="none"/>
+        <!-- Left hand arc -->
+        <path d="M11 32 C7 28 6 22 7.5 16 C8.5 12 11 9.5 13.5 10.5"/>
+        <!-- Right hand arc -->
+        <path d="M33 32 C37 28 38 22 36.5 16 C35.5 12 33 9.5 30.5 10.5"/>
+        <!-- Hands cupping bottom -->
+        <path d="M11 32 C11 37 15.5 39.5 22 39.5 C28.5 39.5 33 37 33 32"/>
+      </svg>
+    </div>
     <h2 id="no-free-title">Warum es keine kostenlose Version gibt.</h2>
     <p id="no-free-p1">Viele Apps sind kostenlos, aber oft bezahlt man mit etwas anderem als Geld: den eigenen Daten.</p>
     <p id="no-free-p2">Gerade bei sensiblen Gesundheitsdaten ist Privatsphäre nicht selbstverständlich. Zyklusdaten, Temperaturwerte, persönliche Einträge, all das gehört zu den intimsten Informationen überhaupt.</p>
     <p id="no-free-p3">Deshalb funktioniert 1+1=3 anders.</p>
-    <p class="no-free-list" id="no-free-list">Keine Werbung. Kein Tracking. Keine Analyse. Keine Weitergabe.</p>
+    <div class="no-free-badges">
+      <span class="no-free-badge" id="no-free-b1">Keine Werbung</span>
+      <span class="no-free-badge" id="no-free-b2">Kein Tracking</span>
+      <span class="no-free-badge" id="no-free-b3">Keine Analyse</span>
+      <span class="no-free-badge" id="no-free-b4">Keine Weitergabe</span>
+    </div>
     <p id="no-free-p4">Deine Daten bleiben ausschließlich auf deinem Gerät und gehören nur dir.</p>
     <p id="no-free-p5">1+1=3 kostet einen kleinen Betrag, weil wir nicht mit deinen Daten bezahlen lassen.</p>
     <p class="no-free-tagline" id="no-free-tagline">Die App ist das Produkt. Nicht du.</p>
