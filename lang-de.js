@@ -12,9 +12,9 @@ window.LANG_INDEX_DE = {
     'f3-title': '100% Privat',
     'f3-desc': 'Kein Server, keine Cloud. Alle Daten bleiben ausschließlich auf deinem Gerät.',
     'f4-title': 'Tagebuch',
-    'f4-desc': 'Momente, Gedanken und Gefühle festhalten. Alles sicher auf deinem Gerät gespeichert.',,
+    'f4-desc': 'Momente, Gedanken und Gefühle festhalten. Alles sicher auf deinem Gerät gespeichert.',
     'f5-title': 'Morgentemperatur',
-    'f5-desc': 'Morgentemperatur messen und den Eisprung noch genauer bestätigen.',,
+    'f5-desc': 'Morgentemperatur messen und den Eisprung noch genauer bestätigen.',
     'privacy-title': 'Dein Kinderwunsch bleibt privat. Versprochen.',
     'privacy-desc': 'Die App speichert alles lokal auf deinem Telefon. Kein Account, kein Server, keine Weitergabe an Dritte. Was du einträgst, bleibt bei dir.',
     'cta-title': 'Bereit für euren nächsten Schritt?',
@@ -34,5 +34,5 @@ window.LANG_INDEX_DE = {
     'no-free-tagline': 'Die App ist das Produkt. Nicht du.',
     'footer-privacy': 'Datenschutz',
     'footer-imprint': 'Impressum',
-    'launch-text': 'Launch im Play Store: 01.08.2026',
+    'launch-text': 'Launch im Play Store: 01.08.2026'
 };

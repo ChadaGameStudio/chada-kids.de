@@ -12,9 +12,9 @@ window.LANG_INDEX_PT_BR = {
     'f3-title': '100% Privado',
     'f3-desc': 'Sem servidor, sem nuvem. Todos os dados ficam exclusivamente no seu dispositivo.',
     'f4-title': 'Diário',
-    'f4-desc': 'Registre momentos, pensamentos e sentimentos. Tudo salvo com segurança no seu dispositivo.',,
+    'f4-desc': 'Registre momentos, pensamentos e sentimentos. Tudo salvo com segurança no seu dispositivo.',
     'f5-title': 'Temperatura matinal',
-    'f5-desc': 'Meça sua temperatura matinal para confirmar a ovulação com mais precisão.',,
+    'f5-desc': 'Meça sua temperatura matinal para confirmar a ovulação com mais precisão.',
     'privacy-title': 'Seu desejo de engravidar fica privado. Prometido.',
     'privacy-desc': 'O app guarda tudo localmente no seu celular. Sem conta, sem servidor, sem compartilhamento com terceiros. O que você registra fica com você.',
     'cta-title': 'Prontos para o próximo passo de vocês?',
@@ -34,5 +34,5 @@ window.LANG_INDEX_PT_BR = {
     'no-free-tagline': 'O app é o produto. Não você.',
     'footer-privacy': 'Privacidade',
     'footer-imprint': 'Aviso legal',
-    'launch-text': 'Lançamento na Play Store: 01.08.2026',
+    'launch-text': 'Lançamento na Play Store: 01.08.2026'
 };

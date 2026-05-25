@@ -12,9 +12,9 @@ window.LANG_INDEX_EN = {
     'f3-title': '100% Private',
     'f3-desc': 'No server, no cloud. All data stays exclusively on your device.',
     'f4-title': 'Journal',
-    'f4-desc': 'Track moments, thoughts and feelings. Everything stored safely on your device.',,
+    'f4-desc': 'Track moments, thoughts and feelings. Everything stored safely on your device.',
     'f5-title': 'Morning temperature',
-    'f5-desc': 'Track your morning temperature to confirm ovulation more accurately.',,
+    'f5-desc': 'Track your morning temperature to confirm ovulation more accurately.',
     'privacy-title': 'Your wish to conceive stays private. Promise.',
     'privacy-desc': 'The app stores everything locally on your phone. No account, no server, no third-party sharing. What you enter stays with you.',
     'cta-title': 'Ready for your next step?',
@@ -34,5 +34,5 @@ window.LANG_INDEX_EN = {
     'no-free-tagline': 'The app is the product. Not you.',
     'footer-privacy': 'Privacy Policy',
     'footer-imprint': 'Imprint',
-    'launch-text': 'Launching on Play Store: 01.08.2026',
+    'launch-text': 'Launching on Play Store: 01.08.2026'
 };
