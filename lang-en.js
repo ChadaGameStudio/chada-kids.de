@@ -34,5 +34,5 @@ window.LANG_INDEX_EN = {
     'no-free-tagline': 'The app is the product. Not you.',
     'footer-privacy': 'Privacy Policy',
     'footer-imprint': 'Imprint',
-    'launch-text': 'Launching on Play Store: 01.08.2026'
+    'launch-text': 'Launching on Play Store: August 1, 2026'
 };
