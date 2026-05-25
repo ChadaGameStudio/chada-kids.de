@@ -39,84 +39,71 @@
 
     .nav-logo a { color: #fff; text-decoration: none; }
 
-    .lang-switcher { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
-    .lang-btn {
-      padding: 0.35rem 0.9rem;
-      border-radius: 20px;
+    /* Dropdown Styles exakt von Index */
+    .lang-dropdown { position: relative; }
+    .lang-dropdown-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.15);
       background: transparent;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.75);
       cursor: pointer;
       font-size: 0.8rem;
       font-weight: 600;
       transition: all 0.2s;
+      line-height: 1;
     }
-    .lang-btn.active {
-      background: rgba(232,82,122,0.18);
-      border-color: rgba(232,82,122,0.5);
-      color: #fff;
+    .lang-dropdown-btn:hover { border-color: rgba(232,82,122,0.5); background: rgba(232,82,122,0.1); }
+    .lang-dropdown-arrow { width: 10px; height: 10px; transition: transform 0.2s; }
+    .lang-dropdown.open .lang-dropdown-arrow { transform: rotate(180deg); }
+    .lang-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: rgba(16, 20, 32, 0.98);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      min-width: 130px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 200;
     }
+    .lang-dropdown.open .lang-dropdown-menu { display: block; }
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      transition: all 0.15s;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+    .lang-option:hover { background: rgba(255,255,255,0.05); color: #fff; }
+    .lang-option.active { color: #fff; background: rgba(232,82,122,0.12); }
+    .lang-flag { display: block; width: 20px; height: auto; border-radius: 2px; flex-shrink: 0; }
 
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 3rem 2rem 5rem;
-    }
-
-    #content h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 2rem;
-      letter-spacing: -0.5px;
-    }
-
-    #content h2 {
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--pink);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    #content p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
-    }
-
-    #content .section {
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 1rem;
-    }
+    main { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    #content h1 { font-size: 2rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.5px; }
+    #content h2 { font-size: 0.88rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--pink); text-transform: uppercase; letter-spacing: 0.5px; }
+    #content p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem; }
+    #content .section { padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1rem; }
     #content .section:last-of-type { border-bottom: none; }
-
     #content a { color: var(--pink); text-decoration: none; }
     #content a:hover { text-decoration: underline; }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 2rem;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.9rem;
-    }
+    .back-link { display: inline-block; margin-bottom: 2rem; color: rgba(255,255,255,0.4); font-size: 0.9rem; }
     .back-link:hover { color: var(--pink); }
-
-    #content .source {
-      margin-top: 2rem;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.85rem;
-    }
-
-    footer {
-      border-top: 0.5px solid rgba(255,255,255,0.08);
-      padding: 2rem;
-      text-align: center;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.8rem;
-    }
+    #content .source { margin-top: 2rem; color: rgba(255,255,255,0.3); font-size: 0.85rem; }
+    footer { border-top: 0.5px solid rgba(255,255,255,0.08); padding: 2rem; text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; }
 
     @media (max-width: 480px) {
       nav { padding: 1rem 1.25rem; }
@@ -131,14 +118,21 @@
   <div class="nav-logo">
     <a href="index.html"><img src="logo%20(2).png" alt="1+1=3" style="height: 36px; width: auto;" /></a>
   </div>
-  <div class="lang-switcher">
-    <button class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
-    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
-    <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
-    <button class="lang-btn" id="btn-it" onclick="setLang('it')">IT</button>
-    <button class="lang-btn" id="btn-pt-PT" onclick="setLang('pt-PT')">PT</button>
-    <button class="lang-btn" id="btn-pt-BR" onclick="setLang('pt-BR')">BR</button>
+  <div class="lang-dropdown" id="lang-dropdown">
+    <button class="lang-dropdown-btn" onclick="toggleLangDropdown()">
+      <span id="dd-flag-wrap"></span>
+      <span id="dd-label-current">DE</span>
+      <svg class="lang-dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="lang-dropdown-menu">
+      <button class="lang-option" id="opt-de" onclick="pickLang('de')">DE</button>
+      <button class="lang-option" id="opt-en" onclick="pickLang('en')">EN</button>
+      <button class="lang-option" id="opt-es" onclick="pickLang('es')">ES</button>
+      <button class="lang-option" id="opt-fr" onclick="pickLang('fr')">FR</button>
+      <button class="lang-option" id="opt-it" onclick="pickLang('it')">IT</button>
+      <button class="lang-option" id="opt-pt-PT" onclick="pickLang('pt-PT')">PT</button>
+      <button class="lang-option" id="opt-pt-BR" onclick="pickLang('pt-BR')">BR</button>
+    </div>
   </div>
 </nav>
 
@@ -147,9 +141,7 @@
   <div id="content"></div>
 </main>
 
-<footer>
-  Chada Kids &middot; chada-kids.de
-</footer>
+<footer>Chada Kids &middot; chada-kids.de</footer>
 
 <script src="imprint-de.js"></script>
 <script src="imprint-en.js"></script>
@@ -161,66 +153,49 @@
 
 <script>
 const T_IMPRINT = {
-  de: typeof IMPRINT_DE !== 'undefined' ? IMPRINT_DE : window.IMPRINT_DE,
-  en: typeof IMPRINT_EN !== 'undefined' ? IMPRINT_EN : window.IMPRINT_EN,
-  es: typeof IMPRINT_ES !== 'undefined' ? IMPRINT_ES : window.IMPRINT_ES,
-  fr: typeof IMPRINT_FR !== 'undefined' ? IMPRINT_FR : window.IMPRINT_FR,
-  it: typeof IMPRINT_IT !== 'undefined' ? IMPRINT_IT : window.IMPRINT_IT,
-  'pt-PT': typeof IMPRINT_PT_PT !== 'undefined' ? IMPRINT_PT_PT : window.IMPRINT_PT_PT,
-  'pt-BR': typeof IMPRINT_PT_BR !== 'undefined' ? IMPRINT_PT_BR : window.IMPRINT_PT_BR
+  de: window.IMPRINT_DE, en: window.IMPRINT_EN, es: window.IMPRINT_ES, fr: window.IMPRINT_FR, it: window.IMPRINT_IT, 'pt-PT': window.IMPRINT_PT_PT, 'pt-BR': window.IMPRINT_PT_BR
 };
+
+const FLAGS = {
+  'de': `<svg class="lang-flag" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg>`,
+  'en': `<svg class="lang-flag" viewBox="0 0 60 30"><path d="M0,0v30h60v-30z" fill="#012169"/><path d="M0,0 60,30M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg>`,
+  'es': `<svg class="lang-flag" viewBox="0 0 4 3"><rect width="4" height="3" fill="#AA151B"/><rect y="0.75" width="4" height="1.5" fill="#F1BF00"/></svg>`,
+  'fr': `<svg class="lang-flag" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg>`,
+  'it': `<svg class="lang-flag" viewBox="0 0 3 2"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ce2b37"/></svg>`,
+  'pt-PT': `<svg class="lang-flag" viewBox="0 0 3 2"><rect width="1.2" height="2" fill="#006600"/><rect x="1.2" width="1.8" height="2" fill="#FF0000"/><circle cx="1.2" cy="1" r="0.3" fill="#FFFF00"/></svg>`,
+  'pt-BR': `<svg class="lang-flag" viewBox="0 0 7 5"><rect width="7" height="5" fill="#009C3B"/><path d="M3.5 0.5L6.5 2.5L3.5 4.5L0.5 2.5z" fill="#FFDF00"/><circle cx="3.5" cy="2.5" r="1" fill="#002776"/></svg>`
+};
+const LABELS = { 'de': 'DE', 'en': 'EN', 'es': 'ES', 'fr': 'FR', 'it': 'IT', 'pt-PT': 'PT', 'pt-BR': 'BR' };
+
+function toggleLangDropdown() { document.getElementById('lang-dropdown').classList.toggle('open'); }
+function pickLang(lang) { document.getElementById('lang-dropdown').classList.remove('open'); setLang(lang); }
 
 function setLang(lang) {
   localStorage.setItem('lang', lang);
   document.documentElement.lang = lang;
-
-  const contentBox = document.getElementById('content');
-  if (T_IMPRINT[lang]) {
-    contentBox.innerHTML = T_IMPRINT[lang];
-  } else {
-    contentBox.innerHTML = "<p>Translation coming soon / Übersetzung folgt.</p>";
-  }
-
-  const backTexts = { 
-    de: '← Zurück zur Startseite', 
-    en: '← Back to homepage', 
-    es: '← Volver al inicio',
-    fr: '← Retour à l\'accueil',
-    it: '← Torna alla home',
-    'pt-PT': '← Voltar ao início',
-    'pt-BR': '← Voltar ao início'
-  };
-  const titles = { 
-    de: 'Impressum – 1+1=3', 
-    en: 'Imprint – 1+1=3', 
-    es: 'Aviso Legal – 1+1=3',
-    fr: 'Mentions Légales – 1+1=3',
-    it: 'Note Legali – 1+1=3',
-    'pt-PT': 'Aviso Legal – 1+1=3',
-    'pt-BR': 'Aviso Legal – 1+1=3'
-  };
-
-  const backLink = document.getElementById('back-link');
-  if(backLink) {
-    backLink.textContent = backTexts[lang];
-    backLink.href = 'index.html?lang=' + lang;
-  }
+  document.getElementById('dd-flag-wrap').innerHTML = FLAGS[lang];
+  document.getElementById('dd-label-current').textContent = LABELS[lang];
   
-  document.title = titles[lang];
-
+  const contentBox = document.getElementById('content');
+  if (T_IMPRINT[lang]) contentBox.innerHTML = T_IMPRINT[lang];
+  
+  const backTexts = { de: '← Zurück zur Startseite', en: '← Back to homepage', es: '← Volver al inicio', fr: '← Retour à l\'accueil', it: '← Torna alla home', 'pt-PT': '← Voltar ao início', 'pt-BR': '← Voltar ao início' };
+  const backLink = document.getElementById('back-link');
+  if(backLink) { backLink.textContent = backTexts[lang]; backLink.href = 'index.html?lang=' + lang; }
+  
   ['de','en','es','fr','it','pt-PT','pt-BR'].forEach(l => {
-    const btn = document.getElementById('btn-' + l);
-    if(btn) btn.classList.toggle('active', l === lang);
+    const el = document.getElementById('opt-' + l);
+    if (el) {
+        el.classList.toggle('active', l === lang);
+        el.innerHTML = FLAGS[l] + ' ' + LABELS[l];
+    }
   });
 }
 
-const urlParams = new URLSearchParams(window.location.search);
-const urlLang = urlParams.get('lang');
-const savedLang = urlLang || localStorage.getItem('lang') || 'de';
+document.addEventListener('click', e => { if (!document.getElementById('lang-dropdown').contains(e.target)) document.getElementById('lang-dropdown').classList.remove('open'); });
 
-window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => setLang(savedLang), 50);
-});
+const urlParams = new URLSearchParams(window.location.search);
+setLang(urlParams.get('lang') || localStorage.getItem('lang') || 'de');
 </script>
 
 </body>
