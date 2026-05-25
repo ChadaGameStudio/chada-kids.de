@@ -450,8 +450,8 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </a>
   </div>
-  <p style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; background: rgba(232,82,122,0.1); border: 1px solid rgba(232,82,122,0.3); border-radius: 30px; display: inline-block; padding: 0.5rem 1.5rem;">
-    🚀 <span id="launch-text">Launch im Play Store: <strong style="color: #e8527a;">01.08.2026</strong></span>
+  <p id="launch-text" style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; background: rgba(232,82,122,0.1); border: 1px solid rgba(232,82,122,0.3); border-radius: 30px; display: inline-block; padding: 0.5rem 1.5rem;">
+    🚀 Launch im Play Store: <strong style="color: #e8527a;">01.08.2026</strong>
   </p>
 </section>
 
@@ -607,7 +607,7 @@ function toggleAudio() {
 
 let currentLang = 'de';
 
-// Dynamischer Getter, der den Fehler abfängt und Variablen direkt aus dem Scope greift
+// Dynamischer Getter
 const getT = () => ({
   de: typeof LANG_INDEX_DE !== 'undefined' ? LANG_INDEX_DE : window.LANG_INDEX_DE,
   en: typeof LANG_INDEX_EN !== 'undefined' ? LANG_INDEX_EN : window.LANG_INDEX_EN,
@@ -623,14 +623,16 @@ function setLang(lang) {
   const T = getT();
   const t = T[lang];
   
-  // Sicherheitscheck: Verhindert den "Cannot convert undefined or null to object" Crash
+  // Wenn die Sprachdaten existieren, die Texte ersetzen
   if (t) {
     Object.keys(t).forEach(id => {
       const el = document.getElementById(id);
-      if (el) el.textContent = t[id];
+      // WICHTIG: innerHTML statt textContent bewahrt HTML-Elemente wie <strong> in deinen Übersetzungen
+      if (el) el.innerHTML = t[id]; 
     });
   } else {
-    console.warn("Sprachdaten für '" + lang + "' nicht gefunden.");
+    // Gibt einen Fehler in der Entwickler-Konsole aus, wenn die Datei/Variable fehlt
+    console.error("Sprachdaten für '" + lang + "' nicht gefunden. Bitte überprüfe die Datei lang-" + lang + ".js und stelle sicher, dass die Variable korrekt deklariert ist.");
   }
 
   const audio = document.getElementById('bg-audio');
