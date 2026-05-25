@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App-Datenschutz – 1+1=3</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink: #e8527a;
+      --blue: #4fc3f7;
+      --bg: #1a1f2e;
+      --bg-nav: rgba(16, 20, 32, 0.97);
+      --text: #ffffff;
+      --text-muted: rgba(255,255,255,0.65);
+      --text-faint: rgba(255,255,255,0.4);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      background: var(--bg-nav);
+      border-bottom: 0.5px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-logo a { color: #fff; text-decoration: none; }
+
+    .lang-switcher { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
+    .lang-btn {
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: rgba(232,82,122,0.18);
+      border-color: rgba(232,82,122,0.5);
+      color: #fff;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    #privacy-content h1 { font-size: 2rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.5px; }
+    #privacy-content h2 { font-size: 1.25rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #fff; }
+    #privacy-content h3 { font-size: 1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; color: rgba(255,255,255,0.9); }
+    #privacy-content p, #privacy-content li { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
+    #privacy-content .upper { text-transform: uppercase; font-size: 0.88rem; letter-spacing: 0.5px; }
+    
+    a { color: var(--pink); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.9rem;
+    }
+    .back-link:hover { color: var(--pink); }
+
+    footer {
+      border-top: 0.5px solid rgba(255,255,255,0.08);
+      padding: 2rem;
+      text-align: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 1rem 1.25rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+      #privacy-content h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="index.html"><img src="logo%20(2).png" alt="1+1=3" style="height: 36px; width: auto;" /></a>
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" id="btn-it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" id="btn-pt-PT" onclick="setLang('pt-PT')">PT</button>
+    <button class="lang-btn" id="btn-pt-BR" onclick="setLang('pt-BR')">BR</button>
+  </div>
+</nav>
+
+<main>
+  <a href="index.html" class="back-link" id="back-link">← Zurück zur Startseite</a>
+
+  <div id="privacy-content"></div>
+</main>
+
+<footer>
+  Chada Kids &middot; chada-kids.de
+</footer>
+
+<script src="app-privacy-de.js"></script>
+<script src="app-privacy-en.js"></script>
+<script src="app-privacy-es.js"></script>
+<script src="app-privacy-fr.js"></script>
+<script src="app-privacy-it.js"></script>
+<script src="app-privacy-pt-PT.js"></script>
+
+<script>
+// Variablen-Namen auf APP_PRIVACY geändert
+const T_APP_PRIVACY = {
+  de: typeof APP_PRIVACY_DE !== 'undefined' ? APP_PRIVACY_DE : window.APP_PRIVACY_DE,
+  en: typeof APP_PRIVACY_EN !== 'undefined' ? APP_PRIVACY_EN : window.APP_PRIVACY_EN,
+  es: typeof APP_PRIVACY_ES !== 'undefined' ? APP_PRIVACY_ES : window.APP_PRIVACY_ES,
+  fr: typeof APP_PRIVACY_FR !== 'undefined' ? APP_PRIVACY_FR : window.APP_PRIVACY_FR,
+  it: typeof APP_PRIVACY_IT !== 'undefined' ? APP_PRIVACY_IT : window.APP_PRIVACY_IT,
+  'pt-PT': typeof APP_PRIVACY_PT_PT !== 'undefined' ? APP_PRIVACY_PT_PT : window.APP_PRIVACY_PT_PT,
+  // Brasilien folgt später
+  'pt-BR': typeof APP_PRIVACY_PT_BR !== 'undefined' ? APP_PRIVACY_PT_BR : null 
+};
+
+function setLang(lang) {
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+
+  const contentBox = document.getElementById('privacy-content');
+  if (T_APP_PRIVACY[lang]) {
+    contentBox.innerHTML = T_APP_PRIVACY[lang];
+  } else {
+    contentBox.innerHTML = "<p>Translation coming soon / Übersetzung folgt.</p>";
+  }
+
+  const backTexts = { 
+    de: '← Zurück zur Startseite', 
+    en: '← Back to homepage', 
+    es: '← Volver al inicio',
+    fr: '← Retour à l\'accueil',
+    it: '← Torna alla home',
+    'pt-PT': '← Voltar ao início',
+    'pt-BR': '← Voltar ao início'
+  };
+  const titles = { 
+    de: 'App-Datenschutz – 1+1=3', 
+    en: 'App Privacy – 1+1=3', 
+    es: 'Privacidad de App – 1+1=3',
+    fr: 'Confidentialité App – 1+1=3',
+    it: 'Privacy App – 1+1=3',
+    'pt-PT': 'Privacidade App – 1+1=3',
+    'pt-BR': 'Privacidade App – 1+1=3'
+  };
+
+  const backLink = document.getElementById('back-link');
+  if(backLink) {
+    backLink.textContent = backTexts[lang];
+    backLink.href = 'index.html?lang=' + lang;
+  }
+  
+  document.title = titles[lang];
+
+  ['de','en','es','fr','it','pt-PT','pt-BR'].forEach(l => {
+    const btn = document.getElementById('btn-' + l);
+    if(btn) btn.classList.toggle('active', l === lang);
+  });
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+const urlLang = urlParams.get('lang');
+const savedLang = urlLang || localStorage.getItem('lang') || 'de';
+
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => setLang(savedLang), 50);
+});
+</script>
+
+</body>
+</html>
