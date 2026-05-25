@@ -18,7 +18,7 @@ window.LANG_INDEX_PT_BR = {
     'privacy-title': 'Seu desejo de engravidar fica privado. Prometido.',
     'privacy-desc': 'O app guarda tudo localmente no seu celular. Sem conta, sem servidor, sem compartilhamento com terceiros. O que você registra fica com você.',
     'cta-title': 'Prontos para o próximo passo de vocês?',
-    'cta-desc': 'Comece grátis, teste tudo por 7 dias.',
+    'cta-desc': 'Comece grátis, teste tudo por 30 dias.',
     'final-btn': 'Baixar na Play Store',
     'final-note': 'Apenas para Android. iOS em breve.',
     'footer-privacy': 'Privacidade',

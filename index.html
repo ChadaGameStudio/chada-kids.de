@@ -238,9 +238,24 @@
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(6, 1fr);
       gap: 1.25rem;
       margin-top: 2.5rem;
+    }
+    .features-grid .feature-card { grid-column: span 2; }
+    .features-grid .feature-card:nth-child(4) { grid-column: 2 / 4; }
+    .features-grid .feature-card:nth-child(5) { grid-column: 4 / 6; }
+
+    @media (max-width: 700px) {
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .features-grid .feature-card { grid-column: span 1; }
+      .features-grid .feature-card:nth-child(4) { grid-column: span 1; }
+      .features-grid .feature-card:nth-child(5) { grid-column: span 1; }
+    }
+    @media (max-width: 480px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .features-grid .feature-card:nth-child(4),
+      .features-grid .feature-card:nth-child(5) { grid-column: 1; }
     }
 
     .feature-card {
@@ -457,7 +472,7 @@
 <!-- FINAL CTA -->
 <section class="cta-section">
   <h2 id="cta-title">Bereit für euren nächsten Schritt?</h2>
-  <p id="cta-desc">Kostenlos starten, 7 Tage alles testen.</p>
+  <p id="cta-desc">Kostenlos starten, 30 Tage alles testen.</p>
   <a href="#" class="btn-primary grad-bg-pink">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.65.2.97.09l12.4-7.17-2.58-2.59-10.79 9.67zm-1.63-21.1A1.5 1.5 0 0 0 1.5 3.75v16.5c0 .49.24.94.64 1.21l.04.03 9.25-9.26v-.22L1.59 2.69l-.04.03zM20.47 10.3l-2.6-1.5-2.9 2.9 2.9 2.9 2.62-1.52a1.83 1.83 0 0 0 0-3.18v-.6zm-17.3 12.13L16.55 14l-2.58-2.58-10.8 10.8.04.04z"/></svg>
     <span id="final-btn">Im Play Store herunterladen</span>

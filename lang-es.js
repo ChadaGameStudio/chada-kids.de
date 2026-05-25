@@ -18,7 +18,7 @@ window.LANG_INDEX_ES = {
     'privacy-title': 'Tu deseo de ser madre queda en privado. Prometido.',
     'privacy-desc': 'La app guarda todo localmente en tu teléfono. Sin cuenta, sin servidor, sin compartir con terceros. Lo que introduces se queda contigo.',
     'cta-title': '¿Listos para vuestro próximo paso?',
-    'cta-desc': 'Empieza gratis, prueba todo durante 7 días.',
+    'cta-desc': 'Empieza gratis, prueba todo durante 30 días.',
     'final-btn': 'Descargar en Play Store',
     'final-note': 'Solo para Android. iOS próximamente.',
     'footer-privacy': 'Privacidad',

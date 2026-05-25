@@ -18,7 +18,7 @@ window.LANG_INDEX_EN = {
     'privacy-title': 'Your wish to conceive stays private. Promise.',
     'privacy-desc': 'The app stores everything locally on your phone. No account, no server, no third-party sharing. What you enter stays with you.',
     'cta-title': 'Ready for your next step?',
-    'cta-desc': 'Start free, try everything for 7 days.',
+    'cta-desc': 'Start free, try everything for 30 days.',
     'final-btn': 'Download on Play Store',
     'final-note': 'Android only. iOS coming soon.',
     'footer-privacy': 'Privacy Policy',
