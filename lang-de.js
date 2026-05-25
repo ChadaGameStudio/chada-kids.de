@@ -32,7 +32,8 @@ window.LANG_INDEX_DE = {
     'no-free-p4': 'Deine Daten bleiben ausschließlich auf deinem Gerät und gehören nur dir.',
     'no-free-p5': '1+1=3 kostet einen kleinen Betrag, weil wir nicht mit deinen Daten bezahlen lassen.',
     'no-free-tagline': 'Die App ist das Produkt. Nicht du.',
-    'footer-privacy': 'Datenschutz',
+    'footer-privacy': 'Website-Datenschutz',
+    'footer-app-privacy': 'App-Datenschutz',
     'footer-imprint': 'Impressum',
     'launch-text': 'Launch im Play Store: 01.08.2026'
 };

@@ -32,7 +32,8 @@ window.LANG_INDEX_PT_PT = {
     'no-free-p4': 'Os teus dados ficam exclusivamente no teu dispositivo e pertencem só a ti.',
     'no-free-p5': 'A 1+1=3 custa um valor pequeno porque não te fazemos pagar com os teus dados.',
     'no-free-tagline': 'A app é o produto. Não tu.',
-    'footer-privacy': 'Privacidade',
+    'footer-privacy': 'Privacidade Site',
+    'footer-app-privacy': 'Privacidade App',
     'footer-imprint': 'Aviso legal',
     'launch-text': 'Lançamento na Play Store: 01/08/2026'
 };

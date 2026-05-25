@@ -32,7 +32,8 @@ window.LANG_INDEX_EN = {
     'no-free-p4': 'Your data stays exclusively on your device and belongs only to you.',
     'no-free-p5': "1+1=3 costs a small amount because we don't make you pay with your data.",
     'no-free-tagline': 'The app is the product. Not you.',
-    'footer-privacy': 'Privacy Policy',
+    'footer-privacy': 'Website Privacy',
+    'footer-app-privacy': 'App Privacy',
     'footer-imprint': 'Imprint',
     'launch-text': 'Launching on Play Store: August 1, 2026'
 };
