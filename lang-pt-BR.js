@@ -1,5 +1,5 @@
 window.LANG_INDEX_PT_BR = {
-    'hero-title': 'Engravidar não é ciência exata.',
+    'hero-title': 'Engravidar não tem segredo.',
     'hero-sub': 'O rastreador de fertilidade que simplesmente funciona. Claro, acolhedor, totalmente privado.',
     'cta-primary-text': 'Baixar agora',
     'cta-secondary-text': 'Saiba mais',

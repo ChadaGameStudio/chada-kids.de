@@ -1,5 +1,5 @@
 window.LANG_INDEX_ES = {
-    'hero-title': 'Quedarse embarazada no es ciencia exacta.',
+    'hero-title': 'Quedarse embarazada no tiene ciencia.',
     'hero-sub': 'El rastreador de fertilidad que simplemente funciona. Claro, cálido, completamente privado.',
     'cta-primary-text': 'Descargar ahora',
     'cta-secondary-text': 'Saber más',
