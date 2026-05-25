@@ -376,7 +376,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
     <img src="logo%20(2).png" alt="1+1=3" style="height: 36px; width: auto;" />
@@ -437,7 +436,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <img src="logo%20(2).png" alt="1+1=3 Logo" style="width: 320px; max-width: 80%; height: auto; margin-bottom: 2rem;" />
   <h1 id="hero-title">Schwanger werden ist keine Wissenschaft.</h1>
@@ -457,12 +455,10 @@
   </p>
 </section>
 
-<!-- PHONE MOCKUP -->
 <div class="screenshot-wrap">
   <img src="phone.png" alt="App Mockup" class="phone-mockup" style="width: 420px; max-width: 85%; height: auto;" onclick="openLightbox()" />
 </div>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
@@ -471,7 +467,6 @@
   </div>
 </div>
 
-<!-- FEATURES -->
 <section id="features">
   <div class="container">
     <h2 class="section-title" id="features-title">Was die App kann</h2>
@@ -509,7 +504,6 @@
   </div>
 </section>
 
-<!-- PRIVACY -->
 <section>
   <div class="privacy-box">
     <div class="shield"><img src="schutzschild.png" alt="Schutzschild" style="width:80px;height:80px;object-fit:contain;" /></div>
@@ -518,27 +512,19 @@
   </div>
 </section>
 
-<!-- NO FREE VERSION -->
 <section>
   <div class="no-free-box">
     <div class="no-free-icon">
       <svg width="36" height="36" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <!-- Phone body -->
         <rect x="13" y="5" width="18" height="27" rx="3"/>
-        <!-- Vault circle -->
         <circle cx="22" cy="18" r="5"/>
-        <!-- Vault spokes -->
         <line x1="22" y1="13" x2="22" y2="15.2"/>
         <line x1="22" y1="20.8" x2="22" y2="23"/>
         <line x1="17" y1="18" x2="19.2" y2="18"/>
         <line x1="24.8" y1="18" x2="27" y2="18"/>
-        <!-- Dial knob -->
         <circle cx="23.8" cy="18" r="1.1" fill="currentColor" stroke="none"/>
-        <!-- Left hand arc -->
         <path d="M11 32 C7 28 6 22 7.5 16 C8.5 12 11 9.5 13.5 10.5"/>
-        <!-- Right hand arc -->
         <path d="M33 32 C37 28 38 22 36.5 16 C35.5 12 33 9.5 30.5 10.5"/>
-        <!-- Hands cupping bottom -->
         <path d="M11 32 C11 37 15.5 39.5 22 39.5 C28.5 39.5 33 37 33 32"/>
       </svg>
     </div>
@@ -558,7 +544,6 @@
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="cta-section">
   <h2 id="cta-title">Bereit für euren nächsten Schritt?</h2>
   <p id="cta-desc">Kostenlos starten, 30 Tage alles testen.</p>
@@ -573,7 +558,6 @@
   <source src="1+1=3Mainsong.mp3" type="audio/mpeg">
 </audio>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">
     <img src="logo%20(2).png" alt="1+1=3" style="height: 48px; width: auto; opacity: 0.85;" />
@@ -623,22 +607,32 @@ function toggleAudio() {
 
 let currentLang = 'de';
 
-const T = {
-  de: window.LANG_INDEX_DE,
-  en: window.LANG_INDEX_EN,
-  es: window.LANG_INDEX_ES,
-  'pt-BR': window.LANG_INDEX_PT_BR
-};
+// Dynamischer Getter, der den Fehler abfängt und Variablen direkt aus dem Scope greift
+const getT = () => ({
+  de: typeof LANG_INDEX_DE !== 'undefined' ? LANG_INDEX_DE : window.LANG_INDEX_DE,
+  en: typeof LANG_INDEX_EN !== 'undefined' ? LANG_INDEX_EN : window.LANG_INDEX_EN,
+  es: typeof LANG_INDEX_ES !== 'undefined' ? LANG_INDEX_ES : window.LANG_INDEX_ES,
+  'pt-BR': typeof LANG_INDEX_PT_BR !== 'undefined' ? LANG_INDEX_PT_BR : window.LANG_INDEX_PT_BR
+});
 
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
   document.documentElement.lang = lang;
+  
+  const T = getT();
   const t = T[lang];
-  Object.keys(t).forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = t[id];
-  });
+  
+  // Sicherheitscheck: Verhindert den "Cannot convert undefined or null to object" Crash
+  if (t) {
+    Object.keys(t).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = t[id];
+    });
+  } else {
+    console.warn("Sprachdaten für '" + lang + "' nicht gefunden.");
+  }
+
   const audio = document.getElementById('bg-audio');
   const label = document.getElementById('audio-label');
   if (label) {
