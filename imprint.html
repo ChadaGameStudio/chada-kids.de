@@ -39,7 +39,7 @@
 
     .nav-logo a { color: #fff; text-decoration: none; }
 
-    .lang-switcher { display: flex; gap: 0.4rem; }
+    .lang-switcher { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
     .lang-btn {
       padding: 0.35rem 0.9rem;
       border-radius: 20px;
@@ -63,14 +63,14 @@
       padding: 3rem 2rem 5rem;
     }
 
-    h1 {
+    #content h1 {
       font-size: 2rem;
       font-weight: 800;
       margin-bottom: 2rem;
       letter-spacing: -0.5px;
     }
 
-    h2 {
+    #content h2 {
       font-size: 0.88rem;
       font-weight: 700;
       margin-top: 2.5rem;
@@ -80,21 +80,21 @@
       letter-spacing: 0.5px;
     }
 
-    p {
+    #content p {
       color: var(--text-muted);
       font-size: 0.95rem;
       margin-bottom: 0.5rem;
     }
 
-    .section {
+    #content .section {
       padding-bottom: 1.5rem;
       border-bottom: 1px solid rgba(255,255,255,0.08);
       margin-bottom: 1rem;
     }
-    .section:last-of-type { border-bottom: none; }
+    #content .section:last-of-type { border-bottom: none; }
 
-    a { color: var(--pink); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    #content a { color: var(--pink); text-decoration: none; }
+    #content a:hover { text-decoration: underline; }
 
     .back-link {
       display: inline-block;
@@ -104,7 +104,7 @@
     }
     .back-link:hover { color: var(--pink); }
 
-    .source {
+    #content .source {
       margin-top: 2rem;
       color: rgba(255,255,255,0.3);
       font-size: 0.85rem;
@@ -121,7 +121,7 @@
     @media (max-width: 480px) {
       nav { padding: 1rem 1.25rem; }
       main { padding: 2rem 1.25rem 4rem; }
-      h1 { font-size: 1.6rem; }
+      #content h1 { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -135,6 +135,9 @@
     <button class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
     <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
     <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" id="btn-it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" id="btn-pt-PT" onclick="setLang('pt-PT')">PT</button>
     <button class="lang-btn" id="btn-pt-BR" onclick="setLang('pt-BR')">BR</button>
   </div>
 </nav>
@@ -148,51 +151,76 @@
   Chada Kids &middot; chada-kids.de
 </footer>
 
+<script src="imprint-de.js"></script>
+<script src="imprint-en.js"></script>
+<script src="imprint-es.js"></script>
+<script src="imprint-fr.js"></script>
+<script src="imprint-it.js"></script>
+<script src="imprint-pt-PT.js"></script>
+<script src="imprint-pt-BR.js"></script>
+
 <script>
-const SUPPORTED_LANGS = ['de', 'en', 'es', 'pt-BR'];
-
-const BACK_TEXTS = {
-  'de': '← Zurück zur Startseite',
-  'en': '← Back to homepage',
-  'es': '← Volver al inicio',
-  'pt-BR': '← Voltar ao início'
+const T_IMPRINT = {
+  de: typeof IMPRINT_DE !== 'undefined' ? IMPRINT_DE : window.IMPRINT_DE,
+  en: typeof IMPRINT_EN !== 'undefined' ? IMPRINT_EN : window.IMPRINT_EN,
+  es: typeof IMPRINT_ES !== 'undefined' ? IMPRINT_ES : window.IMPRINT_ES,
+  fr: typeof IMPRINT_FR !== 'undefined' ? IMPRINT_FR : window.IMPRINT_FR,
+  it: typeof IMPRINT_IT !== 'undefined' ? IMPRINT_IT : window.IMPRINT_IT,
+  'pt-PT': typeof IMPRINT_PT_PT !== 'undefined' ? IMPRINT_PT_PT : window.IMPRINT_PT_PT,
+  'pt-BR': typeof IMPRINT_PT_BR !== 'undefined' ? IMPRINT_PT_BR : window.IMPRINT_PT_BR
 };
 
-const TITLES = {
-  'de': 'Impressum – 1+1=3',
-  'en': 'Imprint – 1+1=3',
-  'es': 'Aviso legal – 1+1=3',
-  'pt-BR': 'Aviso legal – 1+1=3'
-};
-
-async function setLang(lang) {
-  if (!SUPPORTED_LANGS.includes(lang)) lang = 'de';
-
+function setLang(lang) {
   localStorage.setItem('lang', lang);
   document.documentElement.lang = lang;
-  document.title = TITLES[lang];
-  document.getElementById('back-link').textContent = BACK_TEXTS[lang];
 
-  SUPPORTED_LANGS.forEach(function(l) {
-    document.getElementById('btn-' + l).classList.toggle('active', l === lang);
-  });
-
-  try {
-    const response = await fetch('imprint-' + lang + '.html');
-    if (!response.ok) throw new Error('HTTP ' + response.status);
-    const html = await response.text();
-    document.getElementById('content').innerHTML = html;
-  } catch (e) {
-    console.error('Could not load imprint content for', lang, e);
-    document.getElementById('content').innerHTML = '<p>Inhalt konnte nicht geladen werden. / Content could not be loaded.</p>';
+  const contentBox = document.getElementById('content');
+  if (T_IMPRINT[lang]) {
+    contentBox.innerHTML = T_IMPRINT[lang];
+  } else {
+    contentBox.innerHTML = "<p>Translation coming soon / Übersetzung folgt.</p>";
   }
+
+  const backTexts = { 
+    de: '← Zurück zur Startseite', 
+    en: '← Back to homepage', 
+    es: '← Volver al inicio',
+    fr: '← Retour à l\'accueil',
+    it: '← Torna alla home',
+    'pt-PT': '← Voltar ao início',
+    'pt-BR': '← Voltar ao início'
+  };
+  const titles = { 
+    de: 'Impressum – 1+1=3', 
+    en: 'Imprint – 1+1=3', 
+    es: 'Aviso Legal – 1+1=3',
+    fr: 'Mentions Légales – 1+1=3',
+    it: 'Note Legali – 1+1=3',
+    'pt-PT': 'Aviso Legal – 1+1=3',
+    'pt-BR': 'Aviso Legal – 1+1=3'
+  };
+
+  const backLink = document.getElementById('back-link');
+  if(backLink) {
+    backLink.textContent = backTexts[lang];
+    backLink.href = 'index.html?lang=' + lang;
+  }
+  
+  document.title = titles[lang];
+
+  ['de','en','es','fr','it','pt-PT','pt-BR'].forEach(l => {
+    const btn = document.getElementById('btn-' + l);
+    if(btn) btn.classList.toggle('active', l === lang);
+  });
 }
 
-// URL-Parameter hat Vorrang, dann localStorage
 const urlParams = new URLSearchParams(window.location.search);
 const urlLang = urlParams.get('lang');
 const savedLang = urlLang || localStorage.getItem('lang') || 'de';
-setLang(savedLang);
+
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => setLang(savedLang), 50);
+});
 </script>
 
 </body>
