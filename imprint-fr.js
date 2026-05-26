@@ -1,4 +1,4 @@
-const IMPRINT_FR = `
+window.IMPRINT_FR = `
 <h1>Mentions Légales</h1>
 
 <div class="section">

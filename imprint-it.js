@@ -1,4 +1,4 @@
-const IMPRINT_IT = `
+window.IMPRINT_IT = `
 <h1>Note Legali (Impressum)</h1>
 
 <div class="section">

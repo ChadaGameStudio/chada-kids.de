@@ -1,4 +1,4 @@
-const APP_PRIVACY_EN = `
+window.APP_PRIVACY_EN = `
 <h1>Privacy Policy for the App "1+1 = 3"</h1>
 <p class="upper">Last updated: May 2026</p>
 

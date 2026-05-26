@@ -1,4 +1,4 @@
-const IMPRINT_EN = `
+window.IMPRINT_EN = `
 <h1>Legal Notice (Imprint)</h1>
 
 <div class="section">

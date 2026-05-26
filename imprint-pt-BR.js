@@ -1,4 +1,4 @@
-const IMPRINT_PT_BR = `
+window.IMPRINT_PT_BR = `
 <h1>Aviso Legal</h1>
 
 <div class="section">

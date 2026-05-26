@@ -1,4 +1,4 @@
-const IMPRINT_DE = `
+window.IMPRINT_DE = `
 <h1>Impressum</h1>
 
 <div class="section">
