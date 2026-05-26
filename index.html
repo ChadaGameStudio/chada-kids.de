@@ -14,10 +14,10 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --pink: #e8527a;
-      --pink-dark: #c43d62;
-      --blue: #4fc3f7;
-      --blue-dark: #0288d1;
+      --pink: #e87a98;
+      --pink-dark: #c46b80;
+      --blue: #7eb8d9;
+      --blue-dark: #5a9bbf;
       --bg: #1a1f2e;
       --bg-nav: rgba(16, 20, 32, 0.97);
       --bg-card: rgba(255,255,255,0.04);
@@ -73,8 +73,8 @@
       line-height: 1;
     }
     .lang-dropdown-btn:hover {
-      border-color: rgba(232,82,122,0.5);
-      background: rgba(232,82,122,0.1);
+      border-color: rgba(232,122,152,0.5);
+      background: rgba(232,122,152,0.1);
     }
     .lang-dropdown-arrow {
       width: 10px;
@@ -112,7 +112,7 @@
       text-align: left;
     }
     .lang-option:hover { background: rgba(255,255,255,0.05); color: #fff; }
-    .lang-option.active { color: #fff; background: rgba(232,82,122,0.12); }
+    .lang-option.active { color: #fff; background: rgba(232,122,152,0.12); }
     .lang-flag {
       display: block;
       width: 20px;
@@ -267,23 +267,23 @@
       margin-bottom: 1rem;
       font-size: 1.2rem;
     }
-    .icon-pink { background: rgba(232,82,122,0.15); color: var(--pink); }
-    .icon-blue { background: rgba(79,195,247,0.12); color: var(--blue); }
+    .icon-pink { background: rgba(232,122,152,0.15); color: var(--pink); }
+    .icon-blue { background: rgba(126,184,217,0.12); color: var(--blue); }
 
-    .feature-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .feature-card p { font-size: 0.825rem; color: var(--text-muted); line-height: 1.6; }
+    .feature-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .feature-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; }
 
     .privacy-box {
       max-width: 580px;
       margin: 0 auto;
-      background: rgba(79,195,247,0.04);
-      border: 1px solid rgba(79,195,247,0.17);
+      background: rgba(126,184,217,0.04);
+      border: 1px solid rgba(126,184,217,0.17);
       border-radius: 20px;
       padding: 3rem 2rem;
       text-align: center;
     }
-    .privacy-box h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; }
-    .privacy-box p { color: var(--text-muted); font-size: 0.95rem; }
+    .privacy-box h2 { font-size: 1.55rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .privacy-box p { color: var(--text-muted); font-size: 1.05rem; }
 
     .no-free-box {
       max-width: 680px;
@@ -303,8 +303,8 @@
       justify-content: center;
       margin: 0 auto 1.5rem;
     }
-    .no-free-box h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.25rem; }
-    .no-free-box p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 0.9rem; }
+    .no-free-box h2 { font-size: 1.45rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .no-free-box p { font-size: 1.02rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 0.9rem; }
     .no-free-badges {
       display: flex;
       flex-wrap: wrap;
@@ -313,16 +313,16 @@
       margin: 1.25rem 0;
     }
     .no-free-badge {
-      background: rgba(232,82,122,0.12);
-      border: 1px solid rgba(232,82,122,0.3);
+      background: rgba(232,122,152,0.12);
+      border: 1px solid rgba(232,122,152,0.3);
       border-radius: 30px;
-      padding: 0.35rem 0.9rem;
-      font-size: 0.82rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--pink);
     }
     .no-free-tagline {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 800;
       background: linear-gradient(135deg, var(--pink), #9b5fcc);
       -webkit-background-clip: text;
@@ -370,9 +370,9 @@
     <img src="logo%20(2).png" alt="1+1=3" style="height: 36px; width: auto;" />
   </div>
   <div style="display:flex; align-items:center; gap:0.75rem;">
-    <button id="audio-btn" onclick="toggleAudio()" aria-label="Musik abspielen" style="display:flex; align-items:center; gap:0.4rem; background:rgba(232,82,122,0.12); border:1px solid rgba(232,82,122,0.3); border-radius:20px; padding:0.35rem 0.8rem; cursor:pointer; color:rgba(255,255,255,0.7); font-size:0.78rem; transition:all 0.2s;">
-      <svg id="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="#e8527a"><path d="M8 5v14l11-7z"/></svg>
-      <svg id="icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="#e8527a" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    <button id="audio-btn" onclick="toggleAudio()" aria-label="Musik abspielen" style="display:flex; align-items:center; gap:0.4rem; background:rgba(232,122,152,0.12); border:1px solid rgba(232,122,152,0.3); border-radius:20px; padding:0.35rem 0.8rem; cursor:pointer; color:rgba(255,255,255,0.7); font-size:0.78rem; transition:all 0.2s;">
+      <svg id="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="#e87a98"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="#e87a98" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
       <span id="audio-label">Musik</span>
     </button>
     <div class="lang-dropdown" id="lang-dropdown">
@@ -463,8 +463,8 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </a>
   </div>
-  <p id="launch-text" style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; background: rgba(232,82,122,0.1); border: 1px solid rgba(232,82,122,0.3); border-radius: 30px; display: inline-block; padding: 0.5rem 1.5rem;">
-    🚀 Launch im Play Store: <strong style="color: #e8527a;">01.08.2026</strong>
+  <p id="launch-text" style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; background: rgba(232,122,152,0.1); border: 1px solid rgba(232,122,152,0.3); border-radius: 30px; display: inline-block; padding: 0.5rem 1.5rem;">
+    🚀 Launch im Play Store: <strong style="color: #e87a98;">01.08.2026</strong>
   </p>
 </section>
 
@@ -515,7 +515,7 @@
 
 <section>
   <div class="privacy-box">
-    <div class="shield"><img src="schutzschild.png" alt="Schutzschild" style="width:80px;height:80px;object-fit:contain;" /></div>
+    <div class="shield"><img src="schutzschild.png" alt="Schutzschild" style="width:160px;height:160px;object-fit:contain;" /></div>
     <h2 id="privacy-title">Dein Kinderwunsch bleibt privat. Versprochen.</h2>
     <p id="privacy-desc">Die App speichert alles lokal auf deinem Telefon. Kein Account, kein Server, keine Weitergabe an Dritte. Was du einträgst, bleibt bei dir.</p>
   </div>
