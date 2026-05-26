@@ -288,22 +288,20 @@
     .no-free-box {
       max-width: 680px;
       margin: 0 auto;
-      background: linear-gradient(160deg, rgba(232,82,122,0.08) 0%, rgba(155,95,204,0.06) 100%);
-      border: 1px solid rgba(232,82,122,0.25);
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
       border-radius: 24px;
       padding: 3rem 2.5rem;
       text-align: center;
     }
     .no-free-icon {
-      width: 68px;
-      height: 68px;
-      background: rgba(232,82,122,0.12);
-      border-radius: 20px;
+      width: 80px;
+      height: 80px;
+      background: none;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 1.5rem;
-      color: var(--pink);
     }
     .no-free-box h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.25rem; }
     .no-free-box p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 0.9rem; }
@@ -487,27 +485,27 @@
     <h2 class="section-title" id="features-title">Was die App kann</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon" style="background:none;"><img src="zyklus.png?v=1" alt="Zyklusverfolgung" style="width:44px;height:44px;object-fit:contain;" /></div>
+        <div class="feature-icon" style="background:none;"><img src="zyklus.png?v=1" alt="Zyklusverfolgung" style="width:88px;height:88px;object-fit:contain;" /></div>
         <h3 id="f1-title">Zyklusverfolgung</h3>
         <p id="f1-desc">Alle 5 Phasen auf einen Blick. Follikelphase, Ovulation, Lutealphase und mehr.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:none;"><img src="Fertilitaetsfenster.png?v=1" alt="Fertilitätsfenster" style="width:44px;height:44px;object-fit:contain;" /></div>
+        <div class="feature-icon" style="background:none;"><img src="Fertilitaetsfenster.png?v=1" alt="Fertilitätsfenster" style="width:88px;height:88px;object-fit:contain;" /></div>
         <h3 id="f2-title">Fertilitätsfenster</h3>
         <p id="f2-desc">Deine fruchtbaren Tage immer im Blick. Mit Vorhersage und täglichen Erinnerungen.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:none;"><img src="100%25%20Privat.png?v=1" alt="100% Privat" style="width:44px;height:44px;object-fit:contain;" /></div>
+        <div class="feature-icon" style="background:none;"><img src="100%25%20Privat.png?v=1" alt="100% Privat" style="width:88px;height:88px;object-fit:contain;" /></div>
         <h3 id="f3-title">100% Privat</h3>
         <p id="f3-desc">Kein Server, keine Cloud. Alle Daten bleiben ausschließlich auf deinem Gerät.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:none;"><img src="tagebuch.png?v=3" alt="Tagebuch" style="width:80px;height:80px;object-fit:contain;" /></div>
+        <div class="feature-icon" style="background:none;"><img src="tagebuch.png?v=3" alt="Tagebuch" style="width:160px;height:160px;object-fit:contain;" /></div>
         <h3 id="f4-title">Tagebuch</h3>
         <p id="f4-desc">Momente, Gedanken und Gefühle festhalten. Alles sicher auf deinem Gerät gespeichert.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:none;"><img src="thermometer.png?v=3" alt="Morgentemperatur" style="width:80px;height:80px;object-fit:contain;" /></div>
+        <div class="feature-icon" style="background:none;"><img src="thermometer.png?v=3" alt="Morgentemperatur" style="width:160px;height:160px;object-fit:contain;" /></div>
         <h3 id="f5-title">Morgentemperatur</h3>
         <p id="f5-desc">Morgentemperatur messen und den Eisprung noch genauer bestätigen.</p>
       </div>
@@ -526,18 +524,7 @@
 <section>
   <div class="no-free-box">
     <div class="no-free-icon">
-      <svg width="36" height="36" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="13" y="5" width="18" height="27" rx="3"/>
-        <circle cx="22" cy="18" r="5"/>
-        <line x1="22" y1="13" x2="22" y2="15.2"/>
-        <line x1="22" y1="20.8" x2="22" y2="23"/>
-        <line x1="17" y1="18" x2="19.2" y2="18"/>
-        <line x1="24.8" y1="18" x2="27" y2="18"/>
-        <circle cx="23.8" cy="18" r="1.1" fill="currentColor" stroke="none"/>
-        <path d="M11 32 C7 28 6 22 7.5 16 C8.5 12 11 9.5 13.5 10.5"/>
-        <path d="M33 32 C37 28 38 22 36.5 16 C35.5 12 33 9.5 30.5 10.5"/>
-        <path d="M11 32 C11 37 15.5 39.5 22 39.5 C28.5 39.5 33 37 33 32"/>
-      </svg>
+      <img src="Waage.png" alt="Waage" style="width:80px;height:80px;object-fit:contain;" />
     </div>
     <h2 id="no-free-title">Warum es keine kostenlose Version gibt.</h2>
     <p id="no-free-p1">Viele Apps sind kostenlos, aber oft bezahlt man mit etwas anderem als Geld: den eigenen Daten.</p>
