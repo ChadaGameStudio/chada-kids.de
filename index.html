@@ -1,682 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1+1=3 – Fruchtbarkeits-Tracker</title>
-  <meta name="description" content="Schwanger werden ist keine Wissenschaft. Der einfache Fruchtbarkeits-Tracker mit Kinderwunsch-Begleitung. 100% privat, kein Server." />
-  <meta property="og:title" content="1+1=3 – Fruchtbarkeits-Tracker" />
-  <meta property="og:description" content="Schwanger werden ist keine Wissenschaft. Einfach. Privat. Für euch." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://chada-kids.de" />
-  <link rel="canonical" href="https://chada-kids.de" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --pink: #e87a98;
-      --pink-dark: #c46b80;
-      --blue: #7eb8d9;
-      --blue-dark: #5a9bbf;
-      --bg: #1a1f2e;
-      --bg-nav: rgba(16, 20, 32, 0.97);
-      --bg-card: rgba(255,255,255,0.04);
-      --border: rgba(255,255,255,0.09);
-      --text: #ffffff;
-      --text-muted: rgba(255,255,255,0.55);
-      --text-faint: rgba(255,255,255,0.3);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .grad-pink { background: linear-gradient(135deg, var(--pink), var(--pink-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .grad-blue { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .grad-three { background: linear-gradient(160deg, var(--pink), #9b5fcc, var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .grad-bg-pink { background: linear-gradient(135deg, var(--pink), var(--pink-dark)); }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 2rem;
-      background: var(--bg-nav);
-      border-bottom: 0.5px solid rgba(255,255,255,0.07);
-    }
-
-    .nav-logo { font-size: 1.7rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
-
-    .lang-dropdown { position: relative; }
-    .lang-dropdown-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: transparent;
-      color: rgba(255,255,255,0.75);
-      cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 600;
-      transition: all 0.2s;
-      line-height: 1;
-    }
-    .lang-dropdown-btn:hover {
-      border-color: rgba(232,122,152,0.5);
-      background: rgba(232,122,152,0.1);
-    }
-    .lang-dropdown-arrow {
-      width: 10px;
-      height: 10px;
-      transition: transform 0.2s;
-    }
-    .lang-dropdown.open .lang-dropdown-arrow { transform: rotate(180deg); }
-    .lang-dropdown-menu {
-      display: none;
-      position: absolute;
-      top: calc(100% + 8px);
-      right: 0;
-      background: rgba(16, 20, 32, 0.98);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 14px;
-      overflow: hidden;
-      min-width: 130px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-      z-index: 200;
-    }
-    .lang-dropdown.open .lang-dropdown-menu { display: block; }
-    .lang-option {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.6rem 1rem;
-      cursor: pointer;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.5);
-      transition: all 0.15s;
-      border: none;
-      background: none;
-      width: 100%;
-      text-align: left;
-    }
-    .lang-option:hover { background: rgba(255,255,255,0.05); color: #fff; }
-    .lang-option.active { color: #fff; background: rgba(232,122,152,0.12); }
-    .lang-flag {
-      display: block;
-      width: 20px;
-      height: auto;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    section { padding: 5rem 2rem; }
-
-    .container { max-width: 860px; margin: 0 auto; }
-    .container-sm { max-width: 640px; margin: 0 auto; }
-
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem 3rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      margin-bottom: 2.5rem;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.9rem 2rem;
-      border-radius: 50px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: opacity 0.2s;
-    }
-    .btn-primary:hover { opacity: 0.88; }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1.75rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 50px;
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: border-color 0.2s;
-    }
-    .btn-secondary:hover { border-color: rgba(255,255,255,0.4); }
-
-    .phone-mockup {
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .phone-mockup:hover { transform: scale(1.03); }
-
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .lightbox.open { display: flex; }
-    .lightbox-inner {
-      background: #1a1f2e;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 2rem;
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      color: rgba(255,255,255,0.4);
-      font-size: 1.5rem;
-      cursor: pointer;
-      line-height: 1;
-    }
-    .lightbox-close:hover { color: #fff; }
-    .lightbox-placeholder {
-      color: rgba(255,255,255,0.25);
-      font-size: 0.85rem;
-      margin-top: 1rem;
-    }
-
-    .screenshot-wrap {
-      display: flex;
-      justify-content: center;
-      padding: 0 2rem 4rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
-      margin-top: 2.5rem;
-    }
-
-    @media (max-width: 480px) {
-      .features-grid { grid-template-columns: 1fr; }
-    }
-
-    .feature-card {
-      background: var(--bg-card);
-      border: 0.5px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-    }
-
-    .feature-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-    .icon-pink { background: rgba(232,122,152,0.15); color: var(--pink); }
-    .icon-blue { background: rgba(126,184,217,0.12); color: var(--blue); }
-
-    .feature-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .feature-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; }
-
-    .privacy-box {
-      max-width: 580px;
-      margin: 0 auto;
-      background: rgba(126,184,217,0.04);
-      border: 1px solid rgba(126,184,217,0.17);
-      border-radius: 20px;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .privacy-box h2 { font-size: 1.55rem; font-weight: 700; margin-bottom: 0.75rem; }
-    .privacy-box p { color: var(--text-muted); font-size: 1.05rem; }
-
-    .no-free-box {
-      max-width: 680px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      border: 0.5px solid var(--border);
-      border-radius: 24px;
-      padding: 3rem 2.5rem;
-      text-align: center;
-    }
-    .no-free-icon {
-      width: 160px;
-      height: 160px;
-      background: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-    }
-    .no-free-box h2 { font-size: 1.45rem; font-weight: 700; margin-bottom: 1.25rem; }
-    .no-free-box p { font-size: 1.02rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 0.9rem; }
-    .no-free-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-      margin: 1.25rem 0;
-    }
-    .no-free-badge {
-      background: rgba(232,122,152,0.12);
-      border: 1px solid rgba(232,122,152,0.3);
-      border-radius: 30px;
-      padding: 0.4rem 1rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--pink);
-    }
-    .no-free-tagline {
-      font-size: 1.2rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--pink), #9b5fcc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-top: 1.25rem;
-      margin-bottom: 0 !important;
-    }
-
-    .cta-section {
-      text-align: center;
-      padding: 4rem 2rem 6rem;
-    }
-    .cta-section h2 { font-size: 1.7rem; font-weight: 700; margin-bottom: 0.75rem; }
-    .cta-section p { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
-    .cta-note { margin-top: 1rem; font-size: 0.78rem; color: rgba(255,255,255,0.22); }
-
-    footer {
-      border-top: 0.5px solid rgba(255,255,255,0.08);
-      padding: 2rem;
-      text-align: center;
-    }
-    .footer-logo { font-size: 1.1rem; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 1rem; }
-    .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
-    .footer-links a { color: rgba(255,255,255,0.33); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
-    .footer-links a:hover { color: rgba(255,255,255,0.6); }
-    .footer-copy { color: rgba(255,255,255,0.17); font-size: 0.78rem; }
-
-    .section-title { font-size: 1.65rem; font-weight: 700; text-align: center; }
-    .section-sub { text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem; }
-
-    @media (max-width: 480px) {
-      nav { padding: 1rem 1.25rem; }
-      .hero { padding: 3.5rem 1.25rem 2rem; }
-      section { padding: 3.5rem 1.25rem; }
-      .btn-group { flex-direction: column; align-items: center; }
-      .cta-section { padding: 3rem 1.25rem 5rem; }
-    }
-  </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1+1=3 – Dein Zyklus. Dein Kinderwunsch.</title>
+  <meta name="description" content="1+1=3 begleitet deinen Kinderwunsch mit Zyklusübersicht, geschätzten fruchtbaren Tagen und Tagebuch. Lokal, ohne Konto. Android-Start geplant am 1. Februar 2027.">
+  <meta name="theme-color" content="#2c243a">
+  <meta property="og:title" content="1+1=3 – Dein Zyklus. Dein Kinderwunsch."><meta property="og:description" content="1+1=3 begleitet deinen Kinderwunsch mit Zyklusübersicht, geschätzten fruchtbaren Tagen und Tagebuch. Lokal, ohne Konto. Android-Start geplant am 1. Februar 2027.">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://chada-kids.de/"><meta property="og:image" content="https://chada-kids.de/assets/logo.png">
+  <link rel="canonical" href="https://chada-kids.de/"><link rel="icon" href="assets/icons/zwei-herzen.png" type="image/png">
+  <link rel="preload" href="assets/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site-copy.js" defer></script><script src="assets/site.js" defer></script>
 </head>
-<body>
-
-<nav>
-  <div class="nav-logo">
-    <img src="logo%20(2).png" alt="1+1=3" style="height: 36px; width: auto;" />
+<body id="top">
+<a class="skip-link" href="#main" data-i18n="skipContent">Zum Inhalt springen</a>
+<header class="header-shell"><div class="site-header wrap">
+  <a class="brand" href="#top" aria-label="1+1=3"><img src="assets/logo.png" width="1376" height="768" alt="1+1=3"></a>
+  <nav class="main-nav"><a href="#app" data-i18n="navApp">Die App</a><a href="#features" data-i18n="navFeatures">Funktionen</a><a href="#privacy" data-i18n="navPrivacy">Privatsphäre</a></nav>
+  <div class="header-tools">
+    <button id="audio-button" class="audio-button" type="button" aria-pressed="false" aria-label="Musik abspielen" data-i18n-aria="musicPlay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13M9 8l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="17" cy="16" rx="3" ry="2.5"/></svg></button>
+    <label class="sr-only" for="language-select" data-i18n="languageLabel">Sprache wählen</label>
+    <select id="language-select"><option value="de">Deutsch</option><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="it">Italiano</option><option value="pt-PT">Português · PT</option><option value="pt-BR">Português · BR</option></select>
   </div>
-  <div style="display:flex; align-items:center; gap:0.75rem;">
-    <button id="audio-btn" onclick="toggleAudio()" aria-label="Musik abspielen" style="display:flex; align-items:center; gap:0.4rem; background:rgba(232,122,152,0.12); border:1px solid rgba(232,122,152,0.3); border-radius:20px; padding:0.35rem 0.8rem; cursor:pointer; color:rgba(255,255,255,0.7); font-size:0.78rem; transition:all 0.2s;">
-      <svg id="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="#e87a98"><path d="M8 5v14l11-7z"/></svg>
-      <svg id="icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="#e87a98" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-      <span id="audio-label">Musik</span>
-    </button>
-    <div class="lang-dropdown" id="lang-dropdown">
-      <button class="lang-dropdown-btn" onclick="toggleLangDropdown()" aria-label="Sprache wählen">
-        <span id="dd-flag-wrap"><svg class="lang-flag" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="5" height="1" fill="#000"/>
-          <rect y="1" width="5" height="1" fill="#DD0000"/>
-          <rect y="2" width="5" height="1" fill="#FFCE00"/>
-        </svg></span>
-        <span id="dd-label-current">DE</span>
-        <svg class="lang-dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="lang-dropdown-menu">
-        <button class="lang-option active" id="opt-de" onclick="pickLang('de')">
-          <svg class="lang-flag" viewBox="0 0 5 3" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="5" height="1" fill="#000"/>
-            <rect y="1" width="5" height="1" fill="#DD0000"/>
-            <rect y="2" width="5" height="1" fill="#FFCE00"/>
-          </svg>
-          DE
-        </button>
-        <button class="lang-option" id="opt-en" onclick="pickLang('en')">
-          <svg class="lang-flag" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <clipPath id="uk-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath>
-            <path d="M0,0v30h60v-30z" fill="#012169"/>
-            <path d="M0,0 60,30M60,0 0,30" stroke="#fff" stroke-width="6"/>
-            <path d="M0,0 60,30M60,0 0,30" clip-path="url(#uk-clip)" stroke="#C8102E" stroke-width="4"/>
-            <path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/>
-            <path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/>
-          </svg>
-          EN
-        </button>
-        <button class="lang-option" id="opt-es" onclick="pickLang('es')">
-          <svg class="lang-flag" viewBox="0 0 4 3" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="4" height="3" fill="#AA151B"/>
-            <rect y="0.75" width="4" height="1.5" fill="#F1BF00"/>
-          </svg>
-          ES
-        </button>
-        <button class="lang-option" id="opt-fr" onclick="pickLang('fr')">
-          <svg class="lang-flag" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="1" height="2" fill="#002395"/>
-            <rect x="1" width="1" height="2" fill="#fff"/>
-            <rect x="2" width="1" height="2" fill="#ED2939"/>
-          </svg>
-          FR
-        </button>
-        <button class="lang-option" id="opt-it" onclick="pickLang('it')">
-          <svg class="lang-flag" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="1" height="2" fill="#009246"/>
-            <rect x="1" width="1" height="2" fill="#fff"/>
-            <rect x="2" width="1" height="2" fill="#ce2b37"/>
-          </svg>
-          IT
-        </button>
-        <button class="lang-option" id="opt-pt-PT" onclick="pickLang('pt-PT')">
-          <svg class="lang-flag" viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="1.2" height="2" fill="#006600"/>
-            <rect x="1.2" width="1.8" height="2" fill="#FF0000"/>
-            <circle cx="1.2" cy="1" r="0.3" fill="#FFFF00"/>
-          </svg>
-          PT
-        </button>
-        <button class="lang-option" id="opt-pt-BR" onclick="pickLang('pt-BR')">
-          <svg class="lang-flag" viewBox="0 0 7 5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="7" height="5" fill="#009C3B"/>
-            <path d="M3.5 0.5L6.5 2.5L3.5 4.5L0.5 2.5z" fill="#FFDF00"/>
-            <circle cx="3.5" cy="2.5" r="1" fill="#002776"/>
-          </svg>
-          BR
-        </button>
-      </div>
+</div></header>
+<main id="main">
+<div class="opening">
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="heroEyebrow">Zyklus &amp; Kinderwunsch</p>
+      <h1 id="hero-title"><span data-i18n="heroTitle">Ein kleines Plus.</span><span class="pink" data-i18n="heroAccent">Ein großer Wunsch.</span></h1>
+      <p class="hero-description" data-i18n="heroDescription">Begleite deinen Kinderwunsch in deinem Tempo. Mit Zyklusübersicht, geschätzten fruchtbaren Tagen und einem Tagebuch für das, was dich bewegt.</p>
+      <div class="hero-actions"><a class="button primary" href="#app"><span data-i18n="heroPrimary">App ansehen</span><span aria-hidden="true">↗</span></a><a class="text-link" href="#features"><span data-i18n="heroSecondary">Funktionen entdecken</span><span aria-hidden="true">↓</span></a></div>
+      <a class="release" href="#launch"><span class="release-dot" aria-hidden="true"></span><span><span data-i18n="releaseLabel">Geplanter Android-Start</span><strong data-i18n="releaseDate">1. Februar 2027</strong></span><span aria-hidden="true">↗</span></a>
+      <p class="hero-note" data-i18n="heroNote">Der Download wird zum Start hier verlinkt.</p>
     </div>
-  </div>
-</nav>
-
-<section class="hero">
-  <img src="logo%20(2).png" alt="1+1=3 Logo" style="width: 320px; max-width: 80%; height: auto; margin-bottom: 2rem;" />
-  <h1 id="hero-title">Schwanger werden ist keine Wissenschaft.</h1>
-  <p id="hero-sub">Der Fruchtbarkeits-Tracker der einfach funktioniert. Klar, warm, komplett privat.</p>
-  <div class="btn-group">
-    <a href="#" class="btn-primary grad-bg-pink" id="cta-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.65.2.97.09l12.4-7.17-2.58-2.59-10.79 9.67zm-1.63-21.1A1.5 1.5 0 0 0 1.5 3.75v16.5c0 .49.24.94.64 1.21l.04.03 9.25-9.26v-.22L1.59 2.69l-.04.03zM20.47 10.3l-2.6-1.5-2.9 2.9 2.9 2.9 2.62-1.52a1.83 1.83 0 0 0 0-3.18v-.6zm-17.3 12.13L16.55 14l-2.58-2.58-10.8 10.8.04.04z"/></svg>
-      <span id="cta-primary-text">Jetzt herunterladen</span>
-    </a>
-    <a href="#features" class="btn-secondary">
-      <span id="cta-secondary-text">Mehr erfahren</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    </a>
-  </div>
-  <p id="launch-text" style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; background: rgba(232,122,152,0.1); border: 1px solid rgba(232,122,152,0.3); border-radius: 30px; display: inline-block; padding: 0.5rem 1.5rem;">
-    🚀 Launch im Play Store: <strong style="color: #e87a98;">01.02.2027</strong>
-  </p>
-</section>
-
-<div class="screenshot-wrap">
-  <img src="phone.png" alt="App Mockup" class="phone-mockup" style="width: 420px; max-width: 85%; height: auto;" onclick="openLightbox()" />
+    <div class="hero-art">
+      <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
+      <img class="hero-hearts" src="assets/icons/zwei-herzen.png" width="160" height="160" alt="">
+      <div class="phone phone-back"><img src="assets/screenshots/today-dark.jpg" width="415" height="960" alt="Startseite der App im dunklen Design" data-i18n-alt="altTodayDark"></div>
+      <button class="phone phone-front" type="button" data-screenshot="today-light" aria-label="Screenshot vergrößern" data-i18n-aria="screenshotExpand"><img src="assets/screenshots/today-light.jpg" width="415" height="960" alt="Startseite der App im hellen Design" data-i18n-alt="altTodayLight" fetchpriority="high"></button>
+      <span class="art-spark" aria-hidden="true">+</span>
+    </div>
+  </section>
+  <div class="trust-strip wrap"><span><img src="assets/icons/calendar.png" width="32" height="32" alt=""><span data-i18n="trustCycle">Dein Zyklus im Blick</span></span><span><span class="trust-symbol" aria-hidden="true">♡</span><span data-i18n="trustAccount">Ohne Konto</span></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></svg><span data-i18n="trustLocal">Lokal auf deinem Gerät</span></span></div>
 </div>
-
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-    <img src="phone.png" alt="App Mockup" style="width: 100%; height: auto; border-radius: 12px;" />
-    <p class="lightbox-placeholder" id="screenshot-note">Screenshots folgen bald</p>
-  </div>
-</div>
-
-<section id="features">
-  <div class="container">
-    <h2 class="section-title" id="features-title">Was die App kann</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon" style="background:none;"><img src="zyklus.png?v=1" alt="Zyklusverfolgung" style="width:88px;height:88px;object-fit:contain;" /></div>
-        <h3 id="f1-title">Zyklusverfolgung</h3>
-        <p id="f1-desc">Alle 5 Phasen auf einen Blick. Follikelphase, Ovulation, Lutealphase und mehr.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" style="background:none;"><img src="Fertilitaetsfenster.png?v=1" alt="Fertilitätsfenster" style="width:88px;height:88px;object-fit:contain;" /></div>
-        <h3 id="f2-title">Fertilitätsfenster</h3>
-        <p id="f2-desc">Deine fruchtbaren Tage immer im Blick. Mit Vorhersage und täglichen Erinnerungen.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" style="background:none;"><img src="100%25%20Privat.png?v=1" alt="100% Privat" style="width:88px;height:88px;object-fit:contain;" /></div>
-        <h3 id="f3-title">100% Privat</h3>
-        <p id="f3-desc">Kein Server, keine Cloud. Alle Daten bleiben ausschließlich auf deinem Gerät.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" style="background:none;"><img src="tagebuch.png?v=3" alt="Tagebuch" style="width:160px;height:160px;object-fit:contain;" /></div>
-        <h3 id="f4-title">Tagebuch</h3>
-        <p id="f4-desc">Momente, Gedanken und Gefühle festhalten. Alles sicher auf deinem Gerät gespeichert.</p>
-      </div>
+<section id="app" class="app-section section wrap" aria-labelledby="app-title">
+  <div class="app-copy"><p class="eyebrow" data-i18n="appEyebrow">Ein Blick in die App</p><h2 id="app-title" data-i18n="appTitle">Dein Alltag. Dein Zyklus.</h2><p class="section-intro" data-i18n="appDescription">Heute, Kalender und Tagebuch: drei klare Ansichten für deine Einträge und Schätzungen.</p>
+    <div id="view-tabs" class="view-tabs" role="tablist" aria-labelledby="app-title">
+      <button id="tab-today" role="tab" aria-selected="true" aria-controls="app-preview" data-view="today"><img src="assets/icons/heute.png" width="38" height="38" alt=""><span data-i18n="tabToday">Heute</span><span aria-hidden="true">↗</span></button>
+      <button id="tab-calendar" role="tab" aria-selected="false" aria-controls="app-preview" tabindex="-1" data-view="calendar"><img src="assets/icons/calendar.png" width="38" height="38" alt=""><span data-i18n="tabCalendar">Kalender</span><span aria-hidden="true">↗</span></button>
+      <button id="tab-diary" role="tab" aria-selected="false" aria-controls="app-preview" tabindex="-1" data-view="diary"><img src="assets/icons/journal.png" width="38" height="38" alt=""><span data-i18n="tabDiary">Tagebuch</span><span aria-hidden="true">↗</span></button>
     </div>
+    <div class="view-explanation" aria-live="polite"><h3 id="view-title">Das Wesentliche für heute.</h3><p id="view-description">Zyklustag, geschätzte Phase und kommende Termine – mit deinen täglichen Einträgen direkt zur Hand.</p></div>
+    <p class="screenshot-note" data-i18n="screenshotNote">Echte App-Ansichten mit Beispieldaten. Die Screenshots zeigen die deutsche Version.</p>
+  </div>
+  <div id="app-preview" class="preview-stage" role="tabpanel" aria-labelledby="tab-today" tabindex="0">
+    <div class="theme-switch"><button type="button" data-theme="light" aria-pressed="true"><span aria-hidden="true">☀</span><span data-i18n="themeLight">Hell</span></button><button type="button" data-theme="dark" aria-pressed="false"><span aria-hidden="true">☾</span><span data-i18n="themeDark">Dunkel</span></button></div>
+    <button id="preview-button" class="phone gallery-phone" type="button" data-screenshot="today-light" aria-label="Screenshot vergrößern" data-i18n-aria="screenshotExpand"><img id="preview-image" src="assets/screenshots/today-light.jpg" width="415" height="960" alt="Startseite der App im hellen Design" loading="lazy"></button>
+    <span class="preview-caption" data-i18n="screenshotExpand">App-Ansicht vergrößern</span>
   </div>
 </section>
-
-<section>
-  <div class="privacy-box">
-    <div class="shield"><img src="schutzschild.png" alt="Schutzschild" style="width:160px;height:160px;object-fit:contain;" /></div>
-    <h2 id="privacy-title">Dein Kinderwunsch bleibt privat. Versprochen.</h2>
-    <p id="privacy-desc">Die App speichert alles lokal auf deinem Telefon. Kein Account, kein Server, keine Weitergabe an Dritte. Was du einträgst, bleibt bei dir.</p>
+<section id="features" class="features-section section" aria-labelledby="features-title"><div class="wrap">
+  <div class="section-heading"><p class="eyebrow" data-i18n="featuresEyebrow">Was dich begleitet</p><h2 id="features-title" data-i18n="featuresTitle">Einfach festhalten. Besser überblicken.</h2></div>
+  <div class="feature-grid">
+    <article class="feature"><span class="feature-number">01</span><img src="assets/icons/period.png" width="64" height="64" alt="" loading="lazy"><h3 data-i18n="featurePeriodTitle">Beginn und Ende erfassen</h3><p data-i18n="featurePeriodDescription">Trage den ersten und letzten Blutungstag ein. Erfasste Daten und geschätzte Blutungsdauer bleiben unterscheidbar.</p></article>
+    <article class="feature"><span class="feature-number">02</span><img src="assets/icons/fertile.png" width="64" height="64" alt="" loading="lazy"><h3 data-i18n="featureForecastTitle">Vorhersagen mit Augenmaß</h3><p data-i18n="featureForecastDescription">Zyklusphasen und fruchtbare Tage als Orientierung aus deinen Einträgen. Vorhersagen bleiben Schätzungen.</p></article>
+    <article class="feature"><span class="feature-number">03</span><img src="assets/icons/bell.png" width="64" height="64" alt="" loading="lazy"><h3 data-i18n="featureReminderTitle">Erinnerungen nach Wunsch</h3><p data-i18n="featureReminderDescription">Optionale Erinnerungen für deinen Zyklus und dein Tagebuch. Du entscheidest, was dich begleiten soll.</p></article>
+    <article class="feature"><span class="feature-number">04</span><img src="assets/icons/rest.png" width="64" height="64" alt="" loading="lazy"><h3 data-i18n="featureThemeTitle">Dein bevorzugtes Design</h3><p data-i18n="featureThemeDescription">Wähle Hell oder Dunkel oder lass die App der Einstellung deines Geräts folgen.</p></article>
   </div>
-</section>
-
-<section>
-  <div class="no-free-box">
-    <div class="no-free-icon">
-      <img src="Waage.png" alt="Waage" style="width:160px;height:160px;object-fit:contain;" />
-    </div>
-    <h2 id="no-free-title">Warum es keine kostenlose Version gibt.</h2>
-    <p id="no-free-p1">Viele Apps sind kostenlos, aber oft bezahlt man mit etwas anderem als Geld: den eigenen Daten.</p>
-    <p id="no-free-p2">Gerade bei sensiblen Gesundheitsdaten ist Privatsphäre nicht selbstverständlich. Zyklusdaten, persönliche Einträge, all das gehört zu den intimsten Informationen überhaupt.</p>
-    <p id="no-free-p3">Deshalb funktioniert 1+1=3 anders.</p>
-    <div class="no-free-badges">
-      <span class="no-free-badge" id="no-free-b1">Keine Werbung</span>
-      <span class="no-free-badge" id="no-free-b2">Kein Tracking</span>
-      <span class="no-free-badge" id="no-free-b3">Keine Analyse</span>
-      <span class="no-free-badge" id="no-free-b4">Keine Weitergabe</span>
-    </div>
-    <p id="no-free-p4">Deine Daten bleiben ausschließlich auf deinem Gerät und gehören nur dir.</p>
-    <p id="no-free-p5">1+1=3 kostet einen kleinen Betrag, weil wir nicht mit deinen Daten bezahlen lassen.</p>
-    <p class="no-free-tagline" id="no-free-tagline">Die App ist das Produkt. Nicht du.</p>
-  </div>
-</section>
-
-<section class="cta-section">
-  <h2 id="cta-title">Bereit für euren nächsten Schritt?</h2>
-  <p id="cta-desc">Kostenlos starten, 30 Tage alles testen.</p>
-  <a href="#" class="btn-primary grad-bg-pink">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.65.2.97.09l12.4-7.17-2.58-2.59-10.79 9.67zm-1.63-21.1A1.5 1.5 0 0 0 1.5 3.75v16.5c0 .49.24.94.64 1.21l.04.03 9.25-9.26v-.22L1.59 2.69l-.04.03zM20.47 10.3l-2.6-1.5-2.9 2.9 2.9 2.9 2.62-1.52a1.83 1.83 0 0 0 0-3.18v-.6zm-17.3 12.13L16.55 14l-2.58-2.58-10.8 10.8.04.04z"/></svg>
-    <span id="final-btn">Im Play Store herunterladen</span>
-  </a>
-  <p class="cta-note" id="final-note">Nur für Android. iOS folgt.</p>
-</section>
-
-<audio id="bg-audio" loop>
-  <source src="1+1=3Mainsong.mp3" type="audio/mpeg">
-</audio>
-
-<footer>
-  <div class="footer-logo">
-    <img src="logo%20(2).png" alt="1+1=3" style="height: 48px; width: auto; opacity: 0.85;" />
-  </div>
-  <div class="footer-links">
-    <a href="privacy.html" id="footer-privacy">Website-Datenschutz</a>
-    <a href="app-privacy.html" id="footer-app-privacy">App-Datenschutz</a>
-    <a href="imprint.html" id="footer-imprint">Impressum</a>
-  </div>
-  <p class="footer-copy">Chada Kids &middot; chada-kids.de</p>
-</footer>
-
-<script src="lang-de.js"></script>
-<script src="lang-en.js"></script>
-<script src="lang-es.js"></script>
-<script src="lang-fr.js"></script>
-<script src="lang-it.js"></script>
-<script src="lang-pt-PT.js"></script>
-<script src="lang-pt-BR.js"></script>
-
-<script>
-function openLightbox() {
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox(e) {
-  if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-}
-
-function toggleAudio() {
-  const audio = document.getElementById('bg-audio');
-  const btnPlay = document.getElementById('icon-play');
-  const btnPause = document.getElementById('icon-pause');
-  const label = document.getElementById('audio-label');
-  if (audio.paused) {
-    audio.play();
-    btnPlay.style.display = 'none';
-    btnPause.style.display = 'block';
-    label.textContent = currentLang === 'de' ? 'Musik läuft' : currentLang === 'es' ? 'Sonando' : (currentLang === 'pt-BR' || currentLang === 'pt-PT') ? 'Tocando' : currentLang === 'fr' ? 'En cours' : currentLang === 'it' ? 'In riproduzione' : 'Playing';
-  } else {
-    audio.pause();
-    btnPlay.style.display = 'block';
-    btnPause.style.display = 'none';
-    label.textContent = currentLang === 'de' ? 'Musik' : currentLang === 'es' ? 'Música' : (currentLang === 'pt-BR' || currentLang === 'pt-PT') ? 'Música' : currentLang === 'fr' ? 'Musique' : currentLang === 'it' ? 'Musica' : 'Music';
-  }
-}
-
-let currentLang = 'de';
-
-const getT = () => ({
-  de: typeof LANG_INDEX_DE !== 'undefined' ? LANG_INDEX_DE : window.LANG_INDEX_DE,
-  en: typeof LANG_INDEX_EN !== 'undefined' ? LANG_INDEX_EN : window.LANG_INDEX_EN,
-  es: typeof LANG_INDEX_ES !== 'undefined' ? LANG_INDEX_ES : window.LANG_INDEX_ES,
-  fr: typeof LANG_INDEX_FR !== 'undefined' ? LANG_INDEX_FR : window.LANG_INDEX_FR,
-  it: typeof LANG_INDEX_IT !== 'undefined' ? LANG_INDEX_IT : window.LANG_INDEX_IT,
-  'pt-PT': typeof LANG_INDEX_PT_PT !== 'undefined' ? LANG_INDEX_PT_PT : window.LANG_INDEX_PT_PT,
-  'pt-BR': typeof LANG_INDEX_PT_BR !== 'undefined' ? LANG_INDEX_PT_BR : window.LANG_INDEX_PT_BR
-});
-
-function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('lang', lang);
-  document.documentElement.lang = lang;
-  
-  const T = getT();
-  const t = T[lang];
-  
-  if (t) {
-    Object.keys(t).forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.innerHTML = t[id]; 
-    });
-  }
-
-  const audio = document.getElementById('bg-audio');
-  const label = document.getElementById('audio-label');
-  if (label) {
-    if (audio.paused) {
-      label.textContent = lang === 'de' ? 'Musik' : lang === 'es' ? 'Música' : (lang === 'pt-BR' || lang === 'pt-PT') ? 'Música' : lang === 'fr' ? 'Musique' : lang === 'it' ? 'Musica' : 'Music';
-    } else {
-      label.textContent = lang === 'de' ? 'Musik läuft' : lang === 'es' ? 'Sonando' : (lang === 'pt-BR' || lang === 'pt-PT') ? 'Tocando' : lang === 'fr' ? 'En cours' : lang === 'it' ? 'In riproduzione' : 'Playing';
-    }
-  }
-  ['de','en','es','fr','it','pt-PT','pt-BR'].forEach(l => {
-    const el = document.getElementById('opt-' + l);
-    if (el) el.classList.toggle('active', l === lang);
-  });
-  updateDropdownButton(lang);
-
-  const privacyLink = document.getElementById('footer-privacy');
-  const appPrivacyLink = document.getElementById('footer-app-privacy');
-  const imprintLink = document.getElementById('footer-imprint');
-  
-  if (privacyLink) privacyLink.href = 'privacy.html?lang=' + lang;
-  if (appPrivacyLink) appPrivacyLink.href = 'app-privacy.html?lang=' + lang;
-  if (imprintLink) imprintLink.href = 'imprint.html?lang=' + lang;
-}
-
-const FLAGS = {
-  'de': `<svg class="lang-flag" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg>`,
-  'en': `<svg class="lang-flag" viewBox="0 0 60 30"><path d="M0,0v30h60v-30z" fill="#012169"/><path d="M0,0 60,30M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg>`,
-  'es': `<svg class="lang-flag" viewBox="0 0 4 3"><rect width="4" height="3" fill="#AA151B"/><rect y="0.75" width="4" height="1.5" fill="#F1BF00"/></svg>`,
-  'fr': `<svg class="lang-flag" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg>`,
-  'it': `<svg class="lang-flag" viewBox="0 0 3 2"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ce2b37"/></svg>`,
-  'pt-PT': `<svg class="lang-flag" viewBox="0 0 3 2"><rect width="1.2" height="2" fill="#006600"/><rect x="1.2" width="1.8" height="2" fill="#FF0000"/><circle cx="1.2" cy="1" r="0.3" fill="#FFFF00"/></svg>`,
-  'pt-BR': `<svg class="lang-flag" viewBox="0 0 7 5"><rect width="7" height="5" fill="#009C3B"/><path d="M3.5 0.5L6.5 2.5L3.5 4.5L0.5 2.5z" fill="#FFDF00"/><circle cx="3.5" cy="2.5" r="1" fill="#002776"/></svg>`
-};
-const LABELS = { 'de': 'DE', 'en': 'EN', 'es': 'ES', 'fr': 'FR', 'it': 'IT', 'pt-PT': 'PT', 'pt-BR': 'BR' };
-
-function updateDropdownButton(lang) {
-  document.getElementById('dd-flag-wrap').innerHTML = FLAGS[lang];
-  document.getElementById('dd-label-current').textContent = LABELS[lang];
-}
-
-function toggleLangDropdown() {
-  document.getElementById('lang-dropdown').classList.toggle('open');
-}
-
-function pickLang(lang) {
-  document.getElementById('lang-dropdown').classList.remove('open');
-  setLang(lang);
-}
-
-document.addEventListener('click', function(e) {
-  const dd = document.getElementById('lang-dropdown');
-  if (!dd.contains(e.target)) dd.classList.remove('open');
-});
-
-const savedLang = localStorage.getItem('lang');
-if (savedLang && savedLang !== 'de') {
-  window.addEventListener('DOMContentLoaded', () => setLang(savedLang));
-}
-</script>
-
-</body>
-</html>
+</div></section>
+<section class="wish-section section wrap"><img src="assets/icons/zwei-herzen.png" width="160" height="160" alt="" loading="lazy"><div><h2><span data-i18n="wishTitle">Große Wünsche.</span><span data-i18n="wishAccent">Dein eigenes Tempo.</span></h2><p data-i18n="wishDescription">Ein kleiner Moment für deine Gedanken – so, wie es sich für dich richtig anfühlt.</p></div><span class="wish-plus" aria-hidden="true">+</span></section>
+<section id="privacy" class="privacy-section wrap" aria-labelledby="privacy-title"><div class="privacy-copy"><p class="eyebrow" data-i18n="privacyEyebrow">Persönlich bleibt persönlich</p><h2 id="privacy-title" data-i18n="privacyTitle">Deine Einträge bleiben bei dir.</h2><p data-i18n="privacyDescription">Zyklusdaten und persönliche Gedanken verdienen einen geschützten Platz. Deine Einträge werden lokal auf deinem Gerät gespeichert. Du brauchst kein Konto.</p><a class="text-link" href="app-privacy.html?lang=de" data-legal="app-privacy.html"><span data-i18n="privacyLink">App-Datenschutz lesen</span><span aria-hidden="true">↗</span></a></div><div class="privacy-details"><img src="assets/icons/journal.png" width="100" height="100" alt="" loading="lazy"><ul><li data-i18n="privacyLocal">Lokale Speicherung</li><li data-i18n="privacyAccount">Kein Konto erforderlich</li><li data-i18n="privacyAds">Keine Werbung in der App</li></ul></div></section>
+<section id="faq" class="faq-section section wrap" aria-labelledby="faq-title"><div><p class="eyebrow" data-i18n="faqEyebrow">Gut zu wissen</p><h2 id="faq-title" data-i18n="faqTitle">Deine Fragen. Klare Antworten.</h2></div><div class="faq-list">
+  <details><summary data-i18n="faqLaunchQuestion">Wann kann ich die App herunterladen?</summary><p data-i18n="faqLaunchAnswer">Der Android-Start ist für den 1. Februar 2027 geplant. Sobald die App im Play Store verfügbar ist, findest du den Downloadlink hier.</p></details>
+  <details><summary data-i18n="faqCostQuestion">Was wird die App kosten?</summary><p data-i18n="faqCostAnswer">Eine 7-tägige Premium-Testphase ist vorgesehen. Die endgültigen Preise und Konditionen veröffentlichen wir vor dem Start.</p></details>
+  <details><summary data-i18n="faqPredictionQuestion">Wie verlässlich sind die Vorhersagen?</summary><p data-i18n="faqPredictionAnswer">Die App schätzt Termine aus deinen Zykluseinträgen. Ein Zyklus kann sich verändern; ein berechneter Eisprung ist keine Bestätigung. Die Vorhersagen sind nicht zur Verhütung geeignet.</p></details>
+  <details><summary data-i18n="faqAccountQuestion">Brauche ich ein Konto?</summary><p data-i18n="faqAccountAnswer">Nein. Du kannst die App ohne Benutzerkonto nutzen. Deine Einträge bleiben auf deinem Gerät.</p></details>
+  <details><summary data-i18n="faqDataQuestion">Wo werden meine Daten gespeichert?</summary><p data-i18n="faqDataAnswer">Deine Einträge werden lokal auf deinem Gerät gespeichert. Du brauchst kein Konto und verwaltest deine Daten direkt in der App. Über Export und Import kannst du deine Einträge sichern und wiederherstellen. Bewahre exportierte Dateien selbst sicher auf.</p></details>
+</div></section>
+<section id="launch" class="launch-section"><div class="wrap launch-inner"><div><p class="eyebrow" data-i18n="launchEyebrow">Der nächste Schritt</p><h2 data-i18n="launchTitle">Bald auf deinem Android-Gerät.</h2><p data-i18n="launchDescription">Wir bereiten den Android-Start für den 1. Februar 2027 vor. Den Link zum Play Store findest du dann hier.</p></div><div class="launch-ticket"><span data-i18n="launchStatus">Geplanter Start</span><strong data-i18n="releaseDate">1. Februar 2027</strong><span class="android-label" data-i18n="androidLabel">Für Android</span></div></div></section>
+</main>
+<footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="brand" href="#top" aria-label="1+1=3"><img src="assets/logo.png" width="1376" height="768" alt="1+1=3" loading="lazy"></a><a class="text-link" href="#top"><span data-i18n="backToTop">Nach oben</span><span aria-hidden="true">↑</span></a></div><nav class="legal-links"><a href="privacy.html?lang=de" data-legal="privacy.html" data-i18n="footerWebsitePrivacy">Website-Datenschutz</a><a href="app-privacy.html?lang=de" data-legal="app-privacy.html" data-i18n="footerAppPrivacy">App-Datenschutz</a><a href="imprint.html?lang=de" data-legal="imprint.html" data-i18n="footerImprint">Impressum</a><a href="#faq" data-i18n="navFaq">Fragen</a></nav><p class="medical-note" data-i18n="footerMedical">Vorhersagen sind Schätzungen und nicht zur Verhütung geeignet. Die App ersetzt keine medizinische Beratung.</p><p class="copyright" data-i18n="footerCopyright">© 2026 Chada Kids · 1+1=3</p></div></footer>
+<audio id="brand-audio" src="1+1=3Mainsong.mp3" preload="none" loop></audio><p id="audio-status" class="audio-status" role="status"></p>
+<dialog id="screenshot-dialog" aria-labelledby="screenshot-caption"><button id="screenshot-close" class="dialog-close" type="button" aria-label="Schließen" data-i18n-aria="screenshotClose">×</button><img id="lightbox-image" src="assets/screenshots/today-light.jpg" width="415" height="960" alt=""><p id="screenshot-caption" data-i18n="screenshotNote">Echte App-Ansichten mit Beispieldaten. Die Screenshots zeigen die deutsche Version.</p></dialog>
+</body></html>
