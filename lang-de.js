@@ -33,5 +33,5 @@ window.LANG_INDEX_DE = {
     'footer-privacy': 'Website-Datenschutz',
     'footer-app-privacy': 'App-Datenschutz',
     'footer-imprint': 'Impressum',
-    'launch-text': 'Launch im Play Store: 01.08.2026'
+    'launch-text': 'Launch im Play Store: 01.02.2027'
 };
