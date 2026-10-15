@@ -17,14 +17,14 @@ window.APP_PRIVACY_DE = `
 </p>
 
 <h2>3. Erhebung und Speicherung von Daten (Lokale Verarbeitung)</h2>
-<p>Die App „1+1 = 3“ erhebt, speichert oder überträgt <strong>keine</strong> deiner persönlichen oder gesundheitlichen Eingaben (wie Zyklusdaten, Basaltemperatur oder Tagebucheinträge) an uns oder an Dritte.</p>
+<p>Die App „1+1 = 3“ erhebt, speichert oder überträgt <strong>keine</strong> deiner persönlichen oder gesundheitlichen Eingaben (wie Zyklusdaten oder Tagebucheinträge) an uns oder an Dritte.</p>
 <ul>
   <li><strong>Lokale Speicherung:</strong> Alle Daten, die du in der App eingibst, werden ausschließlich im internen, geschützten Speicher deines Endgeräts abgelegt.</li>
   <li><strong>Keine Datenhoheit durch uns:</strong> Da wir keine Daten auf unseren Servern speichern (wir betreiben keine Server für Nutzerdaten), haben wir zu keinem Zeitpunkt Zugriff auf deine Eingaben. Wir können diese Daten weder einsehen, noch analysieren oder weitergeben.</li>
 </ul>
 
-<h2>4. Lokale Benachrichtigungen und Wecker</h2>
-<p>Die App bietet Funktionen wie Zyklus-Erinnerungen und einen Wecker für die Basaltemperatur (BBT).</p>
+<h2>4. Lokale Benachrichtigungen und Erinnerungen</h2>
+<p>Die App bietet lokale Erinnerungen für den Zyklus und das Tagebuch.</p>
 <ul>
   <li>Diese Benachrichtigungen werden zu 100 % lokal auf deinem Gerät berechnet und ausgelöst.</li>
   <li>Wir verwenden <strong>keine</strong> externen Cloud-Push-Dienste. Es findet zu keinem Zeitpunkt eine Kommunikation mit einem Benachrichtigungsserver statt.</li>
@@ -35,7 +35,7 @@ window.APP_PRIVACY_DE = `
 <ul>
   <li><strong>Netzwerkzugriff (Internet):</strong> Wird lediglich benötigt, um die Abonnements über Google Play abzuwickeln und externe Rechtstexte im Browser aufzurufen.</li>
   <li><strong>Benachrichtigungen (POST_NOTIFICATIONS):</strong> Erlaubt es der App, dir deine lokal geplanten Erinnerungen anzuzeigen.</li>
-  <li><strong>Exakte Alarme & Boot-Start (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Zwingend notwendig, damit der Temperatur-Wecker exakt zur eingestellten Uhrzeit klingelt, auch nachdem das Smartphone neu gestartet wurde.</li>
+  <li><strong>Exakte Alarme & Boot-Start (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Ermöglicht geplante Erinnerungen zur eingestellten Uhrzeit, auch nachdem das Smartphone neu gestartet wurde.</li>
   <li><strong>Daten-Export/Import:</strong> Die App nutzt für den Datenexport die systemeigenen Teilen-Funktionen deines Geräts (FileProvider) und verlangt keinen direkten Zugriff auf deine Fotos oder globalen Dateien.</li>
 </ul>
 

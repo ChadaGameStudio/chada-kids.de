@@ -17,14 +17,14 @@ window.APP_PRIVACY_EN = `
 </p>
 
 <h2>3. Data Collection and Storage (Local Processing)</h2>
-<p>The app "1+1 = 3" does <strong>not</strong> collect, store, or transmit any of your personal or health-related inputs (such as cycle data, basal body temperature, or diary entries) to us or third parties.</p>
+<p>The app "1+1 = 3" does <strong>not</strong> collect, store, or transmit any of your personal or health-related inputs (such as cycle data or diary entries) to us or third parties.</p>
 <ul>
   <li><strong>Local Storage:</strong> All data you enter into the app is saved exclusively in the internal, protected storage of your device.</li>
   <li><strong>No Data Control by Us:</strong> Since we do not store any data on our servers (we do not operate user data servers at all), we have absolutely no access to your inputs. We can neither view, analyze, nor share this data.</li>
 </ul>
 
-<h2>4. Local Notifications and Alarms</h2>
-<p>The app offers features like cycle reminders and a basal body temperature (BBT) alarm.</p>
+<h2>4. Local Notifications and Reminders</h2>
+<p>The app offers local reminders for the cycle and the diary.</p>
 <ul>
   <li>These notifications are calculated and triggered 100% locally on your device.</li>
   <li>We use <strong>no</strong> external cloud push services. There is no communication with a notification server at any time.</li>
@@ -35,7 +35,7 @@ window.APP_PRIVACY_EN = `
 <ul>
   <li><strong>Network Access (Internet):</strong> Only needed to process subscriptions via Google Play and to open external legal texts in the browser.</li>
   <li><strong>Notifications (POST_NOTIFICATIONS):</strong> Allows the app to show your locally scheduled reminders.</li>
-  <li><strong>Exact Alarms & Boot Start (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Strictly necessary so the temperature alarm rings exactly at the set time, even after the smartphone is restarted.</li>
+  <li><strong>Exact Alarms & Boot Start (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Enables scheduled reminders at the set time, including after the smartphone is restarted.</li>
   <li><strong>Data Export/Import:</strong> The app uses your device's native sharing functions (FileProvider) for data export and does not request direct access to your photos or global files.</li>
 </ul>
 

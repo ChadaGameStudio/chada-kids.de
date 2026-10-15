@@ -17,14 +17,14 @@ window.APP_PRIVACY_PT_BR = `
 </p>
 
 <h2>3. Coleta e Armazenamento de Dados (Tratamento Local)</h2>
-<p>O aplicativo "1+1 = 3" <strong>não</strong> coleta, armazena, transmite ou realiza qualquer outro tratamento das suas inserções pessoais ou de saúde (como dados do ciclo, temperatura basal ou entradas de diário) em nossos servidores ou de terceiros.</p>
+<p>O aplicativo "1+1 = 3" <strong>não</strong> coleta, armazena, transmite ou realiza qualquer outro tratamento das suas inserções pessoais ou de saúde (como dados do ciclo ou entradas de diário) em nossos servidores ou de terceiros.</p>
 <ul>
   <li><strong>Armazenamento 100% Local:</strong> Todos os dados que você insere no aplicativo são salvos exclusivamente no armazenamento interno e protegido do seu próprio dispositivo móvel.</li>
   <li><strong>Sem controle de dados por nossa parte:</strong> Como não possuímos servidores para armazenar dados de usuários, não temos nenhum acesso às suas inserções em nenhum momento. Não podemos visualizar, analizar nem compartilhar esses dados. O tratamento dos dados se dá de forma exclusivamente local na infraestrutura do usuário (On-device processing).</li>
 </ul>
 
-<h2>4. Notificações e Alarmes Locais</h2>
-<p>O aplicativo oferece recursos como lembretes de ciclo e um alarme para a temperatura basal (TCB).</p>
+<h2>4. Notificações e Lembretes Locais</h2>
+<p>O aplicativo oferece lembretes locais para o ciclo e o diário.</p>
 <ul>
   <li>Essas notificações são calculadas e acionadas 100% localmente no seu dispositivo.</li>
   <li><strong>Não</strong> utilizamos serviços externos de notificações push em nuvem. Não há comunicação com servidores de notificação de terceiros em momento algum.</li>
@@ -35,7 +35,7 @@ window.APP_PRIVACY_PT_BR = `
 <ul>
   <li><strong>Acesso à rede (Internet):</strong> Necessário apenas para processar assinaturas através do Google Play e para abrir textos legais externos no navegador.</li>
   <li><strong>Notificações (POST_NOTIFICATIONS):</strong> Permite que o aplicativo exiba seus lembretes programados localmente.</li>
-  <li><strong>Alarmes exatos e Inicialização (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Estritamente necessários para que o alarme de temperatura toque exatamente na hora definida, mesmo após você reiniciar o celular.</li>
+  <li><strong>Alarmes exatos e Inicialização (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Permite os lembretes programados na hora definida, mesmo após você reiniciar o celular.</li>
   <li><strong>Exportação/Importação de dados:</strong> O aplicativo utiliza as funções nativas de compartilhamento do seu dispositivo (FileProvider) para exportar arquivos, não solicitando acesso genérico às suas fotos, mídia ou arquivos globais.</li>
 </ul>
 

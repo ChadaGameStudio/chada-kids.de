@@ -17,14 +17,14 @@ window.APP_PRIVACY_IT = `
 </p>
 
 <h2>3. Raccolta e conservazione dei dati (Elaborazione locale)</h2>
-<p>L'app "1+1 = 3" <strong>non</strong> raccoglie, conserva o trasmette nessuno dei tuoi inserimenti personali o relativi alla salute (come dati del ciclo, temperatura basale o annotazioni del diario) a noi o a terzi.</p>
+<p>L'app "1+1 = 3" <strong>non</strong> raccoglie, conserva o trasmette nessuno dei tuoi inserimenti personali o relativi alla salute (come dati del ciclo o annotazioni del diario) a noi o a terzi.</p>
 <ul>
   <li><strong>Conservazione locale:</strong> Tutti i dati che inserisci nell'app vengono salvati esclusivamente nella memoria interna e protetta del tuo dispositivo.</li>
   <li><strong>Nessun controllo dei dati da parte nostra:</strong> Poiché non conserviamo alcun dato sui nostri server (non gestiamo server di dati degli utenti), non abbiamo alcun accesso ai tuoi inserimenti in nessun momento. Non possiamo né visualizzare, né analizzare, né condividere questi dati.</li>
 </ul>
 
-<h2>4. Notifiche e sveglie locali</h2>
-<p>L'app offre funzioni come promemoria del ciclo e una sveglia per la temperatura basale (BBT).</p>
+<h2>4. Notifiche e promemoria locali</h2>
+<p>L'app offre promemoria locali per il ciclo e il diario.</p>
 <ul>
   <li>Queste notifiche sono calcolate e attivate al 100% localmente sul tuo dispositivo.</li>
   <li><strong>Non</strong> utilizziamo servizi esterni di notifiche push in cloud. Non c'è comunicazione con alcun server di notifiche in nessun momento.</li>
@@ -35,7 +35,7 @@ window.APP_PRIVACY_IT = `
 <ul>
   <li><strong>Accesso alla rete (Internet):</strong> Necessario solo per elaborare gli abbonamenti tramite Google Play e per aprire testi legali esterni nel browser.</li>
   <li><strong>Notifiche (POST_NOTIFICATIONS):</strong> Permette all'app di mostrarti i tuoi promemoria programmati localmente.</li>
-  <li><strong>Allarmi esatti e Avvio (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Strettamente necessario affinché la sveglia della temperatura suoni esattamente all'ora impostata, anche dopo il riavvio dello smartphone.</li>
+  <li><strong>Allarmi esatti e Avvio (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Consente i promemoria programmati all'ora impostata, anche dopo il riavvio dello smartphone.</li>
   <li><strong>Esportazione/Importazione dei dati:</strong> L'app utilizza le funzioni di condivisione native del tuo dispositivo (FileProvider) per l'esportazione dei dati e non richiede l'accesso diretto alle tue foto o ai file globali.</li>
 </ul>
 

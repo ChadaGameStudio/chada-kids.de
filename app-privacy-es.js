@@ -17,14 +17,14 @@ window.APP_PRIVACY_ES = `
 </p>
 
 <h2>3. Recopilación y almacenamiento de datos (Procesamiento local)</h2>
-<p>La aplicación "1+1 = 3" <strong>no</strong> recopila, almacena ni transmite ninguna de tus entradas personales o de salud (como datos del ciclo, temperatura basal o entradas de diario) a nosotros ni a terceros.</p>
+<p>La aplicación "1+1 = 3" <strong>no</strong> recopila, almacena ni transmite ninguna de tus entradas personales o de salud (como datos del ciclo o entradas de diario) a nosotros ni a terceros.</p>
 <ul>
   <li><strong>Almacenamiento local:</strong> Todos los datos que introduces en la aplicación se guardan exclusivamente en el almacenamiento interno y protegido de tu dispositivo.</li>
   <li><strong>Sin control de datos por nuestra parte:</strong> Dado que no almacenamos datos en nuestros servidores (no operamos servidores de datos de usuarios), no tenemos acceso a tus entradas en ningún momento. No podemos ver, analizar ni compartir estos datos.</li>
 </ul>
 
-<h2>4. Notificaciones y alarmes locales</h2>
-<p>La aplicación ofrece funciones como recordatorios de ciclo y una alarma para la temperatura basal (TCB).</p>
+<h2>4. Notificaciones y recordatorios locales</h2>
+<p>La aplicación ofrece recordatorios locales para el ciclo y el diario.</p>
 <ul>
   <li>Estas notificaciones se calculan y activan 100% de forma local en tu dispositivo.</li>
   <li><strong>No</strong> utilizamos servicios externos de notificaciones push en la nube. En ningún momento hay comunicación con un servidor de notificaciones.</li>
@@ -35,7 +35,7 @@ window.APP_PRIVACY_ES = `
 <ul>
   <li><strong>Acceso a red (Internet):</strong> Solo es necesario para procesar suscripciones a través de Google Play y para abrir textos legales externos en el navegador.</li>
   <li><strong>Notificaciones (POST_NOTIFICATIONS):</strong> Permite a la aplicación mostrarte tus recordatorios programados localmente.</li>
-  <li><strong>Alarmas exactas y arranque (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Estrictamente necesario para que la alarma de temperatura suene exactamente a la hora establecida, incluso después de reiniciar el smartphone.</li>
+  <li><strong>Alarmas exactas y arranque (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Permite los recordatorios programados a la hora establecida, incluso después de reiniciar el smartphone.</li>
   <li><strong>Exportación/Importación de datos:</strong> La aplicación utiliza las funciones nativas de compartir de tu dispositivo (FileProvider) para exportar datos y no solicita acceso directo a tus fotos ni archivos globales.</li>
 </ul>
 
