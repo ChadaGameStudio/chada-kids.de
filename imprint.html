@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Impressum – 1+1=3</title>
   <link rel="stylesheet" href="assets/legal.css" />
+  <link rel="stylesheet" href="assets/thai.css" />
 </head>
 <body>
 
@@ -26,6 +27,7 @@
       <button type="button" class="lang-option" id="opt-it" onclick="pickLang('it')">IT</button>
       <button type="button" class="lang-option" id="opt-pt-PT" onclick="pickLang('pt-PT')">PT</button>
       <button type="button" class="lang-option" id="opt-pt-BR" onclick="pickLang('pt-BR')">BR</button>
+      <button type="button" class="lang-option" id="opt-th" onclick="pickLang('th')">ไทย</button>
     </div>
   </div>
 </nav>
@@ -46,6 +48,7 @@
   </div>
 </footer>
 
+<script src="assets/language.js"></script>
 <script src="imprint-de.js"></script>
 <script src="imprint-en.js"></script>
 <script src="imprint-es.js"></script>
@@ -53,10 +56,11 @@
 <script src="imprint-it.js"></script>
 <script src="imprint-pt-PT.js"></script>
 <script src="imprint-pt-BR.js"></script>
+<script src="imprint-th.js"></script>
 
 <script>
 const T_IMPRINT = {
-  de: window.IMPRINT_DE, en: window.IMPRINT_EN, es: window.IMPRINT_ES, fr: window.IMPRINT_FR, it: window.IMPRINT_IT, 'pt-PT': window.IMPRINT_PT_PT, 'pt-BR': window.IMPRINT_PT_BR
+  de: window.IMPRINT_DE, en: window.IMPRINT_EN, es: window.IMPRINT_ES, fr: window.IMPRINT_FR, it: window.IMPRINT_IT, 'pt-PT': window.IMPRINT_PT_PT, 'pt-BR': window.IMPRINT_PT_BR, th: window.IMPRINT_TH
 };
 
 const FLAGS = {
@@ -66,15 +70,15 @@ const FLAGS = {
   'fr': `<svg class="lang-flag" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg>`,
   'it': `<svg class="lang-flag" viewBox="0 0 3 2"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ce2b37"/></svg>`,
   'pt-PT': `<svg class="lang-flag" viewBox="0 0 3 2"><rect width="1.2" height="2" fill="#006600"/><rect x="1.2" width="1.8" height="2" fill="#FF0000"/><circle cx="1.2" cy="1" r="0.3" fill="#FFFF00"/></svg>`,
-  'pt-BR': `<svg class="lang-flag" viewBox="0 0 7 5"><rect width="7" height="5" fill="#009C3B"/><path d="M3.5 0.5L6.5 2.5L3.5 4.5L0.5 2.5z" fill="#FFDF00"/><circle cx="3.5" cy="2.5" r="1" fill="#002776"/></svg>`
+  'pt-BR': `<svg class="lang-flag" viewBox="0 0 7 5"><rect width="7" height="5" fill="#009C3B"/><path d="M3.5 0.5L6.5 2.5L3.5 4.5L0.5 2.5z" fill="#FFDF00"/><circle cx="3.5" cy="2.5" r="1" fill="#002776"/></svg>`,
+  'th': `<svg class="lang-flag" viewBox="0 0 9 6"><rect width="9" height="6" fill="#A51931"/><rect y="1" width="9" height="4" fill="#F4F5F8"/><rect y="2" width="9" height="2" fill="#2D2A4A"/></svg>`
 };
-const LABELS = { 'de': 'DE', 'en': 'EN', 'es': 'ES', 'fr': 'FR', 'it': 'IT', 'pt-PT': 'PT', 'pt-BR': 'BR' };
+const LABELS = { 'de': 'DE', 'en': 'EN', 'es': 'ES', 'fr': 'FR', 'it': 'IT', 'pt-PT': 'PT', 'pt-BR': 'BR', th: 'TH' };
 
 
-const LANGUAGE_NAMES = { de: 'Deutsch', en: 'English', es: 'Español', fr: 'Français', it: 'Italiano', 'pt-PT': 'Português (Portugal)', 'pt-BR': 'Português (Brasil)' };
-const LANGUAGE_PROMPTS = { de: 'Sprache wählen', en: 'Choose language', es: 'Elegir idioma', fr: 'Choisir la langue', it: 'Scegli la lingua', 'pt-PT': 'Escolher idioma', 'pt-BR': 'Escolher idioma' };
-const FOOTER_LABELS = {"de": ["Website-Datenschutz", "App-Datenschutz", "Impressum"], "en": ["Website Privacy", "App Privacy", "Imprint"], "es": ["Privacidad del sitio", "Privacidad de App", "Aviso Legal"], "fr": ["Confidentialité Site", "Confidentialité App", "Mentions légales"], "it": ["Privacy Sito", "Privacy App", "Note legali"], "pt-PT": ["Privacidade Site", "Privacidade App", "Aviso legal"], "pt-BR": ["Privacidade do Site", "Privacidade do App", "Aviso Legal"]};
-function readStoredLanguage() { try { return localStorage.getItem('lang'); } catch { return null; } }
+const LANGUAGE_NAMES = { de: 'Deutsch', en: 'English', es: 'Español', fr: 'Français', it: 'Italiano', 'pt-PT': 'Português (Portugal)', 'pt-BR': 'Português (Brasil)', th: 'ไทย' };
+const LANGUAGE_PROMPTS = { de: 'Sprache wählen', en: 'Choose language', es: 'Elegir idioma', fr: 'Choisir la langue', it: 'Scegli la lingua', 'pt-PT': 'Escolher idioma', 'pt-BR': 'Escolher idioma', th: 'เลือกภาษา' };
+const FOOTER_LABELS = {"de": ["Website-Datenschutz", "App-Datenschutz", "Impressum"], "en": ["Website Privacy", "App Privacy", "Imprint"], "es": ["Privacidad del sitio", "Privacidad de App", "Aviso Legal"], "fr": ["Confidentialité Site", "Confidentialité App", "Mentions légales"], "it": ["Privacy Sito", "Privacy App", "Note legali"], "pt-PT": ["Privacidade Site", "Privacidade App", "Aviso legal"], "pt-BR": ["Privacidade do Site", "Privacidade do App", "Aviso Legal"], "th": ["ความเป็นส่วนตัวของเว็บไซต์", "ความเป็นส่วนตัวของแอป", "ข้อมูลผู้ให้บริการ"]};
 function closeLangDropdown() {
   document.getElementById('lang-dropdown').classList.remove('open');
   document.getElementById('language-toggle').setAttribute('aria-expanded', 'false');
@@ -112,11 +116,11 @@ function setLang(lang) {
   const contentBox = document.getElementById('content');
   if (T_IMPRINT[lang]) contentBox.innerHTML = T_IMPRINT[lang];
   
-  const backTexts = { de: '← Zurück zur Startseite', en: '← Back to homepage', es: '← Volver al inicio', fr: '← Retour à l\'accueil', it: '← Torna alla home', 'pt-PT': '← Voltar ao início', 'pt-BR': '← Voltar ao início' };
+  const backTexts = { de: '← Zurück zur Startseite', en: '← Back to homepage', es: '← Volver al inicio', fr: '← Retour à l\'accueil', it: '← Torna alla home', 'pt-PT': '← Voltar ao início', 'pt-BR': '← Voltar ao início', th: '← กลับสู่หน้าแรก' };
   const backLink = document.getElementById('back-link');
   if(backLink) { backLink.textContent = backTexts[lang]; backLink.href = 'index.html?lang=' + lang; }
   
-  ['de','en','es','fr','it','pt-PT','pt-BR'].forEach(l => {
+  window.SITE_LANGUAGE.supported.forEach(l => {
     const el = document.getElementById('opt-' + l);
     if (el) {
         el.classList.toggle('active', l === lang);
@@ -128,8 +132,7 @@ function setLang(lang) {
 document.addEventListener('click', e => { if (!document.getElementById('lang-dropdown').contains(e.target)) closeLangDropdown(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && document.getElementById('lang-dropdown').classList.contains('open')) { closeLangDropdown(); document.getElementById('language-toggle').focus(); } });
 
-const urlParams = new URLSearchParams(window.location.search);
-setLang(urlParams.get('lang') || readStoredLanguage() || 'de');
+setLang(window.SITE_LANGUAGE.initial());
 </script>
 
 </body>

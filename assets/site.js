@@ -2,11 +2,8 @@
   'use strict';
   const copy = window.SITE_COPY;
   if (!copy) return;
-  const supported = ['de', 'en', 'es', 'fr', 'it', 'pt-PT', 'pt-BR'];
-  const queryLanguage = new URLSearchParams(window.location.search).get('lang');
-  let storedLanguage;
-  try { storedLanguage = localStorage.getItem('lang'); } catch (_) { /* Storage is optional. */ }
-  let language = supported.includes(queryLanguage) ? queryLanguage : supported.includes(storedLanguage) ? storedLanguage : 'de';
+  const supported = window.SITE_LANGUAGE.supported;
+  let language = window.SITE_LANGUAGE.initial();
   let activeView = 'today';
   let activeTheme = 'light';
   let lightboxKey = null;
@@ -19,7 +16,7 @@
   const dialog = $('#screenshot-dialog');
   const titleCase = (value) => value[0].toUpperCase() + value.slice(1);
   const altKey = (key) => 'alt' + key.split('-').map(titleCase).join('');
-  const screenshotPath = (key) => `assets/screenshots/${key}.jpg`;
+  const screenshotPath = (key) => `assets/screenshots/${language}/${key}.jpg`;
   function updateAudio() {
     audioButton.setAttribute('aria-pressed', String(!audio.paused));
     audioButton.setAttribute('aria-label', t(audio.paused ? 'musicPlay' : 'musicPause'));
@@ -50,13 +47,17 @@
     $('#language-select').value = language;
     $$('[data-i18n]').forEach((node) => { node.textContent = t(node.dataset.i18n); });
     $$('[data-i18n-alt]').forEach((node) => { node.alt = t(node.dataset.i18nAlt); });
+    $$('[data-screenshot-image]').forEach((node) => { node.src = screenshotPath(node.dataset.screenshotImage); });
     $$('[data-i18n-aria]').forEach((node) => { node.setAttribute('aria-label', t(node.dataset.i18nAria)); });
     $$('[data-legal]').forEach((node) => { node.href = `${node.dataset.legal}?lang=${encodeURIComponent(language)}`; });
     try { localStorage.setItem('lang', language); } catch (_) { /* Language still works without storage. */ }
     const currentUrl = new URL(window.location.href);
     currentUrl.searchParams.set('lang', language);
     window.history.replaceState(window.history.state, '', currentUrl);
-    if (lightboxKey) $('#lightbox-image').alt = t(altKey(lightboxKey));
+    if (lightboxKey) {
+      $('#lightbox-image').src = screenshotPath(lightboxKey);
+      $('#lightbox-image').alt = t(altKey(lightboxKey));
+    }
     $('#audio-status').textContent = '';
     renderView();
     updateAudio();
