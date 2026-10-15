@@ -1,9 +1,9 @@
 window.APP_PRIVACY_EN = `
 <h1>Privacy Policy for the App "1+1 = 3"</h1>
-<p class="upper">Last updated: May 2026</p>
+<p class="upper">Last updated: October 15, 2026</p>
 
 <h2>1. Our Principle: Your Data Belongs 100% to You</h2>
-<p>At "1+1 = 3", a simple principle applies: The app is the product, not you. We designed this ovulation tracker so that your most intimate data stays exactly where it belongs – exclusively and locally on your own smartphone. We do not use external servers to store your cycle data, we do not show ads, and we do not create user profiles.</p>
+<p>The app stores your cycle data and diary entries locally on your device. We do not operate a server for these entries, show ads or create user profiles. If you export or share data, you choose the destination.</p>
 
 <h2>2. Data Controller</h2>
 <p>The entity responsible for the app under data protection laws (especially the GDPR) and the provider according to § 5 of the German Digital Services Act (DDG) is:</p>
@@ -17,10 +17,10 @@ window.APP_PRIVACY_EN = `
 </p>
 
 <h2>3. Data Collection and Storage (Local Processing)</h2>
-<p>The app "1+1 = 3" does <strong>not</strong> collect, store, or transmit any of your personal or health-related inputs (such as cycle data or diary entries) to us or third parties.</p>
+<p>The app does not automatically send your personal or health entries to us or third parties.</p>
 <ul>
-  <li><strong>Local Storage:</strong> All data you enter into the app is saved exclusively in the internal, protected storage of your device.</li>
-  <li><strong>No Data Control by Us:</strong> Since we do not store any data on our servers (we do not operate user data servers at all), we have absolutely no access to your inputs. We can neither view, analyze, nor share this data.</li>
+  <li>Your entries and their local recovery copy are stored on your device. The start of your trial is stored separately on your device to calculate the 14-day trial period.</li>
+  <li>You initiate exports and sharing yourself. You can save a backup file to a location you choose or share it through another app. A copy saved or shared there is subject to the chosen service’s terms; you manage that copy yourself.</li>
 </ul>
 
 <h2>4. Local Notifications and Reminders</h2>
@@ -33,18 +33,15 @@ window.APP_PRIVACY_EN = `
 <h2>5. App Permissions (Android)</h2>
 <p>To provide its features, the app requests the following interfaces on your smartphone:</p>
 <ul>
-  <li><strong>Network Access (Internet):</strong> Only needed to process subscriptions via Google Play and to open external legal texts in the browser.</li>
+  <li><strong>Network Access (Internet):</strong> The app can open external legal information in your browser. Information about network use for the planned purchase process will be added before launch.</li>
   <li><strong>Notifications (POST_NOTIFICATIONS):</strong> Allows the app to show your locally scheduled reminders.</li>
-  <li><strong>Exact Alarms & Boot Start (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Enables scheduled reminders at the set time, including after the smartphone is restarted.</li>
+  <li><strong>Restart and background execution (RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> These permissions support rescheduling local reminders after a restart and running them in the background. The selected time is approximate; Android and power-saving settings may delay their display.</li>
   <li><strong>Data Export/Import:</strong> The app uses your device's native sharing functions (FileProvider) for data export and does not request direct access to your photos or global files.</li>
 </ul>
 
-<h2>6. Subscriptions and In-App Purchases</h2>
-<p>"1+1 = 3" offers a free trial period followed by a subscription.</p>
-<ul>
-  <li>All payment processing is handled directly and exclusively by the <strong>Google Play Store</strong> (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland).</li>
-  <li>We have no access to your payment details or billing address. Google is solely responsible for processing your payment data. Their privacy policy applies.</li>
-</ul>
+<h2>6. Free trial and planned purchase</h2>
+<p>The plan for “1+1 = 3” is a 14-day free trial, followed by a required purchase to continue using the app.</p>
+<p>Final prices and terms, along with details about payment processing and the processing of payment data, will be published before launch.</p>
 
 <h2>7. No Analytics or Tracking Tools</h2>
 <p>We completely renounce the integration of tracking software, ad networks, or crash analytics tools. Your usage behavior within the app is not monitored.</p>
@@ -52,7 +49,8 @@ window.APP_PRIVACY_EN = `
 <h2>8. Your Rights (Access, Deletion)</h2>
 <p>Under the GDPR, you have the right to access, rectify, and delete your personal data.</p>
 <ul>
-  <li><strong>Please note:</strong> Because we do not store any of your data, we cannot provide you with data records or perform deletions on servers.</li>
-  <li><strong>Full control is yours:</strong> You can delete your data yourself at any time via the app's settings. If you uninstall the app from your smartphone, all data stored within the app as well as all scheduled local notifications will be permanently deleted from your device. (Please export your data via the in-app function beforehand if you wish to keep it).</li>
+  <li>As we do not automatically receive your app entries or operate a server for them, we cannot retrieve or delete entries for you on such a server.</li>
+  <li>You can reset the app in its settings. This deletes the main data, its local recovery copy and export cache files within the app. The separately stored start of your trial is retained so that the trial does not restart.</li>
+  <li>Uninstalling the app removes its local data. Backup files you have saved or shared outside the app remain at the destination you chose. You must delete them there yourself. Export your entries before resetting or uninstalling if you want to keep them.</li>
 </ul>
 `;

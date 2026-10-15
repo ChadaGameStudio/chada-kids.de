@@ -10,10 +10,13 @@ window.PRIVACY_EN = `
     The data processing on this website is carried out by the website operator. You can find their contact details in the section "Information about the responsible party" in this privacy policy.</p>
 
     <p><strong>How do we collect your data?</strong><br>
-    On the one hand, your data is collected when you provide it to us. This can be, for example, data that you enter into a contact form. Other data is collected automatically or with your consent by our IT systems when you visit the website. This primarily involves technical data (e.g., internet browser, operating system, or time of page access). This data is collected automatically as soon as you enter this website.</p>
+    If you contact us by email or telephone, we receive the information you share with us. When you visit this website, the hosting provider processes technical data, such as your IP address, browser, operating system and time of access.</p>
 
     <p><strong>What do we use your data for?</strong><br>
-    Some of the data is collected to ensure the error-free provision of the website. Other data may be used to analyze your user behavior. If contracts can be concluded or initiated via the website, the transmitted data will also be processed for contract offers, orders, or other order inquiries.</p>
+    We use this data to provide the website securely and reliably and to respond to your enquiries. We do not use analytics or advertising tracking tools on this website.</p>
+
+    <h3>Saved language preference</h3>
+    <p>The website stores the code of your selected language under “lang” in your browser’s local storage (localStorage) to remember your choice on your next visit. You can change the language at any time or remove the entry by clearing the website’s data in your browser.</p>
 
     <h3>What rights do you have regarding your data?</h3>
     <p>You have the right to receive information about the origin, recipient, and purpose of your stored personal data at any time free of charge. You also have the right to demand the correction or deletion of this data. If you have given consent for data processing, you can revoke this consent at any time for the future. You also have the right to demand the restriction of the processing of your personal data under certain circumstances. Furthermore, you have the right to file a complaint with the responsible supervisory authority.</p>

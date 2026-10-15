@@ -10,10 +10,13 @@ window.PRIVACY_FR = `
     Le traitement des données sur ce site web est effectué par l'exploitant du site. Vous trouverez ses coordonnées dans la section "Remarque sur l'organisme responsable" de cette politique de confidentialité.</p>
 
     <p><strong>Comment collectons-nous vos données ?</strong><br>
-    Vos données sont d'une part collectées lorsque vous nous les communiquez. Il peut s'agir, par exemple, des données que vous saisissez dans un formulaire de contact. D'autres données sont collectées automatiquement ou avec votre consentement par nos systèmes informatiques lors de votre visite sur le site. Il s'agit principalement de données techniques (par ex. navigateur Internet, système d'exploitation ou heure de consultation de la page). La collecte de ces données s'effectue automatiquement dès que vous accédez à ce site web.</p>
+    Si vous nous contactez par e-mail ou par téléphone, nous recevons les informations que vous nous communiquez. Lorsque vous consultez ce site, le prestataire d’hébergement traite des données techniques, par exemple l’adresse IP, le navigateur, le système d’exploitation et l’heure de consultation.</p>
 
     <p><strong>À quoi servent vos données ?</strong><br>
-    Une partie des données est collectée pour garantir une fourniture sans erreur du site web. D'autres données peuvent être utilisées pour analyser votre comportement d'utilisateur. Si des contrats peuvent être conclus ou initiés via le site web, les données transmises sont également traitées pour des offres de contrats, des commandes ou d'autres demandes.</p>
+    Nous utilisons ces données pour fournir le site de manière sûre et fiable et pour répondre à vos demandes. Nous n’utilisons aucun outil d’analyse ni de suivi publicitaire sur ce site.</p>
+
+    <h3>Préférence de langue enregistrée</h3>
+    <p>Le site enregistre le code de la langue choisie sous « lang » dans le stockage local (localStorage) de votre navigateur afin de conserver votre choix lors de votre prochaine visite. Vous pouvez changer de langue à tout moment ou supprimer cette entrée en effaçant les données du site dans votre navigateur.</p>
 
     <h3>Quels sont vos droits concernant vos données ?</h3>
     <p>Vous avez à tout moment le droit d'obtenir gratuitement des informations sur l'origine, le destinataire et la finalité de vos données personnelles enregistrées. Vous avez également le droit d'exiger la rectification ou la suppression de ces données. Si vous avez donné votre consentement au traitement des données, vous pouvez révoquer ce consentement à tout moment pour l'avenir. Vous avez en outre le droit, dans certaines circonstances, de demander la limitation du traitement de vos données personnelles. De plus, vous disposez d'un droit de recours auprès de l'autorité de contrôle compétente.</p>

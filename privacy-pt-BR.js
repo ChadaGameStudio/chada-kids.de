@@ -10,10 +10,13 @@ window.PRIVACY_PT_BR = `
     O processamento de dados neste site é realizado pelo operador do site. Você pode encontrar os detalhes de contato na seção "Aviso sobre o Controlador de Dados".</p>
 
     <p><strong>Como coletamos seus dados?</strong><br>
-    Os dados são coletados quando você os comunica. Isso inclui, por exemplo, dados inseridos em um formulário de contato. Ao acessar este site, o provedor de hospedagem pode processar dados técnicos como endereço IP, tipo de navegador, sistema operacional, data e hora do acesso. Esses dados são necessários para a entrega segura e estável do site.</p>
+    Se você entrar em contato por e-mail ou telefone, receberemos as informações que nos comunicar. Ao visitar este site, o provedor de hospedagem processa dados técnicos, como endereço IP, navegador, sistema operacional e horário de acesso.</p>
 
     <p><strong>Para que usamos seus dados?</strong><br>
-    Coletamos apenas os dados tecnicamente necessários para disponibilizar este site de forma funcional e segura. Não utilizamos ferramentas de rastreamento, análise de comportamento ou publicidade.</p>
+    Usamos esses dados para disponibilizar o site de forma segura e confiável e para responder às suas dúvidas. Não utilizamos ferramentas de análise nem de rastreamento publicitário neste site.</p>
+
+    <h3>Preferência de idioma salva</h3>
+    <p>O site salva o código do idioma escolhido na entrada “lang” do armazenamento local (localStorage) do seu navegador para lembrar sua escolha na próxima visita. Você pode mudar o idioma a qualquer momento ou remover essa entrada limpando os dados do site no navegador.</p>
 
     <h3>Quais são seus direitos (conforme Art. 18 da LGPD)?</h3>
     <p>Você tem o direito, a qualquer momento e mediante requisição, de obter: confirmação da existência de tratamento; acesso aos dados; correção de dados incompletos, inexatos ou desatualizados; anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade com a lei; portabilidade dos dados; e informações sobre o compartilhamento de dados com entidades públicas ou privadas.</p>

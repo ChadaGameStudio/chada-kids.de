@@ -10,10 +10,13 @@ window.PRIVACY_IT = `
     Il trattamento dei dati su questo sito web viene effettuato dal gestore del sito. I Suoi dati di contatto possono essere trovati nella sezione "Informazioni sul responsabile" di questa informativa sulla privacy.</p>
 
     <p><strong>Come raccogliamo i Suoi dati?</strong><br>
-    I Suoi dati vengono raccolti, da un lato, quando Lei ce li comunica. Può trattarsi, ad esempio, di dati inseriti in un modulo di contatto. Altri dati vengono raccolti automaticamente o con il Suo consenso dai nostri sistemi informatici quando visita il sito web. Si tratta principalmente di dati tecnici (ad esempio browser Internet, sistema operativo o orario di accesso alla pagina). La raccolta di questi dati avviene automaticamente non appena accede a questo sito web.</p>
+    Se ci contatta per e-mail o telefono, riceviamo le informazioni che ci comunica. Durante la visita a questo sito, il fornitore di hosting tratta dati tecnici, ad esempio indirizzo IP, browser, sistema operativo e ora di accesso.</p>
 
     <p><strong>Per cosa utilizziamo i Suoi dati?</strong><br>
-    Parte dei dati viene raccolta per garantire il corretto funzionamento del sito web. Altri dati possono essere utilizzati per analizzare il Suo comportamento come utente. Se è possibile concludere o avviare contratti tramite il sito web, i dati trasmessi verranno trattati anche per offerte contrattuali, ordini o altre richieste di ordine.</p>
+    Utilizziamo questi dati per fornire il sito in modo sicuro e affidabile e per rispondere alle Sue richieste. Non utilizziamo strumenti di analisi o tracciamento pubblicitario su questo sito.</p>
+
+    <h3>Preferenza di lingua salvata</h3>
+    <p>Il sito salva il codice della lingua scelta alla voce «lang» nella memoria locale (localStorage) del Suo browser, per ricordare la scelta alla visita successiva. Può cambiare lingua in qualsiasi momento oppure rimuovere questa voce cancellando i dati del sito nel browser.</p>
 
     <h3>Quali diritti ha riguardo ai Suoi dati?</h3>
     <p>Lei ha il diritto di ricevere in qualsiasi momento informazioni gratuite sull'origine, il destinatario e lo scopo dei Suoi dati personali memorizzati. Lei ha inoltre il diritto di richiedere la rettifica o la cancellazione di tali dati. Se ha dato il Suo consenso al trattamento dei dati, può revocare tale consenso in qualsiasi momento per il futuro. Inoltre, Lei ha il diritto di richiedere la limitazione del trattamento dei Suoi dati personali in determinate circostanze. Lei ha inoltre il diritto di presentare un reclamo all'autorità di controllo competente.</p>

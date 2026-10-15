@@ -10,10 +10,13 @@ window.PRIVACY_PT_PT = `
     O processamento de dados neste website é realizado pelo operador do website. Podes encontrar os seus detalhes de contacto na secção "Nota sobre a entidade responsável" nesta política de privacidade.</p>
 
     <p><strong>Como recolhemos os teus dados?</strong><br>
-    Os teus dados são recolhidos, por um lado, quando os comunicas. Pode tratar-se, por exemplo, de dados que inseres num formulário de contacto. Outros dados são recolhidos automaticamente ou com o teu consentimento pelos nossos sistemas informáticos quando visitas o website. Trata-se principalmente de dados técnicos (por ex. navegador de Internet, sistema operativo ou hora de acesso à página). A recolha destes dados ocorre automaticamente assim que acedes a este website.</p>
+    Se nos contactares por e-mail ou telefone, recebemos as informações que nos comunicas. Ao visitares este website, o fornecedor de alojamento processa dados técnicos, como o endereço IP, o navegador, o sistema operativo e a hora de acesso.</p>
 
     <p><strong>Para que utilizamos os teus dados?</strong><br>
-    Parte dos dados é recolhida para garantir o funcionamento correto do website. Outros dados podem ser utilizados para analisar o teu comportamento como utilizador. Se for possível celebrar ou iniciar contratos através do website, os dados transmitidos serão também processados para ofertas contratuais, encomendas ou outros pedidos.</p>
+    Utilizamos estes dados para disponibilizar o website de forma segura e fiável e para responder às tuas questões. Não utilizamos ferramentas de análise nem de rastreio publicitário neste website.</p>
+
+    <h3>Preferência de idioma guardada</h3>
+    <p>O website guarda o código do idioma escolhido na entrada «lang» do armazenamento local (localStorage) do teu navegador, para recordar a tua escolha na próxima visita. Podes alterar o idioma a qualquer momento ou remover esta entrada ao eliminar os dados do website no navegador.</p>
 
     <h3>Quais são os teus direitos relativamente aos teus dados?</h3>
     <p>Tens sempre o direito de receber informações gratuitas sobre a origem, o destinatário e a finalidade dos teus dados pessoais armazenados. Tens também o direito de solicitar a retificação ou eliminação destes dados. Se deste o teu consentimento para o processamento de dados, podes revogar este consentimento a qualquer momento para o futuro. Além disso, tens o direito de solicitar a limitação do processamento dos teus dados pessoais em determinadas circunstâncias. Tens também o direito de apresentar uma reclamação junto da autoridade de controlo competente.</p>

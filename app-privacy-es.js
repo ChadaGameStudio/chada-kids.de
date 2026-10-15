@@ -1,9 +1,9 @@
 window.APP_PRIVACY_ES = `
 <h1>Política de Privacidad de la App "1+1 = 3"</h1>
-<p class="upper">Última actualización: Mayo de 2026</p>
+<p class="upper">Última actualización: 15 de octubre de 2026</p>
 
 <h2>1. Nuestro principio: Tus datos son 100% tuyos</h2>
-<p>En "1+1 = 3" se aplica un principio simple: La aplicación es el producto, no tú. Hemos desarrollado este rastreador de ovulación de manera que tus datos más íntimos permanezcan exactamente donde pertenecen: exclusivamente en tu propio teléfono móvil. No utilizamos servidores externos para almacenar tus datos de ciclo, no mostramos anuncios y no creamos perfiles de usuario.</p>
+<p>La app guarda tus datos del ciclo y las entradas del diario localmente en tu dispositivo. No operamos un servidor para estas entradas, no mostramos anuncios ni creamos perfiles de usuario. Si exportas o compartes datos, tú eliges el destino.</p>
 
 <h2>2. Responsable del tratamiento</h2>
 <p>El responsable de la aplicación en el sentido de las leyes de protección de datos (especialmente el RGPD) y el proveedor según el art. 5 de la Ley de Servicios Digitales (DDG) de Alemania es:</p>
@@ -17,10 +17,10 @@ window.APP_PRIVACY_ES = `
 </p>
 
 <h2>3. Recopilación y almacenamiento de datos (Procesamiento local)</h2>
-<p>La aplicación "1+1 = 3" <strong>no</strong> recopila, almacena ni transmite ninguna de tus entradas personales o de salud (como datos del ciclo o entradas de diario) a nosotros ni a terceros.</p>
+<p>La app no envía automáticamente tus datos personales o de salud a nosotros ni a terceros.</p>
 <ul>
-  <li><strong>Almacenamiento local:</strong> Todos los datos que introduces en la aplicación se guardan exclusivamente en el almacenamiento interno y protegido de tu dispositivo.</li>
-  <li><strong>Sin control de datos por nuestra parte:</strong> Dado que no almacenamos datos en nuestros servidores (no operamos servidores de datos de usuarios), no tenemos acceso a tus entradas en ningún momento. No podemos ver, analizar ni compartir estos datos.</li>
+  <li>Tus entradas y su copia local de recuperación se guardan en tu dispositivo. El inicio de tu prueba se guarda por separado en el dispositivo para calcular el período de prueba de 14 días.</li>
+  <li>Tú inicias la exportación y el uso compartido. Puedes guardar un archivo de copia de seguridad donde elijas o compartirlo mediante otra app. La copia guardada o compartida allí está sujeta a las condiciones del servicio elegido; tú gestionas esa copia.</li>
 </ul>
 
 <h2>4. Notificaciones y recordatorios locales</h2>
@@ -33,18 +33,15 @@ window.APP_PRIVACY_ES = `
 <h2>5. Permisos de la aplicación (Android)</h2>
 <p>Para proporcionar sus funciones, la aplicación solicita acceso a las siguientes interfaces de tu smartphone:</p>
 <ul>
-  <li><strong>Acceso a red (Internet):</strong> Solo es necesario para procesar suscripciones a través de Google Play y para abrir textos legales externos en el navegador.</li>
+  <li><strong>Acceso a red (Internet):</strong> La app puede abrir textos legales externos en el navegador. Añadiremos información sobre el uso de la red para el proceso de compra previsto antes del lanzamiento.</li>
   <li><strong>Notificaciones (POST_NOTIFICATIONS):</strong> Permite a la aplicación mostrarte tus recordatorios programados localmente.</li>
-  <li><strong>Alarmas exactas y arranque (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Permite los recordatorios programados a la hora establecida, incluso después de reiniciar el smartphone.</li>
+  <li><strong>Reinicio y ejecución en segundo plano (RECEIVE_BOOT_COMPLETED, WAKE_LOCK):</strong> Estos permisos permiten volver a programar los recordatorios locales tras un reinicio y ejecutarlos en segundo plano. La hora seleccionada es aproximada; Android y los ajustes de ahorro de energía pueden retrasar su aparición.</li>
   <li><strong>Exportación/Importación de datos:</strong> La aplicación utiliza las funciones nativas de compartir de tu dispositivo (FileProvider) para exportar datos y no solicita acceso directo a tus fotos ni archivos globales.</li>
 </ul>
 
-<h2>6. Suscripciones y compras dentro de la aplicación</h2>
-<p>"1+1 = 3" ofrece un período de prueba gratuito seguido de una suscripción.</p>
-<ul>
-  <li>Todo el procesamiento de pagos se realiza directa y exclusivamente a través de <strong>Google Play Store</strong> (Google Ireland Limited, Gordon House, Barrow Street, Dublín 4, Irlanda).</li>
-  <li>No tenemos acceso a tus datos de pago ni a tu dirección de facturación. Google es el único responsable del procesamiento de tus datos de pago. Se aplican sus políticas de privacidad.</li>
-</ul>
+<h2>6. Prueba gratuita y compra prevista</h2>
+<p>Para «1+1 = 3» está previsto un período de prueba gratuito de 14 días. Después, será necesario comprar la app para seguir usándola.</p>
+<p>Publicaremos los precios y las condiciones definitivas, así como la información sobre el procesamiento de pagos y de los datos de pago, antes del lanzamiento.</p>
 
 <h2>7. Sin herramientas de análisis ni seguimiento</h2>
 <p>Renunciamos completamente a la integración de software de rastreo, redes publicitarias o herramientas de análisis de fallos. Tu comportamiento de uso dentro de la aplicación no es monitorizado.</p>
@@ -52,7 +49,8 @@ window.APP_PRIVACY_ES = `
 <h2>8. Tus derechos (Acceso, Eliminación)</h2>
 <p>Según el RGPD, tienes derecho al acceso, rectificación y eliminación de tus datos personales.</p>
 <ul>
-  <li><strong>Ten en cuenta:</strong> Debido a que no almacenamos ninguno de tus datos, no podemos proporcionarte registros de datos ni realizar eliminaciones en servidores.</li>
-  <li><strong>Tú tienes el control total:</strong> Puedes eliminar tus datos tú mismo en cualquier momento a través de la configuración de la aplicación. Si desinstalas la aplicación de tu smartphone, todos los datos almacenados en la aplicación, así como todas las notificaciones locales programadas, se eliminarán permanentemente de tu dispositivo. (Por favor, exporta tus datos usando la función de la aplicación de antemano si deseas conservarlos).</li>
+  <li>Como no recibimos automáticamente tus entradas ni operamos un servidor para ellas, no podemos consultarlas ni eliminarlas por ti en dicho servidor.</li>
+  <li>Puedes restablecer la app desde los ajustes. Esto elimina los datos principales, su copia local de recuperación y los archivos de exportación en la caché interna de la app. El inicio de la prueba, guardado por separado, se conserva para que la prueba no vuelva a comenzar.</li>
+  <li>Al desinstalar la app se eliminan sus datos locales. Los archivos de copia de seguridad que hayas guardado o compartido fuera de la app permanecen en el destino elegido. Debes eliminarlos allí por tu cuenta. Exporta tus entradas antes de restablecer o desinstalar la app si quieres conservarlas.</li>
 </ul>
 `;

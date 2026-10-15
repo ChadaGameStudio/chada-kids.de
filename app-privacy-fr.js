@@ -1,9 +1,9 @@
 window.APP_PRIVACY_FR = `
 <h1>Politique de confidentialité de l'application « 1+1 = 3 »</h1>
-<p class="upper">Mise à jour : Mai 2026</p>
+<p class="upper">Mise à jour : 15 octobre 2026</p>
 
 <h2>1. Notre principe : Vos données vous appartiennent à 100 %</h2>
-<p>Pour « 1+1 = 3 », un principe simple s'applique : l'application est le produit, pas vous. Nous avons conçu ce suivi d'ovulation pour que vos données les plus intimes restent exactement là où elles doivent être : exclusivement et localement sur votre propre smartphone. Nous n'utilisons pas de serveurs externes pour stocker vos données de cycle, nous ne diffusons pas de publicités et nous ne créons pas de profils d'utilisateurs.</p>
+<p>L’application enregistre vos données de cycle et vos entrées de journal localement sur votre appareil. Nous n’exploitons aucun serveur pour ces entrées, n’affichons aucune publicité et ne créons aucun profil utilisateur. Si vous exportez ou partagez des données, vous choisissez vous-même leur destination.</p>
 
 <h2>2. Responsable du traitement des données</h2>
 <p>L'entité responsable de l'application au sens des lois sur la protection des données (notamment le RGPD) et le fournisseur conformément à l'article 5 de la loi allemande sur les services numériques (DDG) est :</p>
@@ -17,10 +17,10 @@ window.APP_PRIVACY_FR = `
 </p>
 
 <h2>3. Collecte et stockage des données (Traitement local)</h2>
-<p>L'application « 1+1 = 3 » <strong>ne collecte pas</strong>, ne stocke pas et ne transmet aucune de vos saisies personnelles ou de santé (comme les données de cycle ou les notes de journal) à nous-mêmes ou à des tiers.</p>
+<p>L’application ne transmet pas automatiquement vos entrées personnelles ou de santé à nous-mêmes ou à des tiers.</p>
 <ul>
-  <li><strong>Stockage local :</strong> Toutes les données que vous entrez dans l'application sont enregistrées exclusivement dans la mémoire interne et protégée de votre appareil.</li>
-  <li><strong>Aucun contrôle des données par nous :</strong> Étant donné que nous ne stockons aucune donnée sur nos serveurs (nous n'exploitons pas de serveurs de données utilisateurs), nous n'avons à aucun moment accès à vos saisies. Nous ne pouvons ni voir, ni analyser, ni partager ces données.</li>
+  <li>Vos entrées et leur copie locale de récupération sont enregistrées sur votre appareil. Le début de votre essai est enregistré séparément sur l’appareil pour calculer la période d’essai de 14 jours.</li>
+  <li>Vous déclenchez vous-même l’exportation et le partage. Vous pouvez enregistrer un fichier de sauvegarde à l’endroit de votre choix ou le partager avec une autre application. Une copie enregistrée ou partagée ainsi est soumise aux conditions du service choisi ; vous gérez vous-même cette copie.</li>
 </ul>
 
 <h2>4. Notifications et rappels locaux</h2>
@@ -33,18 +33,15 @@ window.APP_PRIVACY_FR = `
 <h2>5. Autorisations de l'application (Android)</h2>
 <p>Pour fournir ses fonctionnalités, l'application demande l'accès aux interfaces suivantes sur votre smartphone :</p>
 <ul>
-  <li><strong>Accès réseau (Internet) :</strong> Uniquement nécessaire pour traiter les abonnements via Google Play et pour ouvrir les textes légaux externes dans le navigateur.</li>
+  <li><strong>Accès réseau (Internet) :</strong> L’application peut ouvrir des textes légaux externes dans le navigateur. Les informations sur l’utilisation du réseau pour le processus d’achat prévu seront ajoutées avant le lancement.</li>
   <li><strong>Notifications (POST_NOTIFICATIONS) :</strong> Permette à l'application de vous afficher vos rappels programmés localement.</li>
-  <li><strong>Alarmes exactes et Démarrage (SCHEDULE_EXACT_ALARM, RECEIVE_BOOT_COMPLETED, WAKE_LOCK) :</strong> Permet les rappels programmés à l'heure définie, même après le redémarrage du smartphone.</li>
+  <li><strong>Redémarrage et exécution en arrière-plan (RECEIVE_BOOT_COMPLETED, WAKE_LOCK) :</strong> Ces autorisations servent à reprogrammer les rappels locaux après un redémarrage et à les exécuter en arrière-plan. L’heure choisie est approximative ; Android et les réglages d’économie d’énergie peuvent retarder leur affichage.</li>
   <li><strong>Exportation/Importation de données :</strong> L'application utilise les fonctions de partage natives de votre appareil (FileProvider) pour l'exportation de données et ne demande pas d'accès direct à vos photos ou fichiers globaux.</li>
 </ul>
 
-<h2>6. Abonnements et achats intégrés</h2>
-<p>« 1+1 = 3 » propose une période d'essai gratuite suivie d'un abonnement.</p>
-<ul>
-  <li>Le traitement des paiements est géré directement et exclusivement par le <strong>Google Play Store</strong> (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlande).</li>
-  <li>Nous n'avons aucun accès à vos détails de paiement ou à votre adresse de facturation. Google est seul responsable du traitement de vos données de paiement. Leurs règles de confidentialité s'appliquent.</li>
-</ul>
+<h2>6. Essai gratuit et achat prévu</h2>
+<p>Pour « 1+1 = 3 », il est prévu de proposer 14 jours d’essai gratuit, puis un achat sera nécessaire pour continuer à utiliser l’application.</p>
+<p>Les prix et conditions définitifs ainsi que les informations sur le traitement des paiements et des données de paiement seront publiés avant le lancement.</p>
 
 <h2>7. Aucun outil d'analyse ni de suivi</h2>
 <p>Nous renonçons complètement à l'intégration de logiciels de suivi, de réseaux publicitaires ou d'outils d'analyse des plantages. Votre comportement d'utilisation au sein de l'application n'est pas surveillé.</p>
@@ -52,7 +49,8 @@ window.APP_PRIVACY_FR = `
 <h2>8. Vos droits (Accès, Suppression)</h2>
 <p>En vertu du RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles.</p>
 <ul>
-  <li><strong>Veuillez noter :</strong> Étant donné que nous ne stockons aucune de vos données, nous ne pouvons pas vous fournir de relevés de données ni effectuer de suppressions sur des serveurs.</li>
-  <li><strong>Vous avez le contrôle total :</strong> Vous pouvez supprimer vous-même vos données à tout moment via les paramètres de l'application. Si vous désinstallez l'application de votre smartphone, toutes les données stockées dans l'application ainsi que toutes les notifications locales programmées seront définitivement supprimées de votre appareil. (Veuillez exporter vos données via la fonction intégrée à l'application au préalable si vous souhaitez les conserver).</li>
+  <li>Comme nous ne recevons pas automatiquement vos entrées et n’exploitons aucun serveur pour celles-ci, nous ne pouvons pas les consulter ni les supprimer pour vous sur un tel serveur.</li>
+  <li>Vous pouvez réinitialiser l’application dans les paramètres. Cela supprime les données principales, leur copie locale de récupération et les fichiers d’exportation en cache dans l’application. Le début de votre essai, enregistré séparément, est conservé afin que l’essai ne recommence pas.</li>
+  <li>La désinstallation supprime les données locales de l’application. Les fichiers de sauvegarde que vous avez enregistrés ou partagés en dehors de l’application restent à la destination choisie. Vous devez les y supprimer vous-même. Exportez vos entrées avant la réinitialisation ou la désinstallation si vous souhaitez les conserver.</li>
 </ul>
 `;
