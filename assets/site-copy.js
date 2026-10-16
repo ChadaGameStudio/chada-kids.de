@@ -672,3 +672,89 @@ window.SITE_COPY = {
     footerCopyright: "© 2026 Chada Kids · 1+1=3"
   }
 };
+
+// Localized product film controls.
+for (const [language, values] of Object.entries({
+  "de": {
+    "videoEyebrow": "Der Produktfilm",
+    "videoTitle": "1+1=3 in Bewegung.",
+    "videoDescription": "Lerne die App in 68 Sekunden kennen.",
+    "videoPlay": "Video ansehen",
+    "videoLabel": "Produktvideo über 1+1=3",
+    "videoFallback": "Video herunterladen",
+    "videoError": "Das Video konnte nicht geladen werden. Du kannst es herunterladen.",
+    "videoPause": "Video pausieren"
+  },
+  "en": {
+    "videoEyebrow": "The product film",
+    "videoTitle": "1+1=3 in motion.",
+    "videoDescription": "Get to know the app in 68 seconds.",
+    "videoPlay": "Watch video",
+    "videoLabel": "Product video about 1+1=3",
+    "videoFallback": "Download video",
+    "videoError": "The video could not be loaded. You can download it.",
+    "videoPause": "Pause video"
+  },
+  "es": {
+    "videoEyebrow": "El vídeo de la app",
+    "videoTitle": "1+1=3 en movimiento.",
+    "videoDescription": "Conoce la app en 68 segundos.",
+    "videoPlay": "Ver vídeo",
+    "videoLabel": "Vídeo de presentación de 1+1=3",
+    "videoFallback": "Descargar vídeo",
+    "videoError": "No se ha podido cargar el vídeo. Puedes descargarlo.",
+    "videoPause": "Pausar vídeo"
+  },
+  "fr": {
+    "videoEyebrow": "Le film de l’appli",
+    "videoTitle": "1+1=3 en mouvement.",
+    "videoDescription": "Découvre l’appli en 68 secondes.",
+    "videoPlay": "Voir la vidéo",
+    "videoLabel": "Vidéo de présentation de 1+1=3",
+    "videoFallback": "Télécharger la vidéo",
+    "videoError": "La vidéo n’a pas pu être chargée. Tu peux la télécharger.",
+    "videoPause": "Mettre la vidéo en pause"
+  },
+  "it": {
+    "videoEyebrow": "Il video dell’app",
+    "videoTitle": "1+1=3 in movimento.",
+    "videoDescription": "Scopri l’app in 68 secondi.",
+    "videoPlay": "Guarda il video",
+    "videoLabel": "Video di presentazione di 1+1=3",
+    "videoFallback": "Scarica il video",
+    "videoError": "Impossibile caricare il video. Puoi scaricarlo.",
+    "videoPause": "Metti in pausa il video"
+  },
+  "pt-BR": {
+    "videoEyebrow": "O vídeo do app",
+    "videoTitle": "1+1=3 em movimento.",
+    "videoDescription": "Conheça o app em 68 segundos.",
+    "videoPlay": "Assistir ao vídeo",
+    "videoLabel": "Vídeo de apresentação do app 1+1=3",
+    "videoFallback": "Baixar vídeo",
+    "videoError": "Não foi possível carregar o vídeo. Você pode baixá-lo.",
+    "videoPause": "Pausar vídeo"
+  },
+  "pt-PT": {
+    "videoEyebrow": "O vídeo da app",
+    "videoTitle": "1+1=3 em movimento.",
+    "videoDescription": "Conhece a app em 68 segundos.",
+    "videoPlay": "Ver vídeo",
+    "videoLabel": "Vídeo de apresentação da app 1+1=3",
+    "videoFallback": "Descarregar vídeo",
+    "videoError": "Não foi possível carregar o vídeo. Podes descarregá-lo.",
+    "videoPause": "Pausar vídeo"
+  },
+  "th": {
+    "videoEyebrow": "วิดีโอแนะนำแอป",
+    "videoTitle": "1+1=3 ในภาพเคลื่อนไหว",
+    "videoDescription": "รู้จักแอปใน 68 วินาที",
+    "videoPlay": "ดูวิดีโอ",
+    "videoLabel": "วิดีโอแนะนำแอป 1+1=3",
+    "videoFallback": "ดาวน์โหลดวิดีโอ",
+    "videoError": "ไม่สามารถโหลดวิดีโอได้ คุณสามารถดาวน์โหลดวิดีโอแทนได้",
+    "videoPause": "หยุดวิดีโอชั่วคราว"
+  }
+})) {
+  Object.assign(window.SITE_COPY[language], values);
+}
