@@ -1,9 +1,9 @@
 window.APP_PRIVACY_PT_BR = `
 <h1>Política de Privacidade do Aplicativo "1+1 = 3"</h1>
-<p class="upper">Última atualização: 15 de outubro de 2026</p>
+<p class="upper">Última atualização: 16 de outubro de 2026</p>
 
 <h2>1. Nosso Princípio: Seus dados pertencem 100% a você</h2>
-<p>O app salva os dados do seu ciclo e as entradas do diário localmente no seu dispositivo. Não operamos um servidor para essas entradas, não exibimos publicidade nem criamos perfis de usuário. Se você exportar ou compartilhar dados, você escolhe o destino.</p>
+<p>O app salva os dados do seu ciclo localmente no seu dispositivo. Não operamos um servidor para essas entradas, não exibimos publicidade nem criamos perfis de usuário. Se você exportar ou compartilhar dados, você escolhe o destino.</p>
 
 <h2>2. Controlador de Dados (Lei Geral de Proteção de Dados - LGPD)</h2>
 <p>A entidade responsável pelo aplicativo e que atua como Controlador de Dados, nos termos da Lei Geral de Proteção de Dados Pessoais do Brasil (LGPD - Lei nº 13.709/2018), é:</p>
@@ -24,7 +24,7 @@ window.APP_PRIVACY_PT_BR = `
 </ul>
 
 <h2>4. Notificações e Lembretes Locais</h2>
-<p>O aplicativo oferece lembretes locais para o ciclo e o diário.</p>
+<p>O aplicativo oferece lembretes locais para o ciclo.</p>
 <ul>
   <li>Essas notificações são calculadas e acionadas 100% localmente no seu dispositivo.</li>
   <li><strong>Não</strong> utilizamos serviços externos de notificações push em nuvem. Não há comunicação com servidores de notificação de terceiros em momento algum.</li>

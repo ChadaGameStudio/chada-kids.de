@@ -1,9 +1,9 @@
 window.APP_PRIVACY_FR = `
 <h1>Politique de confidentialité de l'application « 1+1 = 3 »</h1>
-<p class="upper">Mise à jour : 15 octobre 2026</p>
+<p class="upper">Mise à jour : 16 octobre 2026</p>
 
 <h2>1. Notre principe : Vos données vous appartiennent à 100 %</h2>
-<p>L’application enregistre vos données de cycle et vos entrées de journal localement sur votre appareil. Nous n’exploitons aucun serveur pour ces entrées, n’affichons aucune publicité et ne créons aucun profil utilisateur. Si vous exportez ou partagez des données, vous choisissez vous-même leur destination.</p>
+<p>L’application enregistre vos données de cycle localement sur votre appareil. Nous n’exploitons aucun serveur pour ces entrées, n’affichons aucune publicité et ne créons aucun profil utilisateur. Si vous exportez ou partagez des données, vous choisissez vous-même leur destination.</p>
 
 <h2>2. Responsable du traitement des données</h2>
 <p>L'entité responsable de l'application au sens des lois sur la protection des données (notamment le RGPD) et le fournisseur conformément à l'article 5 de la loi allemande sur les services numériques (DDG) est :</p>
@@ -24,7 +24,7 @@ window.APP_PRIVACY_FR = `
 </ul>
 
 <h2>4. Notifications et rappels locaux</h2>
-<p>L'application propose des rappels locaux pour le cycle et le journal.</p>
+<p>L'application propose des rappels locaux pour le cycle.</p>
 <ul>
   <li>Ces notifications sont calculées et déclenchées 100 % localement sur votre appareil.</li>
   <li>Nous n'utilisons <strong>aucun</strong> service externe de notifications push dans le cloud. Il n'y a aucune communication avec un serveur de notifications à aucun moment.</li>

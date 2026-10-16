@@ -1,9 +1,9 @@
 window.APP_PRIVACY_EN = `
 <h1>Privacy Policy for the App "1+1 = 3"</h1>
-<p class="upper">Last updated: October 15, 2026</p>
+<p class="upper">Last updated: October 16, 2026</p>
 
 <h2>1. Our Principle: Your Data Belongs 100% to You</h2>
-<p>The app stores your cycle data and diary entries locally on your device. We do not operate a server for these entries, show ads or create user profiles. If you export or share data, you choose the destination.</p>
+<p>The app stores your cycle data locally on your device. We do not operate a server for these entries, show ads or create user profiles. If you export or share data, you choose the destination.</p>
 
 <h2>2. Data Controller</h2>
 <p>The entity responsible for the app under data protection laws (especially the GDPR) and the provider according to § 5 of the German Digital Services Act (DDG) is:</p>
@@ -24,7 +24,7 @@ window.APP_PRIVACY_EN = `
 </ul>
 
 <h2>4. Local Notifications and Reminders</h2>
-<p>The app offers local reminders for the cycle and the diary.</p>
+<p>The app offers local reminders for the cycle.</p>
 <ul>
   <li>These notifications are calculated and triggered 100% locally on your device.</li>
   <li>We use <strong>no</strong> external cloud push services. There is no communication with a notification server at any time.</li>

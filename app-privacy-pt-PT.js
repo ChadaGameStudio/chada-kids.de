@@ -1,9 +1,9 @@
 window.APP_PRIVACY_PT_PT = `
 <h1>Política de Privacidade da Aplicação "1+1 = 3"</h1>
-<p class="upper">Última atualização: 15 de outubro de 2026</p>
+<p class="upper">Última atualização: 16 de outubro de 2026</p>
 
 <h2>1. O nosso princípio: Os teus dados pertencem-te a 100%</h2>
-<p>A app guarda os teus dados do ciclo e entradas do diário localmente no teu dispositivo. Não operamos um servidor para estas entradas, não mostramos publicidade nem criamos perfis de utilizador. Se exportares ou partilhares dados, és tu que escolhes o destino.</p>
+<p>A app guarda os teus dados do ciclo localmente no teu dispositivo. Não operamos um servidor para estas entradas, não mostramos publicidade nem criamos perfis de utilizador. Se exportares ou partilhares dados, és tu que escolhes o destino.</p>
 
 <h2>2. Responsável pelo tratamento de dados</h2>
 <p>A entidade responsável pela aplicação ao abrigo das leis de proteção de dados (especialmente o RGPD) e o fornecedor de acordo com o art. 5º da Lei de Serviços Digitais (DDG) da Alemanha é:</p>
@@ -24,7 +24,7 @@ window.APP_PRIVACY_PT_PT = `
 </ul>
 
 <h2>4. Notificações e lembretes locais</h2>
-<p>A aplicação oferece lembretes locais para o ciclo e o diário.</p>
+<p>A aplicação oferece lembretes locais para o ciclo.</p>
 <ul>
   <li>Estas notificações são calculadas e acionadas 100% localmente no teu dispositivo.</li>
   <li><strong>Não</strong> utilizamos serviços externos de notificações push na nuvem. Não existe comunicação com um servidor de notificações em momento algum.</li>

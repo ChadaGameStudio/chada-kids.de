@@ -1,9 +1,9 @@
 window.APP_PRIVACY_IT = `
 <h1>Informativa sulla privacy dell'app "1+1 = 3"</h1>
-<p class="upper">Ultimo aggiornamento: 15 ottobre 2026</p>
+<p class="upper">Ultimo aggiornamento: 16 ottobre 2026</p>
 
 <h2>1. Il nostro principio: I tuoi dati ti appartengono al 100%</h2>
-<p>L’app salva i dati del ciclo e le voci del diario localmente sul tuo dispositivo. Non gestiamo server per queste voci, non mostriamo pubblicità e non creiamo profili utente. Se esporti o condividi dati, scegli tu la destinazione.</p>
+<p>L’app salva i dati del ciclo localmente sul tuo dispositivo. Non gestiamo server per queste voci, non mostriamo pubblicità e non creiamo profili utente. Se esporti o condividi dati, scegli tu la destinazione.</p>
 
 <h2>2. Titolare del trattamento dei dati</h2>
 <p>Il responsabile dell'app ai sensi delle leggi sulla protezione dei dati (in particolare il GDPR) e il fornitore ai sensi dell'art. 5 della Legge sui Servizi Digitali tedesca (DDG) è:</p>
@@ -24,7 +24,7 @@ window.APP_PRIVACY_IT = `
 </ul>
 
 <h2>4. Notifiche e promemoria locali</h2>
-<p>L'app offre promemoria locali per il ciclo e il diario.</p>
+<p>L'app offre promemoria locali per il ciclo.</p>
 <ul>
   <li>Queste notifiche sono calcolate e attivate al 100% localmente sul tuo dispositivo.</li>
   <li><strong>Non</strong> utilizziamo servizi esterni di notifiche push in cloud. Non c'è comunicazione con alcun server di notifiche in nessun momento.</li>

@@ -5,7 +5,6 @@
   const supported = window.SITE_LANGUAGE.supported;
   let language = window.SITE_LANGUAGE.initial();
   let activeView = 'today';
-  let activeTheme = 'light';
   let lightboxKey = null;
   let previousOverflow = '';
   const $ = (selector) => document.querySelector(selector);
@@ -16,13 +15,13 @@
   const dialog = $('#screenshot-dialog');
   const titleCase = (value) => value[0].toUpperCase() + value.slice(1);
   const altKey = (key) => 'alt' + key.split('-').map(titleCase).join('');
-  const screenshotPath = (key) => `assets/screenshots/${language}/${key}.jpg?v=20261016-clear`;
+  const screenshotPath = (key) => `assets/screenshots/${language}/${key}.jpg?v=20261016-cycle-final`;
   function updateAudio() {
     audioButton.setAttribute('aria-pressed', String(!audio.paused));
     audioButton.setAttribute('aria-label', t(audio.paused ? 'musicPlay' : 'musicPause'));
   }
   function renderView() {
-    const key = `${activeView}-${activeTheme}`;
+    const key = activeView;
     $('#preview-image').src = screenshotPath(key);
     $('#preview-image').alt = t(altKey(key));
     $('#preview-button').dataset.screenshot = key;
@@ -34,7 +33,6 @@
       button.setAttribute('aria-selected', String(selected));
       button.tabIndex = selected ? 0 : -1;
     });
-    $$('[data-theme]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.theme === activeTheme)));
   }
   function setLanguage(next) {
     if (!supported.includes(next)) return;
@@ -80,10 +78,9 @@
       next.focus();
     });
   });
-  $$('[data-theme]').forEach((button) => button.addEventListener('click', () => { activeTheme = button.dataset.theme; renderView(); }));
   $$('[data-screenshot]').forEach((button) => button.addEventListener('click', () => {
     const key = button.dataset.screenshot;
-    if (!/^(today|calendar|diary)-(light|dark)$/.test(key)) return;
+    if (!/^(today|period|calendar)$/.test(key)) return;
     lightboxKey = key;
     $('#lightbox-image').src = screenshotPath(key);
     $('#lightbox-image').alt = t(altKey(key));

@@ -1,9 +1,9 @@
 window.APP_PRIVACY_DE = `
 <h1>Datenschutzerklärung für die App „1+1 = 3“</h1>
-<p class="upper">Stand: 15. Oktober 2026</p>
+<p class="upper">Stand: 16. Oktober 2026</p>
 
 <h2>1. Unser Grundsatz: Deine Daten gehören zu 100 % dir</h2>
-<p>Die App speichert deine Zyklusdaten und Tagebucheinträge lokal auf deinem Gerät. Wir betreiben keinen Server für diese Einträge, schalten keine Werbung und erstellen keine Nutzerprofile. Wenn du Daten exportierst oder teilst, bestimmst du selbst das Ziel.</p>
+<p>Die App speichert deine Zyklusdaten lokal auf deinem Gerät. Wir betreiben keinen Server für diese Einträge, schalten keine Werbung und erstellen keine Nutzerprofile. Wenn du Daten exportierst oder teilst, bestimmst du selbst das Ziel.</p>
 
 <h2>2. Verantwortlicher für den Datenschutz</h2>
 <p>Verantwortlich für die App im Sinne der Datenschutzgesetze (insbesondere DSGVO) sowie Anbieter gemäß § 5 Digitale-Dienste-Gesetz (DDG) ist:</p>
@@ -24,7 +24,7 @@ window.APP_PRIVACY_DE = `
 </ul>
 
 <h2>4. Lokale Benachrichtigungen und Erinnerungen</h2>
-<p>Die App bietet lokale Erinnerungen für den Zyklus und das Tagebuch.</p>
+<p>Die App bietet lokale Erinnerungen für den Zyklus.</p>
 <ul>
   <li>Diese Benachrichtigungen werden zu 100 % lokal auf deinem Gerät berechnet und ausgelöst.</li>
   <li>Wir verwenden <strong>keine</strong> externen Cloud-Push-Dienste. Es findet zu keinem Zeitpunkt eine Kommunikation mit einem Benachrichtigungsserver statt.</li>
