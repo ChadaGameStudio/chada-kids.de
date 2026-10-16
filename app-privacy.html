@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>App-Datenschutz – 1+1=3</title>
+  <title>App-Datenschutz. 1+1=3</title>
   <link rel="stylesheet" href="assets/legal.css" />
   <link rel="stylesheet" href="assets/thai.css" />
 </head>
@@ -102,7 +102,7 @@ function updateLegalShell(lang) {
   });
   document.getElementById('home-logo-link').href = 'index.html?lang=' + lang;
   document.getElementById('language-toggle').setAttribute('aria-label', LANGUAGE_PROMPTS[lang]);
-  document.title = FOOTER_LABELS[lang][pages.indexOf('app-privacy.html')] + ' – 1+1=3';
+  document.title = FOOTER_LABELS[lang][pages.indexOf('app-privacy.html')] + '. 1+1=3';
 }
 
 function toggleLangDropdown() { const open = document.getElementById('lang-dropdown').classList.toggle('open'); document.getElementById('language-toggle').setAttribute('aria-expanded', String(open)); }
@@ -133,7 +133,7 @@ function setLang(lang) {
     de: '← Zurück zur Startseite', en: '← Back to homepage', es: '← Volver al inicio', fr: '← Retour à l\'accueil', it: '← Torna alla home', 'pt-PT': '← Voltar ao início', 'pt-BR': '← Voltar ao início', th: '← กลับสู่หน้าแรก'
   };
   const titles = { 
-    de: 'App-Datenschutz – 1+1=3', en: 'App Privacy – 1+1=3', es: 'Privacidad de App – 1+1=3', fr: 'Confidentialité App – 1+1=3', it: 'Privacy App – 1+1=3', 'pt-PT': 'Privacidade App – 1+1=3', 'pt-BR': 'Privacidade App – 1+1=3', th: 'ความเป็นส่วนตัวของแอป – 1+1=3'
+    de: 'App-Datenschutz. 1+1=3', en: 'App Privacy. 1+1=3', es: 'Privacidad de App. 1+1=3', fr: 'Confidentialité App. 1+1=3', it: 'Privacy App. 1+1=3', 'pt-PT': 'Privacidade App. 1+1=3', 'pt-BR': 'Privacidade App. 1+1=3', th: 'ความเป็นส่วนตัวของแอป. 1+1=3'
   };
 
   const backLink = document.getElementById('back-link');
