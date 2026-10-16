@@ -16,7 +16,7 @@
   const dialog = $('#screenshot-dialog');
   const titleCase = (value) => value[0].toUpperCase() + value.slice(1);
   const altKey = (key) => 'alt' + key.split('-').map(titleCase).join('');
-  const screenshotPath = (key) => `assets/screenshots/${language}/${key}.jpg`;
+  const screenshotPath = (key) => `assets/screenshots/${language}/${key}.jpg?v=20261016-clear`;
   function updateAudio() {
     audioButton.setAttribute('aria-pressed', String(!audio.paused));
     audioButton.setAttribute('aria-label', t(audio.paused ? 'musicPlay' : 'musicPause'));
